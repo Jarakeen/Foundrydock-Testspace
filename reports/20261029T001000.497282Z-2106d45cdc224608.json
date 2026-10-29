@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T001000.497282Z-2106d45cdc224608",
+  "task": "vscode-focused",
+  "owner": "vscode",
+  "command": [
+    "C:\\Users\\nourg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-m",
+    "pytest",
+    "tools/tests/test_testspace_runner.py",
+    "-q",
+    "--basetemp",
+    "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\pytest-tmp",
+    "-o",
+    "cache_dir=C:\\Dev\\Wyrdworks-TestSpace\\cache\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608"
+  ],
+  "source_revision": "89a62295ab1cf6fe89c7ea28c676fa9a092e0680",
+  "working_tree_dirty": true,
+  "started_at": "2026-10-29T00:10:00.500986+00:00",
+  "finished_at": "2026-10-29T00:10:02.033297+00:00",
+  "status": "passed",
+  "exit_code": 0,
+  "artifact_paths": {
+    "run_directory": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608",
+    "pytest_basetemp": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\pytest-tmp",
+    "pytest_cache": "C:\\Dev\\Wyrdworks-TestSpace\\cache\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608",
+    "system_temp": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\system-temp",
+    "isolated_user_data": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\user-data",
+    "validation_report": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\validation-report.json",
+    "run_report": "C:\\Dev\\Wyrdworks-TestSpace\\reports\\20261029T001000.497282Z-2106d45cdc224608.json",
+    "failure_log": null
+  },
+  "cleanup": {
+    "status": "not_performed",
+    "reason": "Phase 1 retains run and cache contents to protect database snapshots and unique evidence; no automated cleanup is performed.",
+    "removed_paths": [],
+    "retained_paths": [
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\pytest-tmp",
+      "C:\\Dev\\Wyrdworks-TestSpace\\cache\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\system-temp",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\user-data",
+      "C:\\Dev\\Wyrdworks-TestSpace\\reports\\20261029T001000.497282Z-2106d45cdc224608.json"
+    ]
+  }
+}

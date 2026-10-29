@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "run_id": "20261028T235407.520814Z-58799518d0ac4d9f",
+  "task": "raid-plan-20261028-001",
+  "owner": "copilot-agent",
+  "command": [
+    "C:\\Users\\nourg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-m",
+    "pytest",
+    "tools\\tests\\test_testspace_runner.py",
+    "-q",
+    "--basetemp",
+    "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-plan-20261028-001\\20261028T235407.520814Z-58799518d0ac4d9f\\pytest-tmp",
+    "-o",
+    "cache_dir=C:\\Dev\\Wyrdworks-TestSpace\\cache\\raid-plan-20261028-001\\20261028T235407.520814Z-58799518d0ac4d9f"
+  ],
+  "source_revision": "81719e51aa8eb6bccd18c0b93b535f152e775c2f",
+  "working_tree_dirty": true,
+  "started_at": "2026-10-28T23:54:07.528893+00:00",
+  "finished_at": "2026-10-28T23:54:08.935331+00:00",
+  "status": "passed",
+  "exit_code": 0,
+  "artifact_paths": {
+    "run_directory": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-plan-20261028-001\\20261028T235407.520814Z-58799518d0ac4d9f",
+    "pytest_basetemp": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-plan-20261028-001\\20261028T235407.520814Z-58799518d0ac4d9f\\pytest-tmp",
+    "pytest_cache": "C:\\Dev\\Wyrdworks-TestSpace\\cache\\raid-plan-20261028-001\\20261028T235407.520814Z-58799518d0ac4d9f",
+    "system_temp": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-plan-20261028-001\\20261028T235407.520814Z-58799518d0ac4d9f\\system-temp",
+    "isolated_user_data": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-plan-20261028-001\\20261028T235407.520814Z-58799518d0ac4d9f\\user-data",
+    "validation_report": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-plan-20261028-001\\20261028T235407.520814Z-58799518d0ac4d9f\\validation-report.json",
+    "run_report": "C:\\Dev\\Wyrdworks-TestSpace\\reports\\20261028T235407.520814Z-58799518d0ac4d9f.json",
+    "failure_log": null
+  },
+  "cleanup": {
+    "status": "not_performed",
+    "reason": "Phase 1 retains run and cache contents to protect database snapshots and unique evidence; no automated cleanup is performed.",
+    "removed_paths": [],
+    "retained_paths": [
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-plan-20261028-001\\20261028T235407.520814Z-58799518d0ac4d9f",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-plan-20261028-001\\20261028T235407.520814Z-58799518d0ac4d9f\\pytest-tmp",
+      "C:\\Dev\\Wyrdworks-TestSpace\\cache\\raid-plan-20261028-001\\20261028T235407.520814Z-58799518d0ac4d9f",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-plan-20261028-001\\20261028T235407.520814Z-58799518d0ac4d9f\\system-temp",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-plan-20261028-001\\20261028T235407.520814Z-58799518d0ac4d9f\\user-data",
+      "C:\\Dev\\Wyrdworks-TestSpace\\reports\\20261028T235407.520814Z-58799518d0ac4d9f.json"
+    ]
+  }
+}

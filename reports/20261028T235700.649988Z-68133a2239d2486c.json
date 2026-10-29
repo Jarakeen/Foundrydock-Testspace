@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "run_id": "20261028T235700.649988Z-68133a2239d2486c",
+  "task": "engine-growth-20261028-001",
+  "owner": "copilot-agent",
+  "command": [
+    "C:\\Users\\nourg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-m",
+    "pytest",
+    "tools\\tests\\test_phase155_combat_pre_push.py",
+    "-q",
+    "--basetemp",
+    "C:\\Dev\\Wyrdworks-TestSpace\\runs\\engine-growth-20261028-001\\20261028T235700.649988Z-68133a2239d2486c\\pytest-tmp",
+    "-o",
+    "cache_dir=C:\\Dev\\Wyrdworks-TestSpace\\cache\\engine-growth-20261028-001\\20261028T235700.649988Z-68133a2239d2486c"
+  ],
+  "source_revision": "5eefd031856a70d3e40a2081c65b19138bd0d997",
+  "working_tree_dirty": true,
+  "started_at": "2026-10-28T23:57:00.666991+00:00",
+  "finished_at": "2026-10-28T23:57:03.930489+00:00",
+  "status": "passed",
+  "exit_code": 0,
+  "artifact_paths": {
+    "run_directory": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\engine-growth-20261028-001\\20261028T235700.649988Z-68133a2239d2486c",
+    "pytest_basetemp": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\engine-growth-20261028-001\\20261028T235700.649988Z-68133a2239d2486c\\pytest-tmp",
+    "pytest_cache": "C:\\Dev\\Wyrdworks-TestSpace\\cache\\engine-growth-20261028-001\\20261028T235700.649988Z-68133a2239d2486c",
+    "system_temp": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\engine-growth-20261028-001\\20261028T235700.649988Z-68133a2239d2486c\\system-temp",
+    "isolated_user_data": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\engine-growth-20261028-001\\20261028T235700.649988Z-68133a2239d2486c\\user-data",
+    "validation_report": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\engine-growth-20261028-001\\20261028T235700.649988Z-68133a2239d2486c\\validation-report.json",
+    "run_report": "C:\\Dev\\Wyrdworks-TestSpace\\reports\\20261028T235700.649988Z-68133a2239d2486c.json",
+    "failure_log": null
+  },
+  "cleanup": {
+    "status": "not_performed",
+    "reason": "Phase 1 retains run and cache contents to protect database snapshots and unique evidence; no automated cleanup is performed.",
+    "removed_paths": [],
+    "retained_paths": [
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\engine-growth-20261028-001\\20261028T235700.649988Z-68133a2239d2486c",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\engine-growth-20261028-001\\20261028T235700.649988Z-68133a2239d2486c\\pytest-tmp",
+      "C:\\Dev\\Wyrdworks-TestSpace\\cache\\engine-growth-20261028-001\\20261028T235700.649988Z-68133a2239d2486c",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\engine-growth-20261028-001\\20261028T235700.649988Z-68133a2239d2486c\\system-temp",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\engine-growth-20261028-001\\20261028T235700.649988Z-68133a2239d2486c\\user-data",
+      "C:\\Dev\\Wyrdworks-TestSpace\\reports\\20261028T235700.649988Z-68133a2239d2486c.json"
+    ]
+  }
+}

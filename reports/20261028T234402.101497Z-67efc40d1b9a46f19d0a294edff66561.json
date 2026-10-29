@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "run_id": "20261028T234402.101497Z-67efc40d1b9a46f19d0a294edff66561",
+  "task": "combat-pilot-20261028-001",
+  "owner": "copilot-agent",
+  "command": [
+    "C:\\Users\\nourg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-m",
+    "pytest",
+    "tools\\tests\\test_phase155_combat_pre_push.py",
+    "-q",
+    "--basetemp",
+    "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234402.101497Z-67efc40d1b9a46f19d0a294edff66561\\pytest-tmp",
+    "-o",
+    "cache_dir=C:\\Dev\\Wyrdworks-TestSpace\\cache\\combat-pilot-20261028-001\\20261028T234402.101497Z-67efc40d1b9a46f19d0a294edff66561"
+  ],
+  "source_revision": "81719e51aa8eb6bccd18c0b93b535f152e775c2f",
+  "working_tree_dirty": true,
+  "started_at": "2026-10-28T23:44:02.108006+00:00",
+  "finished_at": "2026-10-28T23:44:06.313302+00:00",
+  "status": "passed",
+  "exit_code": 0,
+  "artifact_paths": {
+    "run_directory": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234402.101497Z-67efc40d1b9a46f19d0a294edff66561",
+    "pytest_basetemp": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234402.101497Z-67efc40d1b9a46f19d0a294edff66561\\pytest-tmp",
+    "pytest_cache": "C:\\Dev\\Wyrdworks-TestSpace\\cache\\combat-pilot-20261028-001\\20261028T234402.101497Z-67efc40d1b9a46f19d0a294edff66561",
+    "system_temp": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234402.101497Z-67efc40d1b9a46f19d0a294edff66561\\system-temp",
+    "isolated_user_data": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234402.101497Z-67efc40d1b9a46f19d0a294edff66561\\user-data",
+    "validation_report": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234402.101497Z-67efc40d1b9a46f19d0a294edff66561\\validation-report.json",
+    "run_report": "C:\\Dev\\Wyrdworks-TestSpace\\reports\\20261028T234402.101497Z-67efc40d1b9a46f19d0a294edff66561.json",
+    "failure_log": null
+  },
+  "cleanup": {
+    "status": "not_performed",
+    "reason": "Phase 1 retains run and cache contents to protect database snapshots and unique evidence; no automated cleanup is performed.",
+    "removed_paths": [],
+    "retained_paths": [
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234402.101497Z-67efc40d1b9a46f19d0a294edff66561",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234402.101497Z-67efc40d1b9a46f19d0a294edff66561\\pytest-tmp",
+      "C:\\Dev\\Wyrdworks-TestSpace\\cache\\combat-pilot-20261028-001\\20261028T234402.101497Z-67efc40d1b9a46f19d0a294edff66561",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234402.101497Z-67efc40d1b9a46f19d0a294edff66561\\system-temp",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234402.101497Z-67efc40d1b9a46f19d0a294edff66561\\user-data",
+      "C:\\Dev\\Wyrdworks-TestSpace\\reports\\20261028T234402.101497Z-67efc40d1b9a46f19d0a294edff66561.json"
+    ]
+  }
+}

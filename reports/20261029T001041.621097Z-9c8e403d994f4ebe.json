@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T001041.621097Z-9c8e403d994f4ebe",
+  "task": "workspace-followthrough-20261028",
+  "owner": "codex",
+  "command": [
+    "C:\\Users\\nourg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-m",
+    "pytest",
+    "tools/tests/test_testspace_runner.py",
+    "tools/tests/test_phase155_combat_pre_push.py",
+    "tools/tests/test_scheduled_validation_tracks.py",
+    "tools/tests/test_documentation_contract.py",
+    "-q",
+    "--basetemp",
+    "C:\\Dev\\Wyrdworks-TestSpace\\runs\\workspace-followthrough-20261028\\20261029T001041.621097Z-9c8e403d994f4ebe\\pytest-tmp",
+    "-o",
+    "cache_dir=C:\\Dev\\Wyrdworks-TestSpace\\cache\\workspace-followthrough-20261028\\20261029T001041.621097Z-9c8e403d994f4ebe"
+  ],
+  "source_revision": "f85e9dba5644c4103f4ffa583ad855e6aa09595f",
+  "working_tree_dirty": false,
+  "started_at": "2026-10-29T00:10:41.631538+00:00",
+  "finished_at": "2026-10-29T00:10:45.185876+00:00",
+  "status": "passed",
+  "exit_code": 0,
+  "artifact_paths": {
+    "run_directory": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\workspace-followthrough-20261028\\20261029T001041.621097Z-9c8e403d994f4ebe",
+    "pytest_basetemp": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\workspace-followthrough-20261028\\20261029T001041.621097Z-9c8e403d994f4ebe\\pytest-tmp",
+    "pytest_cache": "C:\\Dev\\Wyrdworks-TestSpace\\cache\\workspace-followthrough-20261028\\20261029T001041.621097Z-9c8e403d994f4ebe",
+    "system_temp": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\workspace-followthrough-20261028\\20261029T001041.621097Z-9c8e403d994f4ebe\\system-temp",
+    "isolated_user_data": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\workspace-followthrough-20261028\\20261029T001041.621097Z-9c8e403d994f4ebe\\user-data",
+    "validation_report": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\workspace-followthrough-20261028\\20261029T001041.621097Z-9c8e403d994f4ebe\\validation-report.json",
+    "run_report": "C:\\Dev\\Wyrdworks-TestSpace\\reports\\20261029T001041.621097Z-9c8e403d994f4ebe.json",
+    "failure_log": null
+  },
+  "cleanup": {
+    "status": "not_performed",
+    "reason": "Phase 1 retains run and cache contents to protect database snapshots and unique evidence; no automated cleanup is performed.",
+    "removed_paths": [],
+    "retained_paths": [
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\workspace-followthrough-20261028\\20261029T001041.621097Z-9c8e403d994f4ebe",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\workspace-followthrough-20261028\\20261029T001041.621097Z-9c8e403d994f4ebe\\pytest-tmp",
+      "C:\\Dev\\Wyrdworks-TestSpace\\cache\\workspace-followthrough-20261028\\20261029T001041.621097Z-9c8e403d994f4ebe",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\workspace-followthrough-20261028\\20261029T001041.621097Z-9c8e403d994f4ebe\\system-temp",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\workspace-followthrough-20261028\\20261029T001041.621097Z-9c8e403d994f4ebe\\user-data",
+      "C:\\Dev\\Wyrdworks-TestSpace\\reports\\20261029T001041.621097Z-9c8e403d994f4ebe.json"
+    ]
+  }
+}

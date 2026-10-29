@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T032801.997047Z-0952d07d4e30449d",
+  "task": "raid-map-merge",
+  "owner": "nourg",
+  "command": [
+    "C:\\Users\\nourg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-m",
+    "pytest",
+    "ui/tests/test_inline_raid_map.py",
+    "ui/tests/test_raid_plan_viewport_geometry.py",
+    "ui/tests/test_raid_plan_sidebar_map_geometry.py",
+    "ui/tests/test_raid_plan_mechanics_geometry_cleanup.py",
+    "ui/tests/test_raid_map_toolbar_compaction.py",
+    "services/tests/test_encounter_movement_route_preview.py",
+    "services/tests/test_reusable_movement_plan.py",
+    "ui/tests/test_movement_plan_editor.py",
+    "-q",
+    "--basetemp",
+    "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\20261029T032801.997047Z-0952d07d4e30449d\\pytest-tmp",
+    "-o",
+    "cache_dir=C:\\Dev\\Wyrdworks-TestSpace\\cache\\raid-map-merge\\20261029T032801.997047Z-0952d07d4e30449d"
+  ],
+  "source_revision": "87ed763e4ce1c0a6c5f80323a2fcffbdf7d27edc",
+  "working_tree_dirty": false,
+  "started_at": "2026-10-29T03:28:01.997047+00:00",
+  "finished_at": "2026-10-29T03:29:55.988499+00:00",
+  "status": "failed",
+  "exit_code": 1,
+  "artifact_paths": {
+    "run_directory": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\20261029T032801.997047Z-0952d07d4e30449d",
+    "pytest_basetemp": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\20261029T032801.997047Z-0952d07d4e30449d\\pytest-tmp",
+    "pytest_cache": "C:\\Dev\\Wyrdworks-TestSpace\\cache\\raid-map-merge\\20261029T032801.997047Z-0952d07d4e30449d",
+    "system_temp": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\20261029T032801.997047Z-0952d07d4e30449d\\system-temp",
+    "isolated_user_data": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\20261029T032801.997047Z-0952d07d4e30449d\\user-data",
+    "validation_report": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\20261029T032801.997047Z-0952d07d4e30449d\\validation-report.json",
+    "run_report": "C:\\Dev\\Wyrdworks-TestSpace\\reports\\20261029T032801.997047Z-0952d07d4e30449d.json",
+    "failure_log": "C:\\Dev\\Wyrdworks-TestSpace\\failures\\20261029T032801.997047Z-0952d07d4e30449d.log"
+  },
+  "cleanup": {
+    "status": "not_performed",
+    "reason": "Phase 1 retains run and cache contents to protect database snapshots and unique evidence; no automated cleanup is performed.",
+    "removed_paths": [],
+    "retained_paths": [
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\20261029T032801.997047Z-0952d07d4e30449d",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\20261029T032801.997047Z-0952d07d4e30449d\\pytest-tmp",
+      "C:\\Dev\\Wyrdworks-TestSpace\\cache\\raid-map-merge\\20261029T032801.997047Z-0952d07d4e30449d",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\20261029T032801.997047Z-0952d07d4e30449d\\system-temp",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\20261029T032801.997047Z-0952d07d4e30449d\\user-data",
+      "C:\\Dev\\Wyrdworks-TestSpace\\reports\\20261029T032801.997047Z-0952d07d4e30449d.json",
+      "C:\\Dev\\Wyrdworks-TestSpace\\failures\\20261029T032801.997047Z-0952d07d4e30449d.log"
+    ]
+  }
+}
