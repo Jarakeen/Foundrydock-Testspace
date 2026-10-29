@@ -1,0 +1,98 @@
+[
+  {
+    "name": "PHASE13_5_CONCURRENT_WORK.md",
+    "uploaded_name": "PHASE13_5_CONCURRENT_WORK.md",
+    "sha256": "28b944b87b10834c76bed9bfc0db3b9ebf0895aed9cef9fb3ec89760078ed0bf",
+    "bytes": 9928
+  },
+  {
+    "name": "BUILD_CONTEXT_VARIANT_BEHAVIOR.md",
+    "uploaded_name": "BUILD_CONTEXT_VARIANT_BEHAVIOR.md",
+    "sha256": "d476839edf37de826860048d724b40cc3b321e2f5caa8369ad550f4734b24cf8",
+    "bytes": 2476
+  },
+  {
+    "name": "GAME_MECHANICS_FIELD_NOTES.md",
+    "uploaded_name": "GAME_MECHANICS_FIELD_NOTES.md",
+    "sha256": "5339a61c31522d335ab0afad91899bbd4863e5d83dff50e60e22f048090d0855",
+    "bytes": 278787
+  },
+  {
+    "name": "useful_resources.md",
+    "uploaded_name": "useful_resources.md",
+    "sha256": "5fdf81d53462bbb941919cb946b47ff44c1755b839f9810c77d99513fdba7ff1",
+    "bytes": 46407
+  },
+  {
+    "name": "MASTER_ROADMAP.md",
+    "uploaded_name": "MASTER_ROADMAP(3).md",
+    "sha256": "84044052d30698e7561db3ffdbf340f7c78922e4323f7a954baeadd6f1505f5e",
+    "bytes": 98329
+  },
+  {
+    "name": "PHASE155_DEPENDENCY_CENSUS.md",
+    "uploaded_name": "PHASE155_DEPENDENCY_CENSUS.md",
+    "sha256": "62b49bf1e805ae9d14594ddd135f54f490cc5abca75e93fd44af265bb0b044d7",
+    "bytes": 53609
+  },
+  {
+    "name": "PHASE155_EXTRACTION.md",
+    "uploaded_name": "PHASE155_EXTRACTION.md",
+    "sha256": "ac211e198c6c0dbbe08043743f3402a0dba81b031f7caee118e79ef35667bdaf",
+    "bytes": 26140
+  },
+  {
+    "name": "AGENTS.md",
+    "uploaded_name": "AGENTS.md",
+    "sha256": "921f0b3a4aaf2e5a0c3bfb41aa545dafc495ec051a07b3f3491bc295048d1aab",
+    "bytes": 10034
+  },
+  {
+    "name": "FEATURES.md",
+    "uploaded_name": "FEATURES.md",
+    "sha256": "19995ff321aaab2280e4aeca3262c592ea473708ee4f3e4e7c54f6d63bd31f47",
+    "bytes": 346334
+  },
+  {
+    "name": "CLAUDE.md",
+    "uploaded_name": "CLAUDE.md",
+    "sha256": "b59072cf166f62a8a787f1986bf9a710ec92b1feb5b4a319cec315556cd6228f",
+    "bytes": 19587
+  },
+  {
+    "name": "ESO_LOGS_RAW_TAG_REFERENCE.md",
+    "uploaded_name": "ESO_LOGS_RAW_TAG_REFERENCE.md",
+    "sha256": "d9a81957ca0cae02584dd85bed79cb050edfe909faf9e0fae455f7172a74bca8",
+    "bytes": 10522
+  },
+  {
+    "name": "ESO_ID_REFERENCE.md",
+    "uploaded_name": "ESO_ID_REFERENCE.md",
+    "sha256": "bb513c3ce1405f5f3958c4ae4d2a7f52b3e8868f3f306633d77c9baff4aa3d67",
+    "bytes": 19734
+  },
+  {
+    "name": "INTELLIGENCE_INTEGRATION.md",
+    "uploaded_name": "INTELLIGENCE_INTEGRATION(1).md",
+    "sha256": "75078c87fa4a877e124116ad594e509e51822fb455f241c3c801afcf5ae8a878",
+    "bytes": 58771
+  },
+  {
+    "name": "PHASE155_INTELLIGENCE_MILESTONE2_VALIDATION.md",
+    "uploaded_name": "PHASE155_INTELLIGENCE_MILESTONE2_VALIDATION.md",
+    "sha256": "fba88047720a51219603aac8ed34f9780eeb0802d799c7cc6bb8fd5d45c9b181",
+    "bytes": 5926
+  },
+  {
+    "name": "SYSTEM_ARCHITECTURE_RULES.md",
+    "uploaded_name": "SYSTEM_ARCHITECTURE_RULES(1).md",
+    "sha256": "bb7c66509cf7ec7f15bb544bb9590204d642819d3dec24ea4120ebd26b502739",
+    "bytes": 39679
+  },
+  {
+    "name": "ENDGAME_PLAY_PRACTICES.md",
+    "uploaded_name": "ENDGAME_PLAY_PRACTICES.md",
+    "sha256": "ec088c0c622ebd9790fb69575273773a75e2f64efa904aa125cb714f8cdea26b",
+    "bytes": 8064
+  }
+]

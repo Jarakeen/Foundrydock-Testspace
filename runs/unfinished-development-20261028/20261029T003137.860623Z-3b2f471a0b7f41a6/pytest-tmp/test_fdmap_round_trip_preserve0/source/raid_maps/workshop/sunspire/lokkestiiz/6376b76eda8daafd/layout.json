@@ -1,0 +1,32 @@
+{
+  "annotations": [],
+  "background_map": "raid_maps/workshop/sunspire/lokkestiiz/6376b76eda8daafd/background.webp",
+  "boss_count": 1,
+  "formation_key": "",
+  "items": [
+    {
+      "color": "#4A2420",
+      "kind": "boss",
+      "label": "Boss",
+      "locked": false,
+      "object_id": "",
+      "phase": "",
+      "radius": 27.0,
+      "seat_id": "",
+      "visible": true,
+      "x": 0.5,
+      "y": 0.48
+    }
+  ],
+  "mini_bosses": [],
+  "movement_plan": null,
+  "package_view": null,
+  "raid_plan_id": "",
+  "reference_points_locked": false,
+  "route_annotation_id": "",
+  "route_note": "",
+  "text_color": "#FFFFFF",
+  "text_weight": 600,
+  "version": 2,
+  "zones": []
+}

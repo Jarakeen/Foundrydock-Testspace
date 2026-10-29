@@ -1,0 +1,329 @@
+Command: C:\Users\nourg\AppData\Local\Programs\Python\Python312\python.exe -m pytest ui/tests/test_track_b_coverage_recovery.py ui/tests/test_phase155_shared_navigation_contract.py ui/tests/test_coverage_context_provider_persistence.py -q --basetemp C:\Dev\Wyrdworks-TestSpace\runs\unfinished-development-20261028\20261029T003444.908309Z-806f6816089a4c87\pytest-tmp -o cache_dir=C:\Dev\Wyrdworks-TestSpace\cache\unfinished-development-20261028\20261029T003444.908309Z-806f6816089a4c87
+Source revision: 7f3c8cc414c33cae54d558b7de395f30f80789c1
+Started at: 2026-10-29T00:34:44.923961+00:00
+Exit code: 1
+
+--- stdout ---
+........F...F...............................F.FF................         [100%]
+================================== FAILURES ===================================
+__ test_navigation_matches_raid_plan_prototype_order_and_keeps_finch_planned __
+
+    def test_navigation_matches_raid_plan_prototype_order_and_keeps_finch_planned() -> None:
+        from ui.phase15_side_nav import NAV_SECTIONS
+    
+>       assert [label for label, _route, _semantic in NAV_SECTIONS[0][1]] == ["Raid Plan", "Roster"]
+E       AssertionError: assert ['Raid Plan',... 'Encounters'] == ['Raid Plan', 'Roster']
+E         
+E         Left contains 3 more items, first extra item: 'Builds'
+E         Use -v to get more diff
+
+ui\tests\test_phase155_shared_navigation_contract.py:68: AssertionError
+_______ test_phase155_side_nav_is_compact_and_logo_home_is_shell_owned ________
+
+    def test_phase155_side_nav_is_compact_and_logo_home_is_shell_owned() -> None:
+        nav = (ROOT / "ui" / "phase15_side_nav.py").read_text(encoding="utf-8")
+        shell = (ROOT / "ui" / "phase15_raid_plan_window.py").read_text(encoding="utf-8")
+    
+>       assert "SIDE_NAV_WIDTH = 196" in nav
+E       assert 'SIDE_NAV_WIDTH = 196' in 'from __future__ import annotations\n\n"""Shared fixed Phase 15 navigation rail.\n\nThe rail is deliberately flat: no ...ive", live and key == route)\n            button.style().unpolish(button)\n            button.style().polish(button)\n'
+
+ui\tests\test_phase155_shared_navigation_contract.py:139: AssertionError
+___________ test_assignments_qt_edit_save_reopen_reaches_live_raid ____________
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/unfinished-development-20261028/20261029T003444.908309Z-806f6816089a4c87/pytest-tmp/test_assignments_qt_edit_save_0')
+
+    def test_assignments_qt_edit_save_reopen_reaches_live_raid(tmp_path) -> None:
+        """Use real Qt editors, the page's collection/save methods and SQLite."""
+        from types import MethodType, SimpleNamespace
+        from PySide6.QtWidgets import QApplication, QComboBox, QLineEdit, QTableWidget, QTextEdit
+        from services.phase15_assignment_state_service import Phase15AssignmentStateService
+        from ui.phase15_assignments_page import Phase15AssignmentsPage
+        from ui.phase15_live_raid_page import Phase15LiveRaidPage
+        from ui.phase15_readiness_page import _support_snapshot_matches_stage
+    
+        app = QApplication.instance() or QApplication([])
+        database = tmp_path / "assignment_ui_acceptance.db"
+        controller = SimpleNamespace(plan_id="plan-a", context_key="boss:lokkestiiz")
+        ultimate = QComboBox()
+        ultimate.addItems(["Aggressive Horn", "Reviving Barrier"])
+        timing = QLineEdit()
+        notes = QTextEdit()
+        fake = SimpleNamespace(
+            _current_plan=lambda: SimpleNamespace(plan_id=controller.plan_id),
+            stage_controller=controller,
+            utility_table=QTableWidget(0, 4),
+            portal_choice=SimpleNamespace(selected_seats=()),
+            left_stack_choice=SimpleNamespace(selected_seats=()),
+            right_stack_choice=SimpleNamespace(selected_seats=()),
+            support_ultimate_choices={"healer-1": ultimate},
+            support_ultimate_timing_notes={"healer-1": timing},
+            support_ultimate_event_keys={},
+            notes=notes,
+            assignment_state=Phase15AssignmentStateService(database),
+            _loaded_plan_id="", _loaded_context_key="", _dirty=True,
+        )
+        fake._collect_assignment_payload = MethodType(
+            Phase15AssignmentsPage._collect_assignment_payload, fake
+        )
+        timing.setText("Lokke first ice")
+        notes.setPlainText("Original call")
+>       assert Phase15AssignmentsPage._save_assignments(fake, silent=True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ui\tests\test_phase155_shared_navigation_contract.py:1048: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = namespace(_current_plan=<function test_assignments_qt_edit_save_reopen_reaches_live_raid.<locals>.<lambda> at 0x000001...s={'healer-1': 'Lokke first ice'}, support_ultimate_event_keys={}, raid_lead_notes='Original call'), _draft_only=False)
+silent = True, plan_id = None, context_key = None
+
+    def _save_assignments(
+        self,
+        *,
+        silent: bool = False,
+        plan_id: str | None = None,
+        context_key: str | None = None,
+    ) -> bool:
+        try:
+            payload = self._collect_assignment_payload(
+                plan_id=plan_id,
+                context_key=context_key,
+            )
+            # Kill/Pull priorities live in the same canonical stage record, but
+            # are edited by their own dialog. Never erase them when this page
+            # saves unrelated assignments. Reject concurrent changes instead.
+            existing = getattr(self, '_loaded_assignment_snapshot', None)
+            if existing is not None:
+                payload["kill_pull_priorities"] = existing.kill_pull_priorities
+            persisted = self.assignment_state.save(payload, expected=existing)
+        except Exception as exc:
+            if not silent:
+                QMessageBox.warning(
+                    self,
+                    "Assignments not saved",
+                    f"FoundryDock kept the previous saved Assignments unchanged.\n\n{exc}",
+                )
+            return False
+        self._loaded_plan_id = persisted.plan_id
+        self._loaded_context_key = persisted.context_key
+        self._loaded_assignment_snapshot = persisted
+        if getattr(self, '_loaded_assignment_draft', None) == persisted:
+            self._loaded_assignment_draft = None
+        self._draft_only = False
+        if hasattr(self, 'save_status'):
+            self.save_status.setText('Assignments applied and verified in Raid Plan.')
+            self._show_assignment_save_time(persisted.plan_id)
+        self._dirty = False
+>       self._invalidate_support_windows("Assignments saved. Review current assignments again.")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'types.SimpleNamespace' object has no attribute '_invalidate_support_windows'
+
+ui\phase15_assignments_page.py:896: AttributeError
+_ test_shell_readiness_navigation_flushes_real_assignment_editor_before_refresh _
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/unfinished-development-20261028/20261029T003444.908309Z-806f6816089a4c87/pytest-tmp/test_shell_readiness_navigatio0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000015E3F5BF620>
+
+    def test_shell_readiness_navigation_flushes_real_assignment_editor_before_refresh(
+        tmp_path, monkeypatch,
+    ) -> None:
+        """A dirty Qt Assignments editor must commit before Readiness reads the stage."""
+        from types import MethodType, SimpleNamespace
+        from PySide6.QtWidgets import QApplication
+        from services.phase15_assignment_state_service import Phase15AssignmentStateService
+        import ui.phase15_assignments_page as assignment_module
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+    
+        app = QApplication.instance() or QApplication([])
+        database = tmp_path / "shell_navigation.db"
+        monkeypatch.setattr(assignment_module, "get_user_database_path", lambda: database)
+        monkeypatch.setattr(
+            assignment_module.Phase15AssignmentsPage, "_load_effects", lambda self: ()
+        )
+        monkeypatch.setattr(
+            assignment_module.Phase15AssignmentsPage, "_reviewed_support_event_keys",
+            lambda self, context_key: (),
+        )
+        plan = SimpleNamespace(plan_id="plan-a", trial_id="sunspire", members=())
+        monkeypatch.setattr(
+            assignment_module.Phase15AssignmentsPage, "_current_plan", lambda self: plan
+        )
+        assignments = assignment_module.Phase15AssignmentsPage(show_local_nav=False)
+        assignments.stage_controller = SimpleNamespace(
+            plan_id="plan-a", context_key="boss:lokkestiiz"
+        )
+        assignments.refresh()
+        assignments.support_ultimate_timing_notes["healer-1"].setText("Save before navigation")
+        assert assignments._dirty
+    
+        events = []
+        class Stack:
+            current = assignments
+            def currentWidget(self):
+                return self.current
+            def setCurrentWidget(self, page):
+                self.current = page
+    
+        readiness = SimpleNamespace(
+            refresh=lambda: (
+                events.append("refresh"),
+                events.append(
+                    Phase15AssignmentStateService.read_for_stage_snapshot(
+                        database, "plan-a", "boss:lokkestiiz"
+                    ).support_ultimate_timing_notes["healer-1"]
+                ),
+            ),
+        )
+        stack = Stack()
+        shell = SimpleNamespace(
+            stack=stack,
+            readiness_page=readiness,
+            side_nav=SimpleNamespace(set_active_route=lambda route: events.append(route)),
+            _bind_current_plan_for_navigation=lambda: True,
+            _perf_event=lambda *args: None,
+        )
+        shell._refresh_page = MethodType(Phase15RaidPlanWindow._refresh_page, shell)
+        shell._already_on_page = MethodType(Phase15RaidPlanWindow._already_on_page, shell)
+        shell._prepare_page_exit = MethodType(Phase15RaidPlanWindow._prepare_page_exit, shell)
+        shell._prepare_current_page_exit = MethodType(
+            Phase15RaidPlanWindow._prepare_current_page_exit, shell
+        )
+        shell._show_page = MethodType(Phase15RaidPlanWindow._show_page, shell)
+>       Phase15RaidPlanWindow._open_readiness(shell)
+
+ui\tests\test_phase155_shared_navigation_contract.py:1199: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+ui\phase15_raid_plan_window.py:800: in _open_readiness
+    self._show_page(self.readiness_page, "readiness", exit_prepared=True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = namespace(stack=<test_phase155_shared_navigation_contract.test_shell_readiness_navigation_flushes_real_assignment_edit...are_current_page_exit of namespace(...)>, _show_page=<bound method Phase15RaidPlanWindow._show_page of namespace(...)>)
+page = namespace(refresh=<function test_shell_readiness_navigation_flushes_real_assignment_editor_before_refresh.<locals>.<lambda> at 0x0000015E40C74D60>)
+route = 'readiness', exit_prepared = True
+
+    def _show_page(self, page, route: str, *, exit_prepared: bool = False) -> bool:
+        current = self.stack.currentWidget()
+        if page is current:
+            self.side_nav.set_active_route(route)
+            return True
+        if not exit_prepared and not self._prepare_page_exit(
+            current,
+            action=f"opening {route or 'another page'}",
+        ):
+            return False
+        started = time.perf_counter()
+        self.stack.setCurrentWidget(page)
+        self.side_nav.set_active_route(route)
+>       self.raid_plan_page._sync_obsidian_header_visibility()
+        ^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'types.SimpleNamespace' object has no attribute 'raid_plan_page'
+
+ui\phase15_raid_plan_window.py:395: AttributeError
+_ test_shell_navigation_refreshes_readiness_strategy_and_live_raid_for_selected_stage _
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/unfinished-development-20261028/20261029T003444.908309Z-806f6816089a4c87/pytest-tmp/test_shell_navigation_refreshe0')
+
+    def test_shell_navigation_refreshes_readiness_strategy_and_live_raid_for_selected_stage(
+        tmp_path,
+    ) -> None:
+        """Shell handoffs must refresh each destination with the current saved boss."""
+        from types import MethodType, SimpleNamespace
+        from services.phase15_assignment_state_service import (
+            Phase15AssignmentState, Phase15AssignmentStateService,
+        )
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+    
+        database = tmp_path / "navigation_stages.db"
+        assignments = Phase15AssignmentStateService(database)
+        assignments.save(Phase15AssignmentState(
+            plan_id="plan-a", context_key="boss:lokkestiiz",
+            raid_lead_notes="Lokke saved",
+        ))
+        assignments.save(Phase15AssignmentState(
+            plan_id="plan-a", context_key="boss:yolnahkriin",
+            raid_lead_notes="Yolna saved",
+        ))
+        stage = SimpleNamespace(plan_id="plan-a", context_key="boss:lokkestiiz")
+        seen = []
+    
+        class Destination:
+            def __init__(self, name):
+                self.name = name
+            def refresh(self):
+                snapshot = Phase15AssignmentStateService.read_for_stage_snapshot(
+                    database, stage.plan_id, stage.context_key
+                )
+                seen.append((self.name, stage.context_key, snapshot.raid_lead_notes))
+    
+        class Stack:
+            def __init__(self):
+                self.current = SimpleNamespace(flush_pending_changes=lambda: True)
+            def currentWidget(self):
+                return self.current
+            def setCurrentWidget(self, page):
+                self.current = page
+    
+        stack = Stack()
+        shell = SimpleNamespace(
+            stack=stack,
+            readiness_page=Destination("readiness"),
+            strategy_page=Destination("strategy"),
+            live_raid_page=Destination("live_raid"),
+            side_nav=SimpleNamespace(set_active_route=lambda route: None),
+            _bind_current_plan_for_navigation=lambda: True,
+            _perf_event=lambda *args: None,
+        )
+        for method in (
+            "_refresh_page", "_already_on_page", "_prepare_page_exit",
+            "_prepare_current_page_exit", "_show_page",
+        ):
+            setattr(shell, method, MethodType(getattr(Phase15RaidPlanWindow, method), shell))
+    
+        for boss, expected in (
+            ("lokkestiiz", "Lokke saved"),
+            ("yolnahkriin", "Yolna saved"),
+        ):
+            stage.context_key = "boss:" + boss
+            for name, method in (
+                ("readiness", Phase15RaidPlanWindow._open_readiness),
+                ("strategy", Phase15RaidPlanWindow._open_strategy),
+                ("live_raid", Phase15RaidPlanWindow._open_live_raid),
+            ):
+>               method(shell)
+
+ui\tests\test_phase155_shared_navigation_contract.py:1284: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+ui\phase15_raid_plan_window.py:800: in _open_readiness
+    self._show_page(self.readiness_page, "readiness", exit_prepared=True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = namespace(stack=<test_phase155_shared_navigation_contract.test_shell_navigation_refreshes_readiness_strategy_and_live_...are_current_page_exit of namespace(...)>, _show_page=<bound method Phase15RaidPlanWindow._show_page of namespace(...)>)
+page = <test_phase155_shared_navigation_contract.test_shell_navigation_refreshes_readiness_strategy_and_live_raid_for_selected_stage.<locals>.Destination object at 0x0000015E3F5C1940>
+route = 'readiness', exit_prepared = True
+
+    def _show_page(self, page, route: str, *, exit_prepared: bool = False) -> bool:
+        current = self.stack.currentWidget()
+        if page is current:
+            self.side_nav.set_active_route(route)
+            return True
+        if not exit_prepared and not self._prepare_page_exit(
+            current,
+            action=f"opening {route or 'another page'}",
+        ):
+            return False
+        started = time.perf_counter()
+        self.stack.setCurrentWidget(page)
+        self.side_nav.set_active_route(route)
+>       self.raid_plan_page._sync_obsidian_header_visibility()
+        ^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'types.SimpleNamespace' object has no attribute 'raid_plan_page'
+
+ui\phase15_raid_plan_window.py:395: AttributeError
+=========================== short test summary info ===========================
+FAILED ui/tests/test_phase155_shared_navigation_contract.py::test_navigation_matches_raid_plan_prototype_order_and_keeps_finch_planned
+FAILED ui/tests/test_phase155_shared_navigation_contract.py::test_phase155_side_nav_is_compact_and_logo_home_is_shell_owned
+FAILED ui/tests/test_phase155_shared_navigation_contract.py::test_assignments_qt_edit_save_reopen_reaches_live_raid
+FAILED ui/tests/test_phase155_shared_navigation_contract.py::test_shell_readiness_navigation_flushes_real_assignment_editor_before_refresh
+FAILED ui/tests/test_phase155_shared_navigation_contract.py::test_shell_navigation_refreshes_readiness_strategy_and_live_raid_for_selected_stage
+5 failed, 59 passed in 8.27s
+
+--- stderr ---

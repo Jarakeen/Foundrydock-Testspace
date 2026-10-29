@@ -1,0 +1,149 @@
+Command: C:\Users\nourg\AppData\Local\Programs\Python\Python312\python.exe -m pytest tools\tests\test_testspace_runner.py -q --basetemp C:\Dev\Wyrdworks-TestSpace\runs\20261028T234428.919945Z-88b05d903c4c438db47be580fa7fcc46\pytest-tmp -o cache_dir=C:\Dev\Wyrdworks-TestSpace\cache\testspace-launcher-20261028-001\20261028T234428.919945Z-88b05d903c4c438db47be580fa7fcc46
+Source revision: 81719e51aa8eb6bccd18c0b93b535f152e775c2f
+Started at: 2026-10-28T23:44:28.927942+00:00
+Exit code: 1
+
+--- stdout ---
+....FF                                                                   [100%]
+================================== FAILURES ===================================
+____ test_main_records_run_and_retains_failure_diagnostics[0-passed-False] ____
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/20261028T234428.919945Z-88b05d903c4c438db47be580fa7fcc46/pytest-tmp/test_main_records_run_and_reta0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000024959D447A0>
+capsys = <_pytest.capture.CaptureFixture object at 0x0000024959D457C0>
+exit_code = 0, expected_status = 'passed', expected_failure_log = False
+
+    @pytest.mark.parametrize(
+        ("exit_code", "expected_status", "expected_failure_log"),
+        [(0, "passed", False), (1, "failed", True)],
+    )
+    def test_main_records_run_and_retains_failure_diagnostics(
+        tmp_path, monkeypatch, capsys, exit_code, expected_status, expected_failure_log
+    ):
+        repository = tmp_path / "repository"
+        repository.mkdir()
+        root = tmp_path / "testspace"
+        root.mkdir()
+        monkeypatch.setattr(testspace, "ROOT", repository)
+        monkeypatch.setattr(testspace, "_source_revision", lambda: ("a" * 40, True))
+        invocations = []
+    
+        def run(command, **options):
+            invocations.append((command, options))
+            return subprocess.CompletedProcess(
+                command, exit_code, stdout="pilot output\n", stderr="pilot diagnostic\n"
+            )
+    
+        monkeypatch.setattr(testspace.subprocess, "run", run)
+        result = testspace.main(
+            [
+                "--task",
+                "focused-suite",
+                "--owner",
+                "test-agent",
+                "--testspace-root",
+                str(root),
+                "--",
+                "tools/tests/test_example.py",
+                "-q",
+            ]
+        )
+    
+        assert result == exit_code
+        command, options = invocations[0]
+        assert Path(options["env"]["FOUNDRYDOCK_USER_DATA_DIR"]).is_relative_to(root)
+        run_id = next(item.name for item in (root / "runs").iterdir())
+        report_path = root / "reports" / f"{run_id}.json"
+        report = json.loads(report_path.read_text(encoding="utf-8"))
+        assert command[-4] == "--basetemp"
+        assert Path(command[-3]) == root / "runs" / run_id / "pytest-tmp"
+>       assert command[-2:] == ["-o", report["artifact_paths"]["pytest_cache"]]
+E       AssertionError: assert ['-o', 'cache...21b0a8fe588c'] == ['-o', 'C:\\D...21b0a8fe588c']
+E         
+E         At index 1 diff: 'cache_dir=C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234428.919945Z-88b05d903c4c438db47be580fa7fcc46\\pytest-tmp\\test_main_records_run_and_reta0\\testspace\\cache\\focused-suite\\20261028T234430.759763Z-869a04e77942413e835421b0a8fe588c' != 'C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234428.919945Z-88b05d903c4c438db47be580fa7fcc46\\pytest-tmp\\test_main_records_run_and_reta0\\testspace\\cache\\focused-suite\\20261028T234430.759763Z-869a04e77942413e835421b0a8fe588c'
+E         Use -v to get more diff
+
+tools\tests\test_testspace_runner.py:126: AssertionError
+---------------------------- Captured stdout call -----------------------------
+TestSpace run: 20261028T234430.759763Z-869a04e77942413e835421b0a8fe588c
+Pytest scratch: C:\Dev\Wyrdworks-TestSpace\runs\20261028T234428.919945Z-88b05d903c4c438db47be580fa7fcc46\pytest-tmp\test_main_records_run_and_reta0\testspace\runs\20261028T234430.759763Z-869a04e77942413e835421b0a8fe588c\pytest-tmp
+Pytest cache: C:\Dev\Wyrdworks-TestSpace\runs\20261028T234428.919945Z-88b05d903c4c438db47be580fa7fcc46\pytest-tmp\test_main_records_run_and_reta0\testspace\cache\focused-suite\20261028T234430.759763Z-869a04e77942413e835421b0a8fe588c
+pilot output
+Run report: C:\Dev\Wyrdworks-TestSpace\runs\20261028T234428.919945Z-88b05d903c4c438db47be580fa7fcc46\pytest-tmp\test_main_records_run_and_reta0\testspace\reports\20261028T234430.759763Z-869a04e77942413e835421b0a8fe588c.json
+Cleanup: none; run, cache, and diagnostic artifacts are retained.
+---------------------------- Captured stderr call -----------------------------
+pilot diagnostic
+____ test_main_records_run_and_retains_failure_diagnostics[1-failed-True] _____
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/20261028T234428.919945Z-88b05d903c4c438db47be580fa7fcc46/pytest-tmp/test_main_records_run_and_reta1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000024959D47A70>
+capsys = <_pytest.capture.CaptureFixture object at 0x0000024959D62390>
+exit_code = 1, expected_status = 'failed', expected_failure_log = True
+
+    @pytest.mark.parametrize(
+        ("exit_code", "expected_status", "expected_failure_log"),
+        [(0, "passed", False), (1, "failed", True)],
+    )
+    def test_main_records_run_and_retains_failure_diagnostics(
+        tmp_path, monkeypatch, capsys, exit_code, expected_status, expected_failure_log
+    ):
+        repository = tmp_path / "repository"
+        repository.mkdir()
+        root = tmp_path / "testspace"
+        root.mkdir()
+        monkeypatch.setattr(testspace, "ROOT", repository)
+        monkeypatch.setattr(testspace, "_source_revision", lambda: ("a" * 40, True))
+        invocations = []
+    
+        def run(command, **options):
+            invocations.append((command, options))
+            return subprocess.CompletedProcess(
+                command, exit_code, stdout="pilot output\n", stderr="pilot diagnostic\n"
+            )
+    
+        monkeypatch.setattr(testspace.subprocess, "run", run)
+        result = testspace.main(
+            [
+                "--task",
+                "focused-suite",
+                "--owner",
+                "test-agent",
+                "--testspace-root",
+                str(root),
+                "--",
+                "tools/tests/test_example.py",
+                "-q",
+            ]
+        )
+    
+        assert result == exit_code
+        command, options = invocations[0]
+        assert Path(options["env"]["FOUNDRYDOCK_USER_DATA_DIR"]).is_relative_to(root)
+        run_id = next(item.name for item in (root / "runs").iterdir())
+        report_path = root / "reports" / f"{run_id}.json"
+        report = json.loads(report_path.read_text(encoding="utf-8"))
+        assert command[-4] == "--basetemp"
+        assert Path(command[-3]) == root / "runs" / run_id / "pytest-tmp"
+>       assert command[-2:] == ["-o", report["artifact_paths"]["pytest_cache"]]
+E       AssertionError: assert ['-o', 'cache...50b86c687050'] == ['-o', 'C:\\D...50b86c687050']
+E         
+E         At index 1 diff: 'cache_dir=C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234428.919945Z-88b05d903c4c438db47be580fa7fcc46\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\cache\\focused-suite\\20261028T234431.044124Z-cbc92ab08b064797922650b86c687050' != 'C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234428.919945Z-88b05d903c4c438db47be580fa7fcc46\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\cache\\focused-suite\\20261028T234431.044124Z-cbc92ab08b064797922650b86c687050'
+E         Use -v to get more diff
+
+tools\tests\test_testspace_runner.py:126: AssertionError
+---------------------------- Captured stdout call -----------------------------
+TestSpace run: 20261028T234431.044124Z-cbc92ab08b064797922650b86c687050
+Pytest scratch: C:\Dev\Wyrdworks-TestSpace\runs\20261028T234428.919945Z-88b05d903c4c438db47be580fa7fcc46\pytest-tmp\test_main_records_run_and_reta1\testspace\runs\20261028T234431.044124Z-cbc92ab08b064797922650b86c687050\pytest-tmp
+Pytest cache: C:\Dev\Wyrdworks-TestSpace\runs\20261028T234428.919945Z-88b05d903c4c438db47be580fa7fcc46\pytest-tmp\test_main_records_run_and_reta1\testspace\cache\focused-suite\20261028T234431.044124Z-cbc92ab08b064797922650b86c687050
+pilot output
+Run report: C:\Dev\Wyrdworks-TestSpace\runs\20261028T234428.919945Z-88b05d903c4c438db47be580fa7fcc46\pytest-tmp\test_main_records_run_and_reta1\testspace\reports\20261028T234431.044124Z-cbc92ab08b064797922650b86c687050.json
+Failure diagnostics retained: C:\Dev\Wyrdworks-TestSpace\runs\20261028T234428.919945Z-88b05d903c4c438db47be580fa7fcc46\pytest-tmp\test_main_records_run_and_reta1\testspace\failures\20261028T234431.044124Z-cbc92ab08b064797922650b86c687050.log
+Cleanup: none; run, cache, and diagnostic artifacts are retained.
+---------------------------- Captured stderr call -----------------------------
+pilot diagnostic
+=========================== short test summary info ===========================
+FAILED tools/tests/test_testspace_runner.py::test_main_records_run_and_retains_failure_diagnostics[0-passed-False]
+FAILED tools/tests/test_testspace_runner.py::test_main_records_run_and_retains_failure_diagnostics[1-failed-True]
+2 failed, 4 passed in 0.95s
+
+--- stderr ---

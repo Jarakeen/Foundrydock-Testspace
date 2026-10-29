@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "branch": "phase15.5-track-b",
+  "source_branch": "wyrdworks-dev",
+  "suite": "ui",
+  "run": "20261026T120000Z-1234abcd",
+  "started": "2026-10-26T12:00:00+00:00",
+  "finished": "2026-10-26T12:01:00+00:00",
+  "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "policy": "fixture",
+  "tier": "baseline",
+  "status": "passed",
+  "steps": [
+    {
+      "name": "baseline",
+      "command": [
+        "pytest"
+      ],
+      "exit_code": 0,
+      "log": "PRIVATE_LOG_PATH"
+    }
+  ],
+  "error": "PRIVATE_USER_PATH",
+  "limitation": "Disposable tracked corpus only; no live-data, Windows UI, merge or deployment certification."
+}

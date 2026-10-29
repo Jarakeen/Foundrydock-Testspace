@@ -1,0 +1,16 @@
+....F
+================================== FAILURES ===================================
+__________ test_inspector_collapse_and_image_import_preserve_objects __________
+ui\tests\test_inline_raid_map.py:161: in test_inspector_collapse_and_image_import_preserve_objects
+    assert surface.inspector.isHidden() and surface.canvas.width()>width
+E   assert (True and 620 > 620)
+E    +  where True = <built-in method isHidden of PySide6.QtWidgets.QFrame object at 0x0000014CA8D00A40>()
+E    +    where <built-in method isHidden of PySide6.QtWidgets.QFrame object at 0x0000014CA8D00A40> = <PySide6.QtWidgets.QFrame(0x14ca9d2beb0) at 0x0000014CA8D00A40>.isHidden
+E    +      where <PySide6.QtWidgets.QFrame(0x14ca9d2beb0) at 0x0000014CA8D00A40> = <ui.components.inline_raid_map.InlineRaidMap(0x14ca9d2b2e0, name="inlineRaidMap") at 0x0000014CA8CB4F80>.inspector
+E    +  and   620 = <built-in method width of SquareMapCanvas object at 0x0000014CA8ADDF40>()
+E    +    where <built-in method width of SquareMapCanvas object at 0x0000014CA8ADDF40> = <ui.components.inline_raid_map.SquareMapCanvas(0x14ca9d2b640) at 0x0000014CA8ADDF40>.width
+E    +      where <ui.components.inline_raid_map.SquareMapCanvas(0x14ca9d2b640) at 0x0000014CA8ADDF40> = <ui.components.inline_raid_map.InlineRaidMap(0x14ca9d2b2e0, name="inlineRaidMap") at 0x0000014CA8CB4F80>.canvas
+=========================== short test summary info ===========================
+FAILED ui/tests/test_inline_raid_map.py::test_inspector_collapse_and_image_import_preserve_objects
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 4 passed in 15.24s

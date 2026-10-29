@@ -1,0 +1,16 @@
+{
+  "maps": [
+    {
+      "encounter_id": "lokkestiiz",
+      "encounter_name": "Boss",
+      "label": "Copy",
+      "layout_path": "raid_maps/workshop/trial/lokkestiiz/9dd1f052711dbbd4/layout.json",
+      "map_id": "9dd1f052711dbbd4",
+      "preview_path": "raid_maps/workshop/trial/lokkestiiz/9dd1f052711dbbd4/preview.png",
+      "tags": [],
+      "trial_id": "trial",
+      "trial_name": "Trial"
+    }
+  ],
+  "schema_version": 1
+}

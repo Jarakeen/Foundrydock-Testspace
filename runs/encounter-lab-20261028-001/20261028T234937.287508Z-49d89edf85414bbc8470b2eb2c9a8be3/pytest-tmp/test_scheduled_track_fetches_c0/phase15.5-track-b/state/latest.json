@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "branch": "phase15.5-track-b",
+  "source_branch": "wyrdworks-dev",
+  "suite": "ui",
+  "run": "20261028T234939Z-67b153e7",
+  "started": "2026-10-28T23:49:39.588892+00:00",
+  "finished": "2026-10-28T23:49:39.620469+00:00",
+  "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "policy": "46c454f10e7854c3d02b5f29f82817aa000f11602f9c8e6f0aa6ef5cfc096144",
+  "tier": "baseline",
+  "status": "unchanged",
+  "steps": [
+    {
+      "name": "init",
+      "command": [
+        "git",
+        "init",
+        "--bare",
+        "C:\\Dev\\Wyrdworks-TestSpace\\runs\\encounter-lab-20261028-001\\20261028T234937.287508Z-49d89edf85414bbc8470b2eb2c9a8be3\\pytest-tmp\\test_scheduled_track_fetches_c0\\phase15.5-track-b\\state\\remote.git"
+      ],
+      "exit_code": 0,
+      "log": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\encounter-lab-20261028-001\\20261028T234937.287508Z-49d89edf85414bbc8470b2eb2c9a8be3\\pytest-tmp\\test_scheduled_track_fetches_c0\\phase15.5-track-b\\state\\reports\\20261028T234939Z-67b153e7\\init.log"
+    },
+    {
+      "name": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "C:\\Dev\\Wyrdworks-TestSpace\\runs\\encounter-lab-20261028-001\\20261028T234937.287508Z-49d89edf85414bbc8470b2eb2c9a8be3\\pytest-tmp\\test_scheduled_track_fetches_c0\\phase15.5-track-b\\state\\remote.git",
+        "fetch",
+        "--no-tags",
+        "https://github.com/Jarakeen/Wyrdworks.git",
+        "refs/heads/wyrdworks-dev"
+      ],
+      "exit_code": 0,
+      "log": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\encounter-lab-20261028-001\\20261028T234937.287508Z-49d89edf85414bbc8470b2eb2c9a8be3\\pytest-tmp\\test_scheduled_track_fetches_c0\\phase15.5-track-b\\state\\reports\\20261028T234939Z-67b153e7\\fetch.log"
+    }
+  ],
+  "error": "",
+  "limitation": "Track suite: ui; source branch: wyrdworks-dev. Disposable tracked corpus and offscreen regression only; no live-data, installed Windows UI, merge or deployment certification."
+}

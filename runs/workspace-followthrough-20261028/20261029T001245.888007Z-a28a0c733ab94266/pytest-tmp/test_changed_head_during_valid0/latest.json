@@ -1,0 +1,69 @@
+{
+  "suite": "quality",
+  "started_utc": "2026-10-29T00:12:54.840547+00:00",
+  "finished_utc": "2026-10-29T00:12:54.843065+00:00",
+  "command": [],
+  "checks": [
+    {
+      "name": "documentation contract",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "python",
+        "check"
+      ]
+    },
+    {
+      "name": "quality regression tests",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "python",
+        "check"
+      ]
+    },
+    {
+      "name": "encounter projection tests",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "python",
+        "check"
+      ]
+    },
+    {
+      "name": "dependency boundary",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "python",
+        "check"
+      ]
+    },
+    {
+      "name": "system architecture",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "python",
+        "check"
+      ]
+    }
+  ],
+  "code_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "tested_code_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "code_tree_unchanged": false,
+  "working_tree_dirty_at_start": false,
+  "pytest_arguments": [],
+  "branch": "work",
+  "working_tree_dirty": false,
+  "source_snapshot": null,
+  "validation_context": {
+    "encounter_canonical_facts_available": true,
+    "encounter_source_assertions": "verified"
+  },
+  "python_version": "3.12.4",
+  "exit_code": 0,
+  "status": "passed",
+  "note": "A successful subprocess exit is not proof of Windows UI acceptance, safe fixture routing or full application completion."
+}

@@ -1,0 +1,121 @@
+[
+  {
+    "Original": "C:\\Users\\nourg\\Documents\\Codex\\t200guard",
+    "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-pytest\\t200guard",
+    "Files": 1,
+    "Bytes": 106496.0,
+    "Reason": "Task-owned disposable tests and failure evidence retained before branch retirement"
+  },
+  {
+    "Original": "C:\\Users\\nourg\\Documents\\Codex\\tfinish15",
+    "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-pytest\\tfinish15",
+    "Files": 1,
+    "Bytes": 106496.0,
+    "Reason": "Task-owned disposable tests and failure evidence retained before branch retirement"
+  },
+  {
+    "Original": "C:\\Users\\nourg\\Documents\\Codex\\tfinish2",
+    "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-pytest\\tfinish2",
+    "Files": 1,
+    "Bytes": 106496.0,
+    "Reason": "Task-owned disposable tests and failure evidence retained before branch retirement"
+  },
+  {
+    "Original": "C:\\Users\\nourg\\Documents\\Codex\\tfont",
+    "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-pytest\\tfont",
+    "Files": 5,
+    "Bytes": 157215.0,
+    "Reason": "Task-owned disposable tests and failure evidence retained before branch retirement"
+  },
+  {
+    "Original": "C:\\Users\\nourg\\Documents\\Codex\\tgeo",
+    "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-pytest\\tgeo",
+    "Files": 112,
+    "Bytes": 11978748.0,
+    "Reason": "Task-owned disposable tests and failure evidence retained before branch retirement"
+  },
+  {
+    "Original": "C:\\Users\\nourg\\Documents\\Codex\\tgeo1",
+    "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-pytest\\tgeo1",
+    "Files": 1,
+    "Bytes": 106496.0,
+    "Reason": "Task-owned disposable tests and failure evidence retained before branch retirement"
+  },
+  {
+    "Original": "C:\\Users\\nourg\\Documents\\Codex\\tgeo15",
+    "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-pytest\\tgeo15",
+    "Files": 1,
+    "Bytes": 106496.0,
+    "Reason": "Task-owned disposable tests and failure evidence retained before branch retirement"
+  },
+  {
+    "Original": "C:\\Users\\nourg\\Documents\\Codex\\tgeo2",
+    "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-pytest\\tgeo2",
+    "Files": 1,
+    "Bytes": 106496.0,
+    "Reason": "Task-owned disposable tests and failure evidence retained before branch retirement"
+  },
+  {
+    "Original": "C:\\Users\\nourg\\Documents\\Codex\\tgeo3",
+    "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-pytest\\tgeo3",
+    "Files": 5,
+    "Bytes": 263670.0,
+    "Reason": "Task-owned disposable tests and failure evidence retained before branch retirement"
+  },
+  {
+    "Original": "C:\\Users\\nourg\\Documents\\Codex\\tgeoend",
+    "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-pytest\\tgeoend",
+    "Files": 1,
+    "Bytes": 106496.0,
+    "Reason": "Task-owned disposable tests and failure evidence retained before branch retirement"
+  },
+  {
+    "Original": "C:\\Users\\nourg\\Documents\\Codex\\tgeomask",
+    "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-pytest\\tgeomask",
+    "Files": 1,
+    "Bytes": 106496.0,
+    "Reason": "Task-owned disposable tests and failure evidence retained before branch retirement"
+  },
+  {
+    "Original": "C:\\Users\\nourg\\Documents\\Codex\\tlast15",
+    "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-pytest\\tlast15",
+    "Files": 1,
+    "Bytes": 106496.0,
+    "Reason": "Task-owned disposable tests and failure evidence retained before branch retirement"
+  },
+  {
+    "Original": "C:\\Users\\nourg\\Documents\\Codex\\tlast2",
+    "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-pytest\\tlast2",
+    "Files": 1,
+    "Bytes": 106496.0,
+    "Reason": "Task-owned disposable tests and failure evidence retained before branch retirement"
+  },
+  {
+    "Original": "C:\\Users\\nourg\\Documents\\Codex\\tok",
+    "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-pytest\\tok",
+    "Files": 112,
+    "Bytes": 11978748.0,
+    "Reason": "Task-owned disposable tests and failure evidence retained before branch retirement"
+  },
+  {
+    "Original": "C:\\Users\\nourg\\Documents\\Codex\\tprecommit1",
+    "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-pytest\\tprecommit1",
+    "Files": 5,
+    "Bytes": 319667.0,
+    "Reason": "Task-owned disposable tests and failure evidence retained before branch retirement"
+  },
+  {
+    "Original": "C:\\Users\\nourg\\Documents\\Codex\\tprecommit15",
+    "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-pytest\\tprecommit15",
+    "Files": 1,
+    "Bytes": 106496.0,
+    "Reason": "Task-owned disposable tests and failure evidence retained before branch retirement"
+  },
+  {
+    "Original": "C:\\Users\\nourg\\Documents\\Codex\\treg",
+    "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-pytest\\treg",
+    "Files": 112,
+    "Bytes": 11978748.0,
+    "Reason": "Task-owned disposable tests and failure evidence retained before branch retirement"
+  }
+]

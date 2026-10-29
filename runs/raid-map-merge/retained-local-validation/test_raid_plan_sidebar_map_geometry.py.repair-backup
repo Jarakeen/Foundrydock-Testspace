@@ -1,0 +1,83 @@
+"""Real Qt sidebar geometry, package coordinates and playback containment."""
+from copy import deepcopy
+import json
+import os
+from pathlib import Path
+
+from PySide6.QtCore import QEvent, QPoint, QSettings
+from PySide6.QtGui import QEnterEvent, QFontDatabase
+from PySide6.QtTest import QTest
+from models.raid_plan import RaidPlan
+
+
+def test_sidebar_map_uses_available_width(tmp_path, monkeypatch, qt_application_lifetime):
+    monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR', str(tmp_path / 'user'))
+    from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+    app = qt_application_lifetime
+    for font in ('segoeui.ttf', 'georgia.ttf'):
+        QFontDatabase.addApplicationFont(str(Path('C:/Windows/Fonts') / font))
+    from ui.theme.theme_manager import ThemeManager
+    from services.accessibility_preferences import AccessibilityPreferences
+    manager = ThemeManager(preferences=AccessibilityPreferences(tmp_path / 'appearance.json'))
+    manager.apply(app)
+    window = Phase15RaidPlanWindow()
+    page = window.raid_plan_page
+    nav = window.side_nav
+    nav._settings = QSettings(str(tmp_path / 'nav.ini'), QSettings.Format.IniFormat)
+    plan = RaidPlan(plan_id='sidebar-geometry', trial_id='sunspire', name='Geometry witness')
+    page.repo.save(plan, expected=None, must_be_new=True)
+    assert page.load_plan(plan.plan_id)
+    page._select_stage('boss:lokkestiiz')
+    surface = page.map_surface
+    payloads = deepcopy(surface.package_layers._payloads)
+    records = []
+    destination = os.environ.get('WYRD_MAP_CAPTURE')
+    if destination:
+        Path(destination).mkdir(parents=True, exist_ok=True)
+
+    def settle():
+        for _ in range(8):
+            app.processEvents()
+            QTest.qWait(40)
+        page._cancel_sidebar_scroll_restore()
+        page.page_scroll.verticalScrollBar().setValue(0)
+        app.processEvents()
+
+    window.show()
+    for width, height in ((1700, 1050), (1280, 800), (1000, 760)):
+        window.resize(width, height)
+        for state in ('open', 'collapsed', 'hover', 'leave'):
+            if state == 'open':
+                nav.set_collapsed(False, persist=False)
+            elif state == 'collapsed':
+                nav.set_collapsed(True, persist=False)
+            elif state == 'hover':
+                app.sendEvent(nav, QEnterEvent(QPoint(10, 10), QPoint(10, 10), nav.mapToGlobal(QPoint(10, 10))))
+            else:
+                app.sendEvent(nav, QEvent(QEvent.Type.Leave))
+            settle()
+            canvas = surface.canvas
+            layers = surface.package_layers
+            record = dict(size=[width, height], state=state, dpr=window.devicePixelRatioF(),
+                          mode=page._column_mode, canvas=canvas.size().toTuple(),
+                          surface=surface.size().toTuple(), budget=page._map_width_budget,
+                          toolbar=layers.geometry().getRect(), maximum=canvas.maximumWidth())
+            records.append(record)
+            if destination:
+                window.grab().save(str(Path(destination) / f'{width}-{height}-{state}.png'))
+            assert canvas.width() == canvas.height()
+            assert 0 <= surface.width() - canvas.width() <= 4
+            assert layers.y() >= canvas.y() + canvas.height()
+            assert surface.height() - layers.geometry().bottom() <= 2
+            assert layers.geometry().bottom() <= surface.rect().bottom()
+            for control in (*layers.buttons.values(), layers.seek_slider, layers.clock_label):
+                assert control.isVisible()
+                assert layers.rect().contains(control.mapTo(layers, QPoint(0, 0)))
+                assert layers.rect().contains(control.mapTo(layers, control.rect().bottomRight()))
+            assert page.page_scroll.horizontalScrollBar().maximum() == 0
+            assert surface.board is None
+            assert surface.package_layers._payloads == payloads
+    if destination:
+        (Path(destination) / 'measurements.json').write_text(json.dumps(records, indent=2))
+    print(json.dumps(records))
+    window.close()

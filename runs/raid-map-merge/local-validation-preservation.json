@@ -1,0 +1,7 @@
+{
+  "Original": "C:\\Users\\nourg\\Documents\\Codex\\work\\raid-map-geometry-repair\\validation_reports",
+  "Retained": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\retained-local-validation",
+  "Files": 213,
+  "Bytes": 21569369.0,
+  "Reason": "Failure evidence and disposable database fixtures preserved before worktree retirement"
+}

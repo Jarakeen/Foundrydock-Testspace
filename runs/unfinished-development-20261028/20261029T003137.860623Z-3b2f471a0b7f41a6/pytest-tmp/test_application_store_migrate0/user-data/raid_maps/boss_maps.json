@@ -1,0 +1,12 @@
+{
+  "encounters": {
+    "lokkestiiz": [
+      {
+        "label": "Legacy Boss Map",
+        "map_id": "11f85f98e6fed8f4",
+        "relative_path": "raid_maps/bosses/lokkestiiz/11f85f98e6fed8f4.png"
+      }
+    ]
+  },
+  "schema_version": 1
+}

@@ -1,0 +1,12 @@
+{
+  "encounters": {
+    "xalvakka": [
+      {
+        "label": "Upper Floor",
+        "map_id": "f084b1351c41cf3c",
+        "relative_path": "raid_maps/bosses/xalvakka/f084b1351c41cf3c.png"
+      }
+    ]
+  },
+  "schema_version": 1
+}

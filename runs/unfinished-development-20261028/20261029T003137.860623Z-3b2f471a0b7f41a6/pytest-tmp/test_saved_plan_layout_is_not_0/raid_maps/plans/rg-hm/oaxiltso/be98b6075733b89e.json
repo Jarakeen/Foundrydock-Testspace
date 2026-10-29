@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "boss_count": 1,
+  "items": [],
+  "mini_bosses": [],
+  "zones": [],
+  "annotations": [],
+  "raid_plan_id": "",
+  "background_map": "",
+  "route_note": "",
+  "route_annotation_id": "",
+  "package_view": null,
+  "movement_plan": null,
+  "reference_points_locked": false,
+  "formation_key": "",
+  "text_color": "#FFFFFF",
+  "text_weight": 600
+}

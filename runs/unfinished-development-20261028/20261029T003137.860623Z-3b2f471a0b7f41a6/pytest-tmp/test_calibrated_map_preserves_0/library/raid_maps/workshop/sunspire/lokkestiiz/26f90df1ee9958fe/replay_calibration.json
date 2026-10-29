@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "label": "Working map",
+  "image_file": "background.png",
+  "image_sha256": "a5f8e837215dbf2050f18b1d03007bedc99a039ce7fc3a04b735239bda73a775",
+  "replay_sha256s": [
+    "b6ac89e848b7f8a13f29e89b0f90928c23a183e306626854804c340523d959db"
+  ],
+  "projection": {
+    "pivot_log_xy": [
+      6190.0,
+      4135.0
+    ],
+    "pivot_image_px": [
+      50.0,
+      25.0
+    ],
+    "pixels_per_log_unit": 1.0,
+    "rotation_degrees": 0.0,
+    "invert_log_x": false,
+    "invert_log_y": true,
+    "background_resolution": [
+      200,
+      100
+    ]
+  },
+  "meters_per_log_unit": 0.1,
+  "evidence": "provisional_fit"
+}

@@ -1,0 +1,1 @@
+{"encounter_id":"x","evidence":[{"fact_type":"add_group","fact_key":"wave_one","value":{"name":"Adds","count":3},"source_type":"guide","source_name":"A"},{"fact_type":"damage_window","fact_key":"shielded","value":{"damageable":false},"source_type":"guide","source_name":"A"}]}

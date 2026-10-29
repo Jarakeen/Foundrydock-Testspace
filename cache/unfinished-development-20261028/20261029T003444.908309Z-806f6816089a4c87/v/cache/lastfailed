@@ -1,0 +1,7 @@
+{
+  "ui/tests/test_phase155_shared_navigation_contract.py::test_navigation_matches_raid_plan_prototype_order_and_keeps_finch_planned": true,
+  "ui/tests/test_phase155_shared_navigation_contract.py::test_phase155_side_nav_is_compact_and_logo_home_is_shell_owned": true,
+  "ui/tests/test_phase155_shared_navigation_contract.py::test_assignments_qt_edit_save_reopen_reaches_live_raid": true,
+  "ui/tests/test_phase155_shared_navigation_contract.py::test_shell_readiness_navigation_flushes_real_assignment_editor_before_refresh": true,
+  "ui/tests/test_phase155_shared_navigation_contract.py::test_shell_navigation_refreshes_readiness_strategy_and_live_raid_for_selected_stage": true
+}

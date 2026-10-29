@@ -1,0 +1,16 @@
+{
+  "maps": [
+    {
+      "encounter_id": "lokkestiiz",
+      "encounter_name": "Lokkestiiz",
+      "label": "Legacy Workshop Map",
+      "layout_path": "raid_maps/workshop/sunspire/lokkestiiz/f1ddd699f65dea50/layout.json",
+      "map_id": "f1ddd699f65dea50",
+      "preview_path": "raid_maps/workshop/sunspire/lokkestiiz/f1ddd699f65dea50/preview.png",
+      "tags": [],
+      "trial_id": "sunspire",
+      "trial_name": "Sunspire"
+    }
+  ],
+  "schema_version": 1
+}

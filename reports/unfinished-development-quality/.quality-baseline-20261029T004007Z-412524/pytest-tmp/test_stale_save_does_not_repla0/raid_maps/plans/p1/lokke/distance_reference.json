@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "reference": {
+    "plan_id": "p1",
+    "context_key": "lokke",
+    "reference_a_xy": [
+      0.0,
+      0.0
+    ],
+    "reference_b_xy": [
+      3.0,
+      4.0
+    ],
+    "known_distance_meters": 12.0,
+    "layout_map_id": "",
+    "provenance": "reviewed trial map",
+    "reviewed": true
+  }
+}

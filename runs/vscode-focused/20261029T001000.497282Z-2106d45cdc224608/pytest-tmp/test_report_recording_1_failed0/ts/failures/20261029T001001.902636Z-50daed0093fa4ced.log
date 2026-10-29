@@ -1,0 +1,10 @@
+Command: C:\Users\nourg\AppData\Local\Programs\Python\Python312\python.exe -m pytest tools/tests/test_example.py -q --basetemp C:\Dev\Wyrdworks-TestSpace\runs\vscode-focused\20261029T001000.497282Z-2106d45cdc224608\pytest-tmp\test_report_recording_1_failed0\ts\runs\focused-suite\20261029T001001.902636Z-50daed0093fa4ced\pytest-tmp -o cache_dir=C:\Dev\Wyrdworks-TestSpace\runs\vscode-focused\20261029T001000.497282Z-2106d45cdc224608\pytest-tmp\test_report_recording_1_failed0\ts\cache\focused-suite\20261029T001001.902636Z-50daed0093fa4ced
+Source revision: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Started at: 2026-10-29T00:10:01.902636+00:00
+Exit code: 1
+
+--- stdout ---
+pilot output
+
+--- stderr ---
+pilot diagnostic

@@ -1,0 +1,8 @@
+[
+  "tools/tests/test_testspace_runner.py::test_child_environment_isolates_writable_paths_and_preserves_eso_override",
+  "tools/tests/test_testspace_runner.py::test_each_run_gets_unique_scratch_and_task_specific_cache",
+  "tools/tests/test_testspace_runner.py::test_pytest_command_uses_testspace_paths_and_rejects_path_overrides",
+  "tools/tests/test_testspace_runner.py::test_report_recording[0-passed-False]",
+  "tools/tests/test_testspace_runner.py::test_report_recording[1-failed-True]",
+  "tools/tests/test_testspace_runner.py::test_testspace_root_must_be_outside_application_checkout"
+]

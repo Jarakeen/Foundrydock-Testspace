@@ -1,0 +1,25 @@
+{
+  "human_ready": {
+    "plan-a": {
+      "healer-1": true
+    },
+    "plan-b": {
+      "healer-1": false
+    }
+  },
+  "runs": {},
+  "events": [],
+  "reviews": [],
+  "attempts": [],
+  "raid_map_links": {
+    "plan-a": {
+      "lokkestiiz": "lokke-map-a",
+      "nahviintaas": "nahvi-map-a"
+    },
+    "plan-b": {
+      "lokkestiiz": "lokke-map-b"
+    }
+  },
+  "finch_raid_map_previews": {},
+  "finch_raid_map_preview_sets": {}
+}

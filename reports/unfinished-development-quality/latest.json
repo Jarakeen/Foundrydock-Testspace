@@ -1,0 +1,133 @@
+{
+  "suite": "quality",
+  "started_utc": "2026-10-29T00:40:06.909483+00:00",
+  "finished_utc": "2026-10-29T00:42:06.568838+00:00",
+  "command": [],
+  "checks": [
+    {
+      "name": "documentation contract",
+      "command": [
+        "C:\\Users\\nourg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/check_documentation_contract.py"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "summary": "Documentation contract: 0 issue(s)",
+      "output": ""
+    },
+    {
+      "name": "quality regression tests",
+      "command": [
+        "C:\\Users\\nourg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "tools/tests/test_local_validation_default.py",
+        "tools/tests/test_documentation_contract.py",
+        "services/tests/test_team_interaction_evidence.py",
+        "services/tests/test_encounter_boss_guide.py",
+        "services/tests/test_live_raid_encounter_projection_service.py",
+        "services/tests/test_encounter_temporal_audit.py",
+        "services/tests/test_team_interaction_evidence_acceptance.py",
+        "services/tests/test_coverage_team_interaction_evidence.py",
+        "services/tests/test_team_provider_coverage_delivery_handoff.py",
+        "services/tests/test_named_buff_resolution_service.py",
+        "services/tests/test_foundry_intelligence_service.py",
+        "services/tests/test_service_catalog_registry_integrity.py",
+        "services/tests/test_raid_plan_repository_revisions.py",
+        "services/tests/test_raid_plan_stage_realistic_workflow.py",
+        "services/tests/test_live_raid_map_linking.py",
+        "services/tests/test_build_service_user_database_migration.py",
+        "services/tests/test_comp_build_persistence_service.py",
+        "services/tests/test_phase15_assignment_state_service.py",
+        "services/tests/test_support_event_link_review_service.py",
+        "services/tests/test_raid_readiness_evidence_service.py",
+        "services/tests/test_raid_plan_coverage_assignment_service.py",
+        "services/tests/test_gear_named_buff_coverage.py",
+        "minmax/tests/test_effect_duration_resolver.py",
+        "services/tests/test_finch_planning_only_build_audit.py",
+        "services/tests/test_readiness_hidden_stage_invalidation.py",
+        "services/tests/test_coverage_draft_save_contract.py",
+        "ui/tests/test_phase155_persistence_boundary.py",
+        "ui/tests/test_coverage_raid_plan_context_scope.py",
+        "ui/tests/test_coverage_interaction_inspector.py",
+        "ui/tests/test_phase155_coverage_comp_roundtrip.py",
+        "ui/tests/test_phase155_coverage_team_interactions.py",
+        "ui/tests/test_phase155_comp_delivery_navigation.py",
+        "ui/tests/test_phase155_comp_delivery_explanations.py",
+        "tests/test_support_map_planned_reach.py",
+        "tests/test_raid_map_distance_reference_persistence.py",
+        "tests/test_support_map_range_geometry.py",
+        "tests/test_live_raid_map_calibration_wiring.py",
+        "tests/test_live_raid_planned_reach_wiring.py",
+        "tests/test_live_raid_plan_map_store_wiring.py",
+        "--basetemp",
+        "C:\\Dev\\Wyrdworks-TestSpace\\reports\\unfinished-development-quality\\.quality-baseline-20261029T004007Z-412524\\pytest-tmp"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "summary": "397 passed in 53.22s",
+      "output": ""
+    },
+    {
+      "name": "encounter projection tests",
+      "command": [
+        "C:\\Users\\nourg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "services/tests/test_encounter_service.py",
+        "--basetemp",
+        "C:\\Dev\\Wyrdworks-TestSpace\\reports\\unfinished-development-quality\\.quality-baseline-20261029T004007Z-412524\\encounter-pytest-tmp"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "summary": "16 passed in 7.03s",
+      "output": ""
+    },
+    {
+      "name": "dependency boundary",
+      "command": [
+        "C:\\Users\\nourg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_phase155_dependencies.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "summary": "Dependency Boundary passed.",
+      "output": ""
+    },
+    {
+      "name": "system architecture",
+      "command": [
+        "C:\\Users\\nourg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_system_architecture.py",
+        "--strict"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "summary": "Errors:   0; Warnings: 333; Closeout blockers: 0",
+      "output": ""
+    }
+  ],
+  "code_revision": "bee8f6f46688792aec1f977e64e6f7490600c56b",
+  "tested_code_revision": "bee8f6f46688792aec1f977e64e6f7490600c56b",
+  "code_tree_unchanged": true,
+  "working_tree_dirty_at_start": false,
+  "pytest_arguments": [],
+  "branch": "codex/testspace-followthrough-20261028",
+  "working_tree_dirty": false,
+  "source_snapshot": null,
+  "validation_context": {
+    "scratch_directory": "C:\\Dev\\Wyrdworks-TestSpace\\reports\\unfinished-development-quality\\.quality-baseline-20261029T004007Z-412524",
+    "isolated_user_data_directory": "C:\\Dev\\Wyrdworks-TestSpace\\reports\\unfinished-development-quality\\.quality-baseline-20261029T004007Z-412524\\user-data",
+    "encounter_canonical_facts_available": true,
+    "encounter_source_assertions": "verified",
+    "evidence_limitations": [],
+    "pytest_basetemp": "C:\\Dev\\Wyrdworks-TestSpace\\reports\\unfinished-development-quality\\.quality-baseline-20261029T004007Z-412524\\pytest-tmp"
+  },
+  "python_version": "3.12.4",
+  "exit_code": 0,
+  "status": "passed",
+  "note": "A successful subprocess exit is not proof of Windows UI acceptance, safe fixture routing or full application completion."
+}

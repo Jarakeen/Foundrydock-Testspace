@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "run_id": "20261028T234553.227931Z-fc7b1f968e6a48c1bbcf5458d7a9776d",
+  "task": "focused-suite",
+  "owner": "test-agent",
+  "command": [
+    "C:\\Users\\nourg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-m",
+    "pytest",
+    "tools/tests/test_example.py",
+    "-q",
+    "--basetemp",
+    "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234551.760573Z-aad6c6e45c0844e7ba553ff4df50e986\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\runs\\20261028T234553.227931Z-fc7b1f968e6a48c1bbcf5458d7a9776d\\pytest-tmp",
+    "-o",
+    "cache_dir=C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234551.760573Z-aad6c6e45c0844e7ba553ff4df50e986\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\cache\\focused-suite\\20261028T234553.227931Z-fc7b1f968e6a48c1bbcf5458d7a9776d"
+  ],
+  "source_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "working_tree_dirty": true,
+  "started_at": "2026-10-28T23:45:53.242957+00:00",
+  "finished_at": "2026-10-28T23:45:53.248961+00:00",
+  "status": "failed",
+  "exit_code": 1,
+  "artifact_paths": {
+    "run_directory": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234551.760573Z-aad6c6e45c0844e7ba553ff4df50e986\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\runs\\20261028T234553.227931Z-fc7b1f968e6a48c1bbcf5458d7a9776d",
+    "pytest_basetemp": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234551.760573Z-aad6c6e45c0844e7ba553ff4df50e986\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\runs\\20261028T234553.227931Z-fc7b1f968e6a48c1bbcf5458d7a9776d\\pytest-tmp",
+    "pytest_cache": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234551.760573Z-aad6c6e45c0844e7ba553ff4df50e986\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\cache\\focused-suite\\20261028T234553.227931Z-fc7b1f968e6a48c1bbcf5458d7a9776d",
+    "system_temp": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234551.760573Z-aad6c6e45c0844e7ba553ff4df50e986\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\runs\\20261028T234553.227931Z-fc7b1f968e6a48c1bbcf5458d7a9776d\\system-temp",
+    "isolated_user_data": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234551.760573Z-aad6c6e45c0844e7ba553ff4df50e986\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\runs\\20261028T234553.227931Z-fc7b1f968e6a48c1bbcf5458d7a9776d\\user-data",
+    "validation_report": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234551.760573Z-aad6c6e45c0844e7ba553ff4df50e986\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\runs\\20261028T234553.227931Z-fc7b1f968e6a48c1bbcf5458d7a9776d\\validation-report.json",
+    "run_report": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234551.760573Z-aad6c6e45c0844e7ba553ff4df50e986\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\reports\\20261028T234553.227931Z-fc7b1f968e6a48c1bbcf5458d7a9776d.json",
+    "failure_log": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234551.760573Z-aad6c6e45c0844e7ba553ff4df50e986\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\failures\\20261028T234553.227931Z-fc7b1f968e6a48c1bbcf5458d7a9776d.log"
+  },
+  "cleanup": {
+    "status": "not_performed",
+    "reason": "Phase 1 retains run and cache contents to protect database snapshots and unique evidence; no automated cleanup is performed.",
+    "removed_paths": [],
+    "retained_paths": [
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234551.760573Z-aad6c6e45c0844e7ba553ff4df50e986\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\runs\\20261028T234553.227931Z-fc7b1f968e6a48c1bbcf5458d7a9776d",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234551.760573Z-aad6c6e45c0844e7ba553ff4df50e986\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\cache\\focused-suite\\20261028T234553.227931Z-fc7b1f968e6a48c1bbcf5458d7a9776d",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234551.760573Z-aad6c6e45c0844e7ba553ff4df50e986\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\runs\\20261028T234553.227931Z-fc7b1f968e6a48c1bbcf5458d7a9776d\\system-temp",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234551.760573Z-aad6c6e45c0844e7ba553ff4df50e986\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\runs\\20261028T234553.227931Z-fc7b1f968e6a48c1bbcf5458d7a9776d\\user-data",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234551.760573Z-aad6c6e45c0844e7ba553ff4df50e986\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\reports\\20261028T234553.227931Z-fc7b1f968e6a48c1bbcf5458d7a9776d.json",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234551.760573Z-aad6c6e45c0844e7ba553ff4df50e986\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\failures\\20261028T234553.227931Z-fc7b1f968e6a48c1bbcf5458d7a9776d.log"
+    ]
+  }
+}

@@ -1,0 +1,212 @@
+Command: C:\Users\nourg\AppData\Local\Programs\Python\Python312\python.exe -m pytest tools\tests\test_testspace_runner.py -q --basetemp C:\Dev\Wyrdworks-TestSpace\runs\raid-plan-20261028-001\20261028T234938.479106Z-10d5b20615694952ade1408b5ad2e979\pytest-tmp -o cache_dir=C:\Dev\Wyrdworks-TestSpace\cache\raid-plan-20261028-001\20261028T234938.479106Z-10d5b20615694952ade1408b5ad2e979
+Source revision: 81719e51aa8eb6bccd18c0b93b535f152e775c2f
+Started at: 2026-10-28T23:49:38.513329+00:00
+Exit code: 1
+
+--- stdout ---
+F.FFFF                                                                   [100%]
+================================== FAILURES ===================================
+__________ test_each_run_gets_unique_scratch_and_task_specific_cache __________
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-plan-20261028-001/20261028T234938.479106Z-10d5b20615694952ade1408b5ad2e979/pytest-tmp/test_each_run_gets_unique_scra0')
+
+    def test_each_run_gets_unique_scratch_and_task_specific_cache(tmp_path):
+        root = tmp_path / "testspace"
+        root.mkdir()
+    
+>       first = testspace.create_run_layout(root, "combat-pilot")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tools\tests\test_testspace_runner.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tools\run_tests_in_testspace.py:99: in create_run_layout
+    system_temp = _ensure_child_directory(run_dir / "system-temp", run_dir)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tools\run_tests_in_testspace.py:51: in _ensure_child_directory
+    path.mkdir()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-plan-20261028-001/20261028T234938.479106Z-10d5b20615694952ade1408b5a...un_gets_unique_scra0/testspace/runs/combat-pilot/20261028T234940.046919Z-c01b80bf0dd740cc928331e418a7ef2c/system-temp')
+mode = 511, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-plan-20261028-001\\20261028T234938.479106Z-10d5b20615694952ade1408b5ad2e979\\pytest-tmp\\test_each_run_gets_unique_scra0\\testspace\\runs\\combat-pilot\\20261028T234940.046919Z-c01b80bf0dd740cc928331e418a7ef2c\\system-temp'
+
+C:\Users\nourg\AppData\Local\Programs\Python\Python312\Lib\pathlib.py:1311: FileNotFoundError
+_____ test_pytest_command_uses_testspace_paths_and_rejects_path_overrides _____
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-plan-20261028-001/20261028T234938.479106Z-10d5b20615694952ade1408b5ad2e979/pytest-tmp/test_pytest_command_uses_tests0')
+
+    def test_pytest_command_uses_testspace_paths_and_rejects_path_overrides(tmp_path):
+        root = tmp_path / "testspace"
+        root.mkdir()
+>       layout = testspace.create_run_layout(root, "focused-suite")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tools\tests\test_testspace_runner.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tools\run_tests_in_testspace.py:99: in create_run_layout
+    system_temp = _ensure_child_directory(run_dir / "system-temp", run_dir)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tools\run_tests_in_testspace.py:51: in _ensure_child_directory
+    path.mkdir()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-plan-20261028-001/20261028T234938.479106Z-10d5b20615694952ade1408b5a...command_uses_tests0/testspace/runs/focused-suite/20261028T234940.442134Z-23e27329fe0b4ae591c48d4090d21e8a/system-temp')
+mode = 511, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-plan-20261028-001\\20261028T234938.479106Z-10d5b20615694952ade1408b5ad2e979\\pytest-tmp\\test_pytest_command_uses_tests0\\testspace\\runs\\focused-suite\\20261028T234940.442134Z-23e27329fe0b4ae591c48d4090d21e8a\\system-temp'
+
+C:\Users\nourg\AppData\Local\Programs\Python\Python312\Lib\pathlib.py:1311: FileNotFoundError
+__ test_child_environment_isolates_writable_paths_and_preserves_eso_override __
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-plan-20261028-001/20261028T234938.479106Z-10d5b20615694952ade1408b5ad2e979/pytest-tmp/test_child_environment_isolate0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000210B9560F80>
+
+    def test_child_environment_isolates_writable_paths_and_preserves_eso_override(
+        tmp_path, monkeypatch
+    ):
+        root = tmp_path / "testspace"
+        root.mkdir()
+>       layout = testspace.create_run_layout(root, "focused-suite")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tools\tests\test_testspace_runner.py:67: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tools\run_tests_in_testspace.py:99: in create_run_layout
+    system_temp = _ensure_child_directory(run_dir / "system-temp", run_dir)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tools\run_tests_in_testspace.py:51: in _ensure_child_directory
+    path.mkdir()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-plan-20261028-001/20261028T234938.479106Z-10d5b20615694952ade1408b5a...nvironment_isolate0/testspace/runs/focused-suite/20261028T234940.524869Z-4ce3090e63764588b93c86f6ddfd87b8/system-temp')
+mode = 511, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-plan-20261028-001\\20261028T234938.479106Z-10d5b20615694952ade1408b5ad2e979\\pytest-tmp\\test_child_environment_isolate0\\testspace\\runs\\focused-suite\\20261028T234940.524869Z-4ce3090e63764588b93c86f6ddfd87b8\\system-temp'
+
+C:\Users\nourg\AppData\Local\Programs\Python\Python312\Lib\pathlib.py:1311: FileNotFoundError
+____ test_main_records_run_and_retains_failure_diagnostics[0-passed-False] ____
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-plan-20261028-001/20261028T234938.479106Z-10d5b20615694952ade1408b5ad2e979/pytest-tmp/test_main_records_run_and_reta0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000210B9561BE0>
+capsys = <_pytest.capture.CaptureFixture object at 0x00000210B9562A50>
+exit_code = 0, expected_status = 'passed', expected_failure_log = False
+
+    @pytest.mark.parametrize(
+        ("exit_code", "expected_status", "expected_failure_log"),
+        [(0, "passed", False), (1, "failed", True)],
+    )
+    def test_main_records_run_and_retains_failure_diagnostics(
+        tmp_path, monkeypatch, capsys, exit_code, expected_status, expected_failure_log
+    ):
+        repository = tmp_path / "repository"
+        repository.mkdir()
+        root = tmp_path / "testspace"
+        root.mkdir()
+        monkeypatch.setattr(testspace, "ROOT", repository)
+        monkeypatch.setattr(testspace, "_source_revision", lambda: ("a" * 40, True))
+        invocations = []
+    
+        def run(command, **options):
+            invocations.append((command, options))
+            return subprocess.CompletedProcess(
+                command, exit_code, stdout="pilot output\n", stderr="pilot diagnostic\n"
+            )
+    
+        monkeypatch.setattr(testspace.subprocess, "run", run)
+        result = testspace.main(
+            [
+                "--task",
+                "focused-suite",
+                "--owner",
+                "test-agent",
+                "--testspace-root",
+                str(root),
+                "--",
+                "tools/tests/test_example.py",
+                "-q",
+            ]
+        )
+    
+>       assert result == exit_code
+E       assert 2 == 0
+
+tools\tests\test_testspace_runner.py:119: AssertionError
+---------------------------- Captured stderr call -----------------------------
+Cannot safely prepare TestSpace run: [WinError 206] The filename or extension is too long: 'C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-plan-20261028-001\\20261028T234938.479106Z-10d5b20615694952ade1408b5ad2e979\\pytest-tmp\\test_main_records_run_and_reta0\\testspace\\runs\\focused-suite\\20261028T234940.621347Z-b51b99800da34fe195736677b03161f2\\system-temp'
+____ test_main_records_run_and_retains_failure_diagnostics[1-failed-True] _____
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-plan-20261028-001/20261028T234938.479106Z-10d5b20615694952ade1408b5ad2e979/pytest-tmp/test_main_records_run_and_reta1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000210B9561E50>
+capsys = <_pytest.capture.CaptureFixture object at 0x00000210B95609E0>
+exit_code = 1, expected_status = 'failed', expected_failure_log = True
+
+    @pytest.mark.parametrize(
+        ("exit_code", "expected_status", "expected_failure_log"),
+        [(0, "passed", False), (1, "failed", True)],
+    )
+    def test_main_records_run_and_retains_failure_diagnostics(
+        tmp_path, monkeypatch, capsys, exit_code, expected_status, expected_failure_log
+    ):
+        repository = tmp_path / "repository"
+        repository.mkdir()
+        root = tmp_path / "testspace"
+        root.mkdir()
+        monkeypatch.setattr(testspace, "ROOT", repository)
+        monkeypatch.setattr(testspace, "_source_revision", lambda: ("a" * 40, True))
+        invocations = []
+    
+        def run(command, **options):
+            invocations.append((command, options))
+            return subprocess.CompletedProcess(
+                command, exit_code, stdout="pilot output\n", stderr="pilot diagnostic\n"
+            )
+    
+        monkeypatch.setattr(testspace.subprocess, "run", run)
+        result = testspace.main(
+            [
+                "--task",
+                "focused-suite",
+                "--owner",
+                "test-agent",
+                "--testspace-root",
+                str(root),
+                "--",
+                "tools/tests/test_example.py",
+                "-q",
+            ]
+        )
+    
+>       assert result == exit_code
+E       assert 2 == 1
+
+tools\tests\test_testspace_runner.py:119: AssertionError
+---------------------------- Captured stderr call -----------------------------
+Cannot safely prepare TestSpace run: [WinError 206] The filename or extension is too long: 'C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-plan-20261028-001\\20261028T234938.479106Z-10d5b20615694952ade1408b5ad2e979\\pytest-tmp\\test_main_records_run_and_reta1\\testspace\\runs\\focused-suite\\20261028T234940.677204Z-9065531567144ecb9710d96e3abf3f84\\system-temp'
+=========================== short test summary info ===========================
+FAILED tools/tests/test_testspace_runner.py::test_each_run_gets_unique_scratch_and_task_specific_cache
+FAILED tools/tests/test_testspace_runner.py::test_pytest_command_uses_testspace_paths_and_rejects_path_overrides
+FAILED tools/tests/test_testspace_runner.py::test_child_environment_isolates_writable_paths_and_preserves_eso_override
+FAILED tools/tests/test_testspace_runner.py::test_main_records_run_and_retains_failure_diagnostics[0-passed-False]
+FAILED tools/tests/test_testspace_runner.py::test_main_records_run_and_retains_failure_diagnostics[1-failed-True]
+5 failed, 1 passed in 1.23s
+
+--- stderr ---

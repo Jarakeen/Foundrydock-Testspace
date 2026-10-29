@@ -1,0 +1,16 @@
+{
+  "maps": [
+    {
+      "encounter_id": "lokkestiiz",
+      "encounter_name": "Lokkestiiz",
+      "label": "Tamper Test",
+      "layout_path": "raid_maps/workshop/sunspire/lokkestiiz/738a08a84dff0dae/layout.json",
+      "map_id": "738a08a84dff0dae",
+      "preview_path": "raid_maps/workshop/sunspire/lokkestiiz/738a08a84dff0dae/preview.png",
+      "tags": [],
+      "trial_id": "sunspire",
+      "trial_name": "Sunspire"
+    }
+  ],
+  "schema_version": 1
+}

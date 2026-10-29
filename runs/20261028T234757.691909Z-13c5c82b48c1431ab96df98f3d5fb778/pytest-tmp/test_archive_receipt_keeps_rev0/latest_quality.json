@@ -1,0 +1,68 @@
+{
+  "suite": "quality",
+  "started_utc": "2026-10-28T23:48:08.367732+00:00",
+  "finished_utc": "2026-10-28T23:48:08.421946+00:00",
+  "command": [],
+  "checks": [
+    {
+      "name": "documentation contract",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "check"
+      ]
+    },
+    {
+      "name": "quality regression tests",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "check"
+      ]
+    },
+    {
+      "name": "encounter projection tests",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "check"
+      ]
+    },
+    {
+      "name": "dependency boundary",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "check"
+      ]
+    },
+    {
+      "name": "system architecture",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "check"
+      ]
+    }
+  ],
+  "code_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "tested_code_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "code_tree_unchanged": null,
+  "working_tree_dirty_at_start": null,
+  "pytest_arguments": [],
+  "branch": "wyrdworks-dev",
+  "working_tree_dirty": null,
+  "source_snapshot": {
+    "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "branch": "wyrdworks-dev",
+    "root": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\20261028T234757.691909Z-13c5c82b48c1431ab96df98f3d5fb778\\pytest-tmp\\test_archive_receipt_keeps_rev0"
+  },
+  "validation_context": {
+    "encounter_canonical_facts_available": true,
+    "encounter_source_assertions": "verified"
+  },
+  "python_version": "3.12.4",
+  "exit_code": 0,
+  "status": "passed",
+  "note": "A successful subprocess exit is not proof of Windows UI acceptance, safe fixture routing or full application completion."
+}

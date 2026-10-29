@@ -1,0 +1,13 @@
+[
+  "tools/tests/test_scheduled_validation_tracks.py::test_archive_provenance_rejects_mismatched_root",
+  "tools/tests/test_scheduled_validation_tracks.py::test_archive_receipt_keeps_revision_but_cannot_certify_clean_git",
+  "tools/tests/test_scheduled_validation_tracks.py::test_historical_reports_keep_legacy_scope",
+  "tools/tests/test_scheduled_validation_tracks.py::test_publisher_retains_source_and_suite_without_exporting_private_logs",
+  "tools/tests/test_scheduled_validation_tracks.py::test_scheduled_track_fetches_current_source_and_isolates_environment",
+  "tools/tests/test_scheduled_validation_tracks.py::test_track_configuration_rejects_unknown_or_coerced_scope[source_branch-arbitrary]",
+  "tools/tests/test_scheduled_validation_tracks.py::test_track_configuration_rejects_unknown_or_coerced_scope[suite-True]",
+  "tools/tests/test_scheduled_validation_tracks.py::test_track_configuration_rejects_unknown_or_coerced_scope[suite-arbitrary]",
+  "tools/tests/test_scheduled_validation_tracks.py::test_tracks_select_maintained_targets_and_keep_documentation_and_architecture[integration]",
+  "tools/tests/test_scheduled_validation_tracks.py::test_tracks_select_maintained_targets_and_keep_documentation_and_architecture[intelligence]",
+  "tools/tests/test_scheduled_validation_tracks.py::test_tracks_select_maintained_targets_and_keep_documentation_and_architecture[ui]"
+]

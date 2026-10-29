@@ -1,0 +1,16 @@
+{
+  "maps": [
+    {
+      "encounter_id": "lokkestiiz",
+      "encounter_name": "Lokkestiiz",
+      "label": "New Name",
+      "layout_path": "raid_maps/workshop/sunspire/lokkestiiz/0ac857816b6bb460/layout.json",
+      "map_id": "0ac857816b6bb460",
+      "preview_path": "raid_maps/workshop/sunspire/lokkestiiz/0ac857816b6bb460/preview.png",
+      "tags": [],
+      "trial_id": "sunspire",
+      "trial_name": "Sunspire"
+    }
+  ],
+  "schema_version": 1
+}

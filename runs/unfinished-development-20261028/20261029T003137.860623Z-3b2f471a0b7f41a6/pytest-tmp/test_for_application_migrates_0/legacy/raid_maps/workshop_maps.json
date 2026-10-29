@@ -1,0 +1,16 @@
+{
+  "maps": [
+    {
+      "encounter_id": "oaxiltso",
+      "encounter_name": "Oaxiltso",
+      "label": "Legacy Workshop",
+      "layout_path": "raid_maps/workshop/rockgrove/oaxiltso/51d274edfa368e0b/layout.json",
+      "map_id": "51d274edfa368e0b",
+      "preview_path": "raid_maps/workshop/rockgrove/oaxiltso/51d274edfa368e0b/preview.png",
+      "tags": [],
+      "trial_id": "rockgrove",
+      "trial_name": "Rockgrove"
+    }
+  ],
+  "schema_version": 1
+}

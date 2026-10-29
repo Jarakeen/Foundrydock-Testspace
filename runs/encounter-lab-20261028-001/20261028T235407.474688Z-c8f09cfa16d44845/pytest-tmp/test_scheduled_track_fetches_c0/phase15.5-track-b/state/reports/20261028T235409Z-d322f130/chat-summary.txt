@@ -1,0 +1,5 @@
+FoundryDock phase15.5-track-b aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+baseline: unchanged
+
+Track suite: ui; source branch: wyrdworks-dev. Disposable tracked corpus and offscreen regression only; no live-data, installed Windows UI, merge or deployment certification.
+Logs: C:\Dev\Wyrdworks-TestSpace\runs\encounter-lab-20261028-001\20261028T235407.474688Z-c8f09cfa16d44845\pytest-tmp\test_scheduled_track_fetches_c0\phase15.5-track-b\state\reports\20261028T235409Z-d322f130

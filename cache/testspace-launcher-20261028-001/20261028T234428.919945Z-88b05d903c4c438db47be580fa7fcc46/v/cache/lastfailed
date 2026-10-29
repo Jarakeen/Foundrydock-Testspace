@@ -1,0 +1,4 @@
+{
+  "tools/tests/test_testspace_runner.py::test_main_records_run_and_retains_failure_diagnostics[0-passed-False]": true,
+  "tools/tests/test_testspace_runner.py::test_main_records_run_and_retains_failure_diagnostics[1-failed-True]": true
+}

@@ -1,0 +1,19 @@
+{
+  "maps": [
+    {
+      "encounter_id": "lokkestiiz",
+      "encounter_name": "Lokkestiiz",
+      "label": "Share Me",
+      "layout_path": "raid_maps/workshop/sunspire/lokkestiiz/71706ef34d80fe08/layout.json",
+      "map_id": "71706ef34d80fe08",
+      "preview_path": "raid_maps/workshop/sunspire/lokkestiiz/71706ef34d80fe08/preview.png",
+      "tags": [
+        "hm",
+        "house stacks"
+      ],
+      "trial_id": "sunspire",
+      "trial_name": "Sunspire"
+    }
+  ],
+  "schema_version": 1
+}

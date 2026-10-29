@@ -1,0 +1,1 @@
+{"encounter_id":"x","evidence":[{"fact_type":"mechanic_detail","fact_key":"timer","value":{"duration_seconds":10},"source_type":"guide","source_name":"A"},{"fact_type":"mechanic_detail","fact_key":"timer","value":{"duration_seconds":12},"source_type":"guide","source_name":"B"}]}

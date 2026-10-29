@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "boss_count": 1,
+  "items": [
+    {
+      "kind": "player",
+      "label": "Healer1 initial",
+      "color": "#FFFFFF",
+      "x": 75.0,
+      "y": 120.0,
+      "radius": 16.0,
+      "seat_id": "healer-1",
+      "object_id": "",
+      "visible": true,
+      "locked": false,
+      "phase": ""
+    }
+  ],
+  "mini_bosses": [],
+  "zones": [],
+  "annotations": [],
+  "raid_plan_id": "plan-a",
+  "background_map": "",
+  "route_note": "",
+  "route_annotation_id": "",
+  "package_view": null,
+  "movement_plan": null,
+  "reference_points_locked": false,
+  "formation_key": "",
+  "text_color": "#FFFFFF",
+  "text_weight": 600
+}

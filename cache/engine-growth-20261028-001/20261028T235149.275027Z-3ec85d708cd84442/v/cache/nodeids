@@ -1,0 +1,10 @@
+[
+  "tools/tests/test_phase155_combat_pre_push.py::test_combat_path_filter_covers_engine_and_saved_build_boundaries",
+  "tools/tests/test_phase155_combat_pre_push.py::test_combat_path_filter_skips_unrelated_changes",
+  "tools/tests/test_phase155_combat_pre_push.py::test_default_push_uses_focused_checks_and_propagates_failure",
+  "tools/tests/test_phase155_combat_pre_push.py::test_engine_suite_targets_exist_and_include_consumer_boundaries",
+  "tools/tests/test_phase155_combat_pre_push.py::test_focused_checks_isolate_data_and_temporary_files",
+  "tools/tests/test_phase155_combat_pre_push.py::test_focused_push_selects_direct_tests_and_hook_contracts",
+  "tools/tests/test_phase155_combat_pre_push.py::test_pre_push_routes_engine_changes_to_their_local_suites",
+  "tools/tests/test_phase155_combat_pre_push.py::test_pre_push_updates_require_four_fields"
+]

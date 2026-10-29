@@ -1,0 +1,12 @@
+{
+  "encounters": {
+    "lokkestiiz": [
+      {
+        "label": "Inline tests • Lokkestiiz",
+        "map_id": "6f8faf09101f478f",
+        "relative_path": "raid_maps/bosses/lokkestiiz/6f8faf09101f478f.png"
+      }
+    ]
+  },
+  "schema_version": 1
+}

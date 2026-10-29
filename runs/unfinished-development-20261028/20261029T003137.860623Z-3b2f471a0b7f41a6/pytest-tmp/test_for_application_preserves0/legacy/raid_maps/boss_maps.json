@@ -1,0 +1,12 @@
+{
+  "encounters": {
+    "oaxiltso": [
+      {
+        "label": "Legacy Conflict",
+        "map_id": "legacy-conflict",
+        "relative_path": "raid_maps/bosses/oaxiltso/conflict.png"
+      }
+    ]
+  },
+  "schema_version": 1
+}

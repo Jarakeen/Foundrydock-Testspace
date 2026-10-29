@@ -1,0 +1,16 @@
+{
+  "maps": [
+    {
+      "encounter_id": "lokkestiiz",
+      "encounter_name": "Lokkestiiz",
+      "label": "Background Conflict",
+      "layout_path": "raid_maps/workshop/sunspire/lokkestiiz/dd2b6654c05270cc/layout.json",
+      "map_id": "dd2b6654c05270cc",
+      "preview_path": "raid_maps/workshop/sunspire/lokkestiiz/dd2b6654c05270cc/preview.png",
+      "tags": [],
+      "trial_id": "sunspire",
+      "trial_name": "Sunspire"
+    }
+  ],
+  "schema_version": 1
+}

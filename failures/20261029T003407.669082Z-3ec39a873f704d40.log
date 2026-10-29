@@ -1,0 +1,219 @@
+Command: C:\Users\nourg\AppData\Local\Programs\Python\Python312\python.exe -m pytest ui/tests/test_track_b_coverage_recovery.py -q --basetemp C:\Dev\Wyrdworks-TestSpace\runs\unfinished-development-20261028\20261029T003407.669082Z-3ec39a873f704d40\pytest-tmp -o cache_dir=C:\Dev\Wyrdworks-TestSpace\cache\unfinished-development-20261028\20261029T003407.669082Z-3ec39a873f704d40
+Source revision: 7f3c8cc414c33cae54d558b7de395f30f80789c1
+Started at: 2026-10-29T00:34:07.689607+00:00
+Exit code: 1
+
+--- stdout ---
+FFFF                                                                     [100%]
+================================== FAILURES ===================================
+________ test_coverage_failed_evidence_does_not_read_manual_plan_again ________
+
+    def test_coverage_failed_evidence_does_not_read_manual_plan_again():
+        """A failed read must display unknown, not rethrow while rendering stale providers."""
+        from types import SimpleNamespace
+        from ui.phase15_coverage_page import Phase15CoveragePage
+    
+        def unexpected_plan_read(name):
+            raise AssertionError("failed repository must not be re-read")
+    
+        page = SimpleNamespace(
+            _coverage_evidence_error=True,
+            _manual_for=unexpected_plan_read,
+            _personal_effect_audits={"major slayer": SimpleNamespace(total_count=12, covered_count=12)},
+            _coverage_snapshot=object(),
+            _coverage_scope_cache=object(),
+            _loaded_plan_id="plan-b",
+        )
+>       assert Phase15CoveragePage._status(page, "Major Slayer") == (
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            "Needs Review", "", "Build evidence could not be evaluated"
+        )
+
+ui\tests\test_track_b_coverage_recovery.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = namespace(_coverage_evidence_error=True, _manual_for=<function test_coverage_failed_evidence_does_not_read_manual_plan...t object at 0x000001C53931E6F0>, _coverage_scope_cache=<object object at 0x000001C53931E700>, _loaded_plan_id='plan-b')
+name = 'Major Slayer'
+
+    def _status(self,name: str) -> tuple[str,str,str]:
+        personal = self._personal_effect_audits.get(str(name or "").strip().casefold())
+        if personal is not None and personal.total_count:
+            provider = f"{personal.covered_count} / {personal.total_count} players"
+>           if personal.missing_count or personal.review_count:
+               ^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: 'types.SimpleNamespace' object has no attribute 'missing_count'
+
+ui\phase15_coverage_page.py:813: AttributeError
+________ test_coverage_refresh_clears_all_rows_after_late_plan_failure ________
+
+    def test_coverage_refresh_clears_all_rows_after_late_plan_failure():
+        """A late plan error invalidates even rows rendered earlier in the same audit."""
+        from types import SimpleNamespace
+        from PySide6.QtWidgets import QApplication, QTableWidget, QTableWidgetItem
+        from ui.phase15_coverage_page import Phase15CoveragePage
+    
+        app = QApplication.instance() or QApplication([])
+        rows = [SimpleNamespace(name="Major Slayer"), SimpleNamespace(name="Major Courage")]
+        table = QTableWidget(2, 5)
+        for row in range(2):
+            for col in (2, 3, 4):
+                table.setItem(row, col, QTableWidgetItem("Old proof"))
+    
+        class Text:
+            def setText(self, text):
+                self.value = text
+    
+        labels = [Text() for _ in range(3)]
+        filters = {key: Text() for key in ("All", "Missing", "Needs Review", "Covered")}
+        page = SimpleNamespace(
+            _manual_dirty=False, _interaction_generation=0,
+            _interaction_review=None, _interaction_bindings=None,
+            interaction_inspector=SimpleNamespace(clear_review=lambda: None),
+            _intelligence_snapshot=object(), _plan_cache=None,
+            _effective_plan_cache=None, _effective_plan_cache_key=None,
+            stage_controller=SimpleNamespace(plan_id="new-plan", context_key="boss"),
+            _current_context_key=lambda: "boss",
+            _display_coverage_status=lambda name, status: (status, status),
+            _compact_source_note=lambda note: note,
+            _coverage_snapshot=object(), _coverage_scope_cache=object(),
+            _coverage_build_revision="previous", _personal_effect_audits={},
+            _routine_proc_plans=("old",), _build_source_notes={},
+            _coverage_evidence_error=False, _rows=rows, table=table,
+            covered_card=(None, labels[0]), missing_card=(None, labels[1]),
+            review_card=(None, labels[2]), filter_buttons=filters,
+            _refresh_detail=lambda: None, _refresh_team_interactions=lambda: None,
+            _apply_filter=lambda: None, _loading=False,
+        )
+        page._build_coverage_evidence = lambda: None
+        calls = [0]
+        def status(name):
+            calls[0] += 1
+            if calls[0] == 2:
+                page._coverage_evidence_error = True
+                return "Needs Review", "", "Raid Plan evidence became unavailable"
+            return "Covered", "Old provider", "Old source"
+        page._status = status
+    
+>       Phase15CoveragePage.refresh(page)
+
+ui\tests\test_track_b_coverage_recovery.py:70: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = namespace(_manual_dirty=False, _interaction_generation=1, _interaction_review=None, _interaction_bindings=None, intera..._status=<function test_coverage_refresh_clears_all_rows_after_late_plan_failure.<locals>.status at 0x000001C53F63E2A0>)
+
+    def refresh(self) -> None:
+        if self._manual_dirty and not self.flush_pending_changes():
+            return
+        self._interaction_generation += 1
+        self._interaction_review = None
+        self._interaction_bindings = None
+        self.interaction_inspector.clear_review()
+        if self._intelligence_snapshot is None:
+            try:
+                self._intelligence_snapshot = self.intelligence.snapshot(consumer="comp_maker")
+                self.intelligence_info.setText(
+                    "Covered = planned provider or equipped support.\n"
+                    "Routine healing and Ultimate procs count for planning."
+                )
+                self.intelligence_info.setToolTip(self._intelligence_snapshot.summary)
+            except Exception:
+                self.intelligence_info.setText(
+                    "Coverage is the home for buff & debuff planning.\n"
+                    "Known Sources come from canonical ESO reference data.\n"
+                    "Shared intelligence is unavailable."
+                )
+        self._loading = True
+        try:
+            self._plan_cache = None
+            self._effective_plan_cache = None
+            self._effective_plan_cache_key = None
+>           plan = self._current_plan()
+                   ^^^^^^^^^^^^^^^^^^
+E           AttributeError: 'types.SimpleNamespace' object has no attribute '_current_plan'
+
+ui\phase15_coverage_page.py:921: AttributeError
+_______ test_coverage_status_recovers_after_transient_plan_read_failure _______
+
+    def test_coverage_status_recovers_after_transient_plan_read_failure():
+        """Recovery must use a fresh provider, not the last failed audit."""
+        from types import SimpleNamespace
+        from ui.phase15_coverage_page import Phase15CoveragePage
+    
+        current = {"readable": False}
+        provider = SimpleNamespace(seat_id="Healer1", source="Fresh planned provider")
+        member = SimpleNamespace(name="Recovered healer")
+    
+        def load_provider(_effect):
+            if not current["readable"]:
+                raise OSError("temporary read failure")
+            return provider
+    
+        plan = SimpleNamespace(member=lambda seat: member)
+        page = SimpleNamespace(
+            _coverage_evidence_error=False,
+            _personal_effect_audits={},
+            _manual_for=load_provider,
+            _current_plan=lambda: plan,
+            _member_label=lambda value: value.name,
+        )
+>       failed = Phase15CoveragePage._status(page, "Major Courage")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ui\tests\test_track_b_coverage_recovery.py:105: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+ui\phase15_coverage_page.py:822: in _status
+    provider=self._manual_for(name)
+             ^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+_effect = 'Major Courage'
+
+    def load_provider(_effect):
+        if not current["readable"]:
+>           raise OSError("temporary read failure")
+E           OSError: temporary read failure
+
+ui\tests\test_track_b_coverage_recovery.py:94: OSError
+_____ test_coverage_sqlite_read_failure_during_status_render_fails_closed _____
+
+    def test_coverage_sqlite_read_failure_during_status_render_fails_closed():
+        """sqlite3 failures are not OSError: preserve unknown rather than stale coverage."""
+        from sqlite3 import OperationalError
+        from types import SimpleNamespace
+        from ui.phase15_coverage_page import Phase15CoveragePage
+    
+        def fail(_name):
+            raise OperationalError("database is locked")
+    
+        page = SimpleNamespace(
+            _coverage_evidence_error=False,
+            _personal_effect_audits={},
+            _manual_for=fail,
+        )
+>       assert Phase15CoveragePage._status(page, "Major Courage") == (
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            "Needs Review", "", "Raid Plan evidence became unavailable"
+        )
+
+ui\tests\test_track_b_coverage_recovery.py:131: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+ui\phase15_coverage_page.py:822: in _status
+    provider=self._manual_for(name)
+             ^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+_name = 'Major Courage'
+
+    def fail(_name):
+>       raise OperationalError("database is locked")
+E       sqlite3.OperationalError: database is locked
+
+ui\tests\test_track_b_coverage_recovery.py:124: OperationalError
+=========================== short test summary info ===========================
+FAILED ui/tests/test_track_b_coverage_recovery.py::test_coverage_failed_evidence_does_not_read_manual_plan_again
+FAILED ui/tests/test_track_b_coverage_recovery.py::test_coverage_refresh_clears_all_rows_after_late_plan_failure
+FAILED ui/tests/test_track_b_coverage_recovery.py::test_coverage_status_recovers_after_transient_plan_read_failure
+FAILED ui/tests/test_track_b_coverage_recovery.py::test_coverage_sqlite_read_failure_during_status_render_fails_closed
+4 failed in 3.19s
+
+--- stderr ---

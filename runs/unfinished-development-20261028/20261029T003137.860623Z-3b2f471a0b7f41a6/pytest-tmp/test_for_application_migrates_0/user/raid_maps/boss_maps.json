@@ -1,0 +1,12 @@
+{
+  "encounters": {
+    "oaxiltso": [
+      {
+        "label": "Legacy Oaxiltso",
+        "map_id": "6392df3df374f1b3",
+        "relative_path": "raid_maps/bosses/oaxiltso/6392df3df374f1b3.png"
+      }
+    ]
+  },
+  "schema_version": 1
+}

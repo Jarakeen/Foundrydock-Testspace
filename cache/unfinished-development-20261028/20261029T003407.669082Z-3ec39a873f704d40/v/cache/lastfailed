@@ -1,0 +1,6 @@
+{
+  "ui/tests/test_track_b_coverage_recovery.py::test_coverage_failed_evidence_does_not_read_manual_plan_again": true,
+  "ui/tests/test_track_b_coverage_recovery.py::test_coverage_refresh_clears_all_rows_after_late_plan_failure": true,
+  "ui/tests/test_track_b_coverage_recovery.py::test_coverage_status_recovers_after_transient_plan_read_failure": true,
+  "ui/tests/test_track_b_coverage_recovery.py::test_coverage_sqlite_read_failure_during_status_render_fails_closed": true
+}

@@ -1,0 +1,12 @@
+{
+  "encounters": {
+    "lokkestiiz": [
+      {
+        "label": "Plan A • Lokkestiiz",
+        "map_id": "6c44c7bf92d7f748",
+        "relative_path": "raid_maps/bosses/lokkestiiz/6c44c7bf92d7f748.png"
+      }
+    ]
+  },
+  "schema_version": 1
+}

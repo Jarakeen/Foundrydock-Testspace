@@ -1,0 +1,35 @@
+{
+  "maps": [
+    {
+      "encounter_id": "lokkestiiz",
+      "encounter_name": "Lokkestiiz",
+      "label": "Tagged Map Copy",
+      "layout_path": "raid_maps/workshop/sunspire/lokkestiiz/cdb5b098e7a4f3d6/layout.json",
+      "map_id": "cdb5b098e7a4f3d6",
+      "preview_path": "raid_maps/workshop/sunspire/lokkestiiz/cdb5b098e7a4f3d6/preview.png",
+      "tags": [
+        "house stacks",
+        "Portal",
+        "kite healer"
+      ],
+      "trial_id": "sunspire",
+      "trial_name": "Sunspire"
+    },
+    {
+      "encounter_id": "lokkestiiz",
+      "encounter_name": "Lokkestiiz",
+      "label": "Tagged Map Revised",
+      "layout_path": "raid_maps/workshop/sunspire/lokkestiiz/518c3dd1f1d8fc32/layout.json",
+      "map_id": "518c3dd1f1d8fc32",
+      "preview_path": "raid_maps/workshop/sunspire/lokkestiiz/518c3dd1f1d8fc32/preview.png",
+      "tags": [
+        "house stacks",
+        "Portal",
+        "kite healer"
+      ],
+      "trial_id": "sunspire",
+      "trial_name": "Sunspire"
+    }
+  ],
+  "schema_version": 1
+}

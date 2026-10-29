@@ -1,0 +1,62 @@
+Command: C:\Users\nourg\AppData\Local\Programs\Python\Python312\python.exe -m pytest services/tests/test_comp_brainstorm_draft_build_service.py services/tests/test_comp_brainstorm_quick_entry_service.py services/tests/test_reusable_movement_plan.py ui/tests/test_track_b_coverage_recovery.py -q --basetemp C:\Dev\Wyrdworks-TestSpace\runs\unfinished-development-20261028\20261029T003627.322311Z-c3d017b71aa341c0\pytest-tmp -o cache_dir=C:\Dev\Wyrdworks-TestSpace\cache\unfinished-development-20261028\20261029T003627.322311Z-c3d017b71aa341c0
+Source revision: 7f3c8cc414c33cae54d558b7de395f30f80789c1
+Started at: 2026-10-29T00:36:27.381686+00:00
+Exit code: 1
+
+--- stdout ---
+...........F...........................                                  [100%]
+================================== FAILURES ===================================
+______ test_quick_entry_all_dd_trash_overrides_survive_draft_build_save _______
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/unfinished-development-20261028/20261029T003627.322311Z-c3d017b71aa341c0/pytest-tmp/test_quick_entry_all_dd_trash_0')
+
+    def test_quick_entry_all_dd_trash_overrides_survive_draft_build_save(tmp_path: Path) -> None:
+        """All affected DDs keep Sul-Xan in both trash variants, not boss/baseline."""
+        from services.comp_brainstorm_draft_service import (
+            BrainstormContextDraft, BrainstormSeatDraft, CompBrainstormDraft,
+        )
+        from services.comp_brainstorm_draft_build_service import context_from_brainstorm
+        from services.comp_brainstorm_quick_entry_service import (
+            CompBrainstormQuickEntryService, QuickEntryParticipant,
+            apply_gear_swap_to_draft,
+        )
+    
+        old = "Perfected Slivers of the Null Arca"
+        new = "Perfected Sul-Xan's Torment"
+        roster = RosterService(EsoDatabase(tmp_path / "foundrydock.db"))
+        participants = tuple(
+            QuickEntryParticipant(seat_id=f"dd-{index}", player_label=f"DD {index}", role="dd")
+            for index in range(1, 9)
+        )
+        ids = {
+>           index: roster.create_member(
+                RosterMember(
+                    PlayerName=f"DD {index}",
+                    CharacterName=f"Character {index}",
+                    EsoClass="Necromancer",
+                    PrimaryRole="DD",
+                )
+            )
+            for index in range(1, 9)
+        }
+
+services\tests\test_comp_brainstorm_draft_build_service.py:264: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <services.roster_service.RosterService object at 0x000001D15DABAC30>
+member = RosterMember(Id=None, PlayerName='DD 1', CharacterName='Character 1', EsoClass='Necromancer', PrimaryRole='DD', Second...ive', Team='', CanonicalPlayerId='', CanonicalCharacterId='', DiscordName='', YouTube='', Twitch='', PersonnelNotes='')
+
+    def create_member(self, member: RosterMember) -> int:
+        member = self._validated_member(member)
+        if is_personnel_placeholder(member.PlayerName):
+>           raise ValueError(
+                f"{member.PlayerName!r} is a planning placeholder, not a Personnel player"
+            )
+E           ValueError: 'DD 1' is a planning placeholder, not a Personnel player
+
+services\roster_service.py:565: ValueError
+=========================== short test summary info ===========================
+FAILED services/tests/test_comp_brainstorm_draft_build_service.py::test_quick_entry_all_dd_trash_overrides_survive_draft_build_save
+1 failed, 38 passed in 8.45s
+
+--- stderr ---

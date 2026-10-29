@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "steps": [
+    {
+      "name": "Start",
+      "note": "Opening position",
+      "duration_seconds": 2.0,
+      "items": []
+    }
+  ]
+}

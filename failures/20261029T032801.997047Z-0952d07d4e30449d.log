@@ -1,0 +1,768 @@
+Command: C:\Users\nourg\AppData\Local\Programs\Python\Python312\python.exe -m pytest ui/tests/test_inline_raid_map.py ui/tests/test_raid_plan_viewport_geometry.py ui/tests/test_raid_plan_sidebar_map_geometry.py ui/tests/test_raid_plan_mechanics_geometry_cleanup.py ui/tests/test_raid_map_toolbar_compaction.py services/tests/test_encounter_movement_route_preview.py services/tests/test_reusable_movement_plan.py ui/tests/test_movement_plan_editor.py -q --basetemp C:\Dev\Wyrdworks-TestSpace\runs\raid-map-merge\20261029T032801.997047Z-0952d07d4e30449d\pytest-tmp -o cache_dir=C:\Dev\Wyrdworks-TestSpace\cache\raid-map-merge\20261029T032801.997047Z-0952d07d4e30449d
+Source revision: 87ed763e4ce1c0a6c5f80323a2fcffbdf7d27edc
+Started at: 2026-10-29T03:28:01.997047+00:00
+Exit code: 1
+
+--- stdout ---
+EE.EEEE.EEEEEEEEEE...EE........................                          [100%]
+=================================== ERRORS ====================================
+_ ERROR at setup of test_click_tools_route_handles_undo_and_scope_persistence _
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_click_tools_route_handles0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249DCD33620>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249e23e3030) at 0x00000249E1195400> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249dc546700) at 0x00000249E095A000> is <ui.components.encounter_board.EncounterBoardView(0x249def31340) at 0x00000249E1197FC0>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249e23e3030) at 0x00000249E1195400> = <ui.components.inline_raid_map.InlineRaidMap(0x249dedf10c0, name="inlineRaidMap") at 0x00000249E095A380>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249dc546700) at 0x00000249E095A000> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249E0932740>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249E0932740> = <ui.components.inline_raid_map.SquareMapCanvas(0x249dedf1e40) at 0x00000249E0932740>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249dedf1e40) at 0x00000249E0932740> = <ui.components.inline_raid_map.InlineRaidMap(0x249dedf10c0, name="inlineRaidMap") at 0x00000249E095A380>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249def31340) at 0x00000249E1197FC0> = <ui.components.encounter_board.EncounterBoard(0x249e23e3030) at 0x00000249E1195400>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249e23e3030) at 0x00000249E1195400> = <ui.components.inline_raid_map.InlineRaidMap(0x249dedf10c0, name="inlineRaidMap") at 0x00000249E095A380>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+_______ ERROR at setup of test_circle_rectangle_target_and_unique_seats _______
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_circle_rectangle_target_a0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249E0FE16D0>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249e24fdcc0) at 0x00000249E0926CC0> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249def31340) at 0x00000249E162B8C0> is <ui.components.encounter_board.EncounterBoardView(0x249ded2d7a0) at 0x00000249E15B0980>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249e24fdcc0) at 0x00000249E0926CC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e27c0, name="inlineRaidMap") at 0x00000249E0958680>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249def31340) at 0x00000249E162B8C0> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249E09313C0>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249E09313C0> = <ui.components.inline_raid_map.SquareMapCanvas(0x249e23decb0) at 0x00000249E09313C0>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249e23decb0) at 0x00000249E09313C0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e27c0, name="inlineRaidMap") at 0x00000249E0958680>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249ded2d7a0) at 0x00000249E15B0980> = <ui.components.encounter_board.EncounterBoard(0x249e24fdcc0) at 0x00000249E0926CC0>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249e24fdcc0) at 0x00000249E0926CC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e27c0, name="inlineRaidMap") at 0x00000249E0958680>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+_ ERROR at setup of test_freehand_wheel_zoom_hidden_object_recovery_and_locked_state _
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_freehand_wheel_zoom_hidde0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249E12B8890>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249dedd7c10) at 0x00000249DF887CC0> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249ded2d7a0) at 0x00000249E094F9C0> is <ui.components.encounter_board.EncounterBoardView(0x249ded2c630) at 0x00000249E1628980>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249dedd7c10) at 0x00000249DF887CC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249E094F000>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249ded2d7a0) at 0x00000249E094F9C0> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249E166DBC0>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249E166DBC0> = <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2b20) at 0x00000249E166DBC0>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2b20) at 0x00000249E166DBC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249E094F000>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249ded2c630) at 0x00000249E1628980> = <ui.components.encounter_board.EncounterBoard(0x249dedd7c10) at 0x00000249DF887CC0>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249dedd7c10) at 0x00000249DF887CC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249E094F000>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+_ ERROR at setup of test_inspector_collapse_and_image_import_preserve_objects _
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_inspector_collapse_and_im0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249E0FE2150>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249e2997150) at 0x00000249E0926340> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249ded2be70) at 0x00000249E165A280> is <ui.components.encounter_board.EncounterBoardView(0x249ded2cc00) at 0x00000249DF41C500>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249e2997150) at 0x00000249E0926340> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e1a40, name="inlineRaidMap") at 0x00000249E1643800>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249ded2be70) at 0x00000249E165A280> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249E0FF6980>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249E0FF6980> = <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2100) at 0x00000249E0FF6980>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2100) at 0x00000249E0FF6980> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e1a40, name="inlineRaidMap") at 0x00000249E1643800>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249ded2cc00) at 0x00000249DF41C500> = <ui.components.encounter_board.EncounterBoard(0x249e2997150) at 0x00000249E0926340>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249e2997150) at 0x00000249E0926340> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e1a40, name="inlineRaidMap") at 0x00000249E1643800>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+_ ERROR at setup of test_default_map_is_visible_without_claiming_reviewed_encounter_art _
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_default_map_is_visible_wi0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249E12B8DA0>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249dee8f0f0) at 0x00000249E12E0C40> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249def31910) at 0x00000249E121D940> is <ui.components.encounter_board.EncounterBoardView(0x249ded2c630) at 0x00000249E1366CC0>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249dee8f0f0) at 0x00000249E12E0C40> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249E15F93C0>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249def31910) at 0x00000249E121D940> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249E1281B80>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249E1281B80> = <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2b20) at 0x00000249E1281B80>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2b20) at 0x00000249E1281B80> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249E15F93C0>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249ded2c630) at 0x00000249E1366CC0> = <ui.components.encounter_board.EncounterBoard(0x249dee8f0f0) at 0x00000249E12E0C40>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249dee8f0f0) at 0x00000249E12E0C40> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249E15F93C0>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+_ ERROR at setup of test_built_in_map_selection_is_available_from_this_screen _
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_built_in_map_selection_is0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249E1368230>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249dc633a80) at 0x00000249E1636340> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249def30f60) at 0x00000249E16369C0> is <ui.components.encounter_board.EncounterBoardView(0x249ded2c630) at 0x00000249E1636400>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249dc633a80) at 0x00000249E1636340> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e22b0, name="inlineRaidMap") at 0x00000249E12A0040>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249def30f60) at 0x00000249E16369C0> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249E0926180>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249E0926180> = <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2610) at 0x00000249E0926180>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2610) at 0x00000249E0926180> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e22b0, name="inlineRaidMap") at 0x00000249E12A0040>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249ded2c630) at 0x00000249E1636400> = <ui.components.encounter_board.EncounterBoard(0x249dc633a80) at 0x00000249E1636340>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249dc633a80) at 0x00000249E1636340> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e22b0, name="inlineRaidMap") at 0x00000249E12A0040>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+__ ERROR at setup of test_hand_pans_without_editing_and_toolbar_delete_undo ___
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_hand_pans_without_editing0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249E1334920>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249e2c52de0) at 0x00000249DCF1CC00> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249ded2db80) at 0x00000249E1325C40> is <ui.components.encounter_board.EncounterBoardView(0x249ded2d7a0) at 0x00000249E12A1840>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249e2c52de0) at 0x00000249DCF1CC00> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2460, name="inlineRaidMap") at 0x00000249E1214B00>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249ded2db80) at 0x00000249E1325C40> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249E1325BC0>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249E1325BC0> = <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e27c0) at 0x00000249E1325BC0>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e27c0) at 0x00000249E1325BC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2460, name="inlineRaidMap") at 0x00000249E1214B00>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249ded2d7a0) at 0x00000249E12A1840> = <ui.components.encounter_board.EncounterBoard(0x249e2c52de0) at 0x00000249DCF1CC00>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249e2c52de0) at 0x00000249DCF1CC00> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2460, name="inlineRaidMap") at 0x00000249E1214B00>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+_ ERROR at setup of test_sidebar_toggles_preserve_outer_scroll_with_live_map __
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_sidebar_toggles_preserve_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249DD49C140>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249defa7c90) at 0x00000249E08BFCC0> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249e50a02a0) at 0x00000249E1271F00> is <ui.components.encounter_board.EncounterBoardView(0x249e50a0a60) at 0x00000249E1281840>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249defa7c90) at 0x00000249E08BFCC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e1da0, name="inlineRaidMap") at 0x00000249E1283740>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249e50a02a0) at 0x00000249E1271F00> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249E103CA00>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249E103CA00> = <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2460) at 0x00000249E103CA00>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2460) at 0x00000249E103CA00> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e1da0, name="inlineRaidMap") at 0x00000249E1283740>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249e50a0a60) at 0x00000249E1281840> = <ui.components.encounter_board.EncounterBoard(0x249defa7c90) at 0x00000249E08BFCC0>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249defa7c90) at 0x00000249E08BFCC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e1da0, name="inlineRaidMap") at 0x00000249E1283740>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+_ ERROR at setup of test_raid_plan_frames_are_material_scoped_and_geometry_neutral _
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_raid_plan_frames_are_mate0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249DD5A4DA0>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249e242e810) at 0x00000249DD546CC0> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249e50a1220) at 0x00000249E12E7E00> is <ui.components.encounter_board.EncounterBoardView(0x249e50a1030) at 0x00000249DCE36340>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249e242e810) at 0x00000249DD546CC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e1bf0, name="inlineRaidMap") at 0x00000249E14B2500>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249e50a1220) at 0x00000249E12E7E00> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249DCD4F380>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249DCD4F380> = <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e1f50) at 0x00000249DCD4F380>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e1f50) at 0x00000249DCD4F380> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e1bf0, name="inlineRaidMap") at 0x00000249E14B2500>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249e50a1030) at 0x00000249DCE36340> = <ui.components.encounter_board.EncounterBoard(0x249e242e810) at 0x00000249DD546CC0>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249e242e810) at 0x00000249DD546CC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e1bf0, name="inlineRaidMap") at 0x00000249E14B2500>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+_ ERROR at setup of test_square_canvas_survives_toolbar_and_inspector_changes _
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_square_canvas_survives_to0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249DCD54F20>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249e24743c0) at 0x00000249E11CECC0> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249ded2cc00) at 0x00000249E165AEC0> is <ui.components.encounter_board.EncounterBoardView(0x249e50a02a0) at 0x00000249DCFB1800>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249e24743c0) at 0x00000249E11CECC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249DCDBB6C0>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249ded2cc00) at 0x00000249E165AEC0> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249E1310740>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249E1310740> = <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e27c0) at 0x00000249E1310740>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e27c0) at 0x00000249E1310740> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249DCDBB6C0>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249e50a02a0) at 0x00000249DCFB1800> = <ui.components.encounter_board.EncounterBoard(0x249e24743c0) at 0x00000249E11CECC0>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249e24743c0) at 0x00000249E11CECC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249DCDBB6C0>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+_ ERROR at setup of test_compact_tools_quick_note_stage_storage_and_failure[save] _
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_compact_tools_quick_note_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249E122A630>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249e2481490) at 0x00000249DD546D00> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249e50a1030) at 0x00000249DD5E7E80> is <ui.components.encounter_board.EncounterBoardView(0x249ded2cc00) at 0x00000249E12E6600>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249e2481490) at 0x00000249DD546D00> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2460, name="inlineRaidMap") at 0x00000249E12E15C0>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249e50a1030) at 0x00000249DD5E7E80> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249DD5E4140>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249DD5E4140> = <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2b20) at 0x00000249DD5E4140>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2b20) at 0x00000249DD5E4140> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2460, name="inlineRaidMap") at 0x00000249E12E15C0>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249ded2cc00) at 0x00000249E12E6600> = <ui.components.encounter_board.EncounterBoard(0x249e2481490) at 0x00000249DD546D00>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249e2481490) at 0x00000249DD546D00> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2460, name="inlineRaidMap") at 0x00000249E12E15C0>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+_ ERROR at setup of test_compact_tools_quick_note_stage_storage_and_failure[cancel] _
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_compact_tools_quick_note_1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249DD49E930>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249e52299c0) at 0x00000249E3F3E680> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249ded2be70) at 0x00000249E130A300> is <ui.components.encounter_board.EncounterBoardView(0x249e50a1220) at 0x00000249DCF5F200>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249e52299c0) at 0x00000249E3F3E680> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e1da0, name="inlineRaidMap") at 0x00000249E1308A00>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249ded2be70) at 0x00000249E130A300> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249E12E5BC0>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249E12E5BC0> = <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e27c0) at 0x00000249E12E5BC0>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e27c0) at 0x00000249E12E5BC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e1da0, name="inlineRaidMap") at 0x00000249E1308A00>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249e50a1220) at 0x00000249DCF5F200> = <ui.components.encounter_board.EncounterBoard(0x249e52299c0) at 0x00000249E3F3E680>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249e52299c0) at 0x00000249E3F3E680> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e1da0, name="inlineRaidMap") at 0x00000249E1308A00>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+_ ERROR at setup of test_compact_tools_quick_note_stage_storage_and_failure[failure] _
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_compact_tools_quick_note_2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249DD5C3A70>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249e24efff0) at 0x00000249E13AFCC0> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249def31910) at 0x00000249DD495080> is <ui.components.encounter_board.EncounterBoardView(0x249ded2be70) at 0x00000249DCFD7BC0>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249e24efff0) at 0x00000249E13AFCC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249E12E0680>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249def31910) at 0x00000249DD495080> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249E1215C80>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249E1215C80> = <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2b20) at 0x00000249E1215C80>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2b20) at 0x00000249E1215C80> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249E12E0680>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249ded2be70) at 0x00000249DCFD7BC0> = <ui.components.encounter_board.EncounterBoard(0x249e24efff0) at 0x00000249E13AFCC0>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249e24efff0) at 0x00000249E13AFCC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249E12E0680>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+_ ERROR at setup of test_compact_tools_quick_note_stage_storage_and_failure[stale] _
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_compact_tools_quick_note_3')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249E1369CA0>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249e594a8e0) at 0x00000249E1618C40> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249def30d70) at 0x00000249DCEDC8C0> is <ui.components.encounter_board.EncounterBoardView(0x249ded2c630) at 0x00000249E121ECC0>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249e594a8e0) at 0x00000249E1618C40> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2460, name="inlineRaidMap") at 0x00000249E11DFA40>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249def30d70) at 0x00000249DCEDC8C0> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249E12E7380>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249E12E7380> = <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2b20) at 0x00000249E12E7380>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2b20) at 0x00000249E12E7380> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2460, name="inlineRaidMap") at 0x00000249E11DFA40>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249ded2c630) at 0x00000249E121ECC0> = <ui.components.encounter_board.EncounterBoard(0x249e594a8e0) at 0x00000249E1618C40>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249e594a8e0) at 0x00000249E1618C40> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2460, name="inlineRaidMap") at 0x00000249E11DFA40>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+_ ERROR at setup of test_boss_ribbon_spans_above_all_panels_and_selects_exact_stage _
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_boss_ribbon_spans_above_a0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249E1229FD0>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249e24ecf00) at 0x00000249E13C8C40> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249e50a0870) at 0x00000249DD4FCAC0> is <ui.components.encounter_board.EncounterBoardView(0x249e50a02a0) at 0x00000249E132ED00>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249e24ecf00) at 0x00000249E13C8C40> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249E132C340>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249e50a0870) at 0x00000249DD4FCAC0> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249E132F980>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249E132F980> = <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2b20) at 0x00000249E132F980>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e2b20) at 0x00000249E132F980> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249E132C340>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249e50a02a0) at 0x00000249E132ED00> = <ui.components.encounter_board.EncounterBoard(0x249e24ecf00) at 0x00000249E13C8C40>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249e24ecf00) at 0x00000249E13C8C40> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249E132C340>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+_ ERROR at setup of test_compact_tools_float_over_map_without_collapsible_side_strips _
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_compact_tools_float_over_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249DD5E3800>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249e5390740) at 0x00000249DD5C6D00> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249dedd9fb0) at 0x00000249E1367C00> is <ui.components.encounter_board.EncounterBoardView(0x249e50a0680) at 0x00000249E13E7CC0>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249e5390740) at 0x00000249DD5C6D00> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e22b0, name="inlineRaidMap") at 0x00000249E1365600>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249dedd9fb0) at 0x00000249E1367C00> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249E3EFDBC0>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249E3EFDBC0> = <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e27c0) at 0x00000249E3EFDBC0>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e27c0) at 0x00000249E3EFDBC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e22b0, name="inlineRaidMap") at 0x00000249E1365600>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249e50a0680) at 0x00000249E13E7CC0> = <ui.components.encounter_board.EncounterBoard(0x249e5390740) at 0x00000249DD5C6D00>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249e5390740) at 0x00000249DD5C6D00> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e22b0, name="inlineRaidMap") at 0x00000249E1365600>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+_ ERROR at setup of test_compact_content_resizes_and_shrinks_with_selected_stage _
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_compact_content_resizes_a0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249E12BB620>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249deb26980) at 0x00000249DD4C7CC0> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249def31340) at 0x00000249F4683B80> is <ui.components.encounter_board.EncounterBoardView(0x249e50a0680) at 0x00000249DD494500>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249deb26980) at 0x00000249DD4C7CC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e27c0, name="inlineRaidMap") at 0x00000249F0E14D80>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249def31340) at 0x00000249F4683B80> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249F4682580>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249F4682580> = <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e3a50) at 0x00000249F4682580>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e3a50) at 0x00000249F4682580> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e27c0, name="inlineRaidMap") at 0x00000249F0E14D80>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249e50a0680) at 0x00000249DD494500> = <ui.components.encounter_board.EncounterBoard(0x249deb26980) at 0x00000249DD4C7CC0>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249deb26980) at 0x00000249DD4C7CC0> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e27c0, name="inlineRaidMap") at 0x00000249F0E14D80>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+________ ERROR at setup of test_outer_scroll_owns_wheel_under_the_map _________
+
+tmp_path = WindowsPath('C:/Dev/Wyrdworks-TestSpace/runs/raid-map-merge/20261029T032801.997047Z-0952d07d4e30449d/pytest-tmp/test_outer_scroll_owns_wheel_u0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000249DD5A6D80>
+
+    @pytest.fixture
+    def editor(tmp_path,monkeypatch):
+        monkeypatch.setenv('FOUNDRYDOCK_USER_DATA_DIR',str(tmp_path/'user'))
+        monkeypatch.setenv('FOUNDRYDOCK_PAGE_PROFILE','0')
+        # These regressions exercise the generic editor with no registered boss package.
+        # Built-in package defaults and continuity have their own runtime tests.
+        monkeypatch.setattr('services.workshop_map_package_service.load_boss_package', lambda *args: None)
+        from ui.phase15_raid_plan_window import Phase15RaidPlanWindow
+        app=QApplication.instance() or QApplication([])
+        # The offscreen Windows font database needs the same fonts as the desktop.
+        # Missing glyph metrics otherwise change wrapping and scroll ranges mid-test.
+        from PySide6.QtGui import QFontDatabase
+        for filename in ('segoeui.ttf', 'georgia.ttf'):
+            font = Path('C:/Windows/Fonts') / filename
+            if font.is_file():
+                QFontDatabase.addApplicationFont(str(font))
+        window=Phase15RaidPlanWindow();page=window.raid_plan_page
+        window.side_nav._settings = QSettings(str(tmp_path / 'navigation.ini'), QSettings.Format.IniFormat)
+        window.side_nav.set_collapsed(False, persist=False)
+        plan=RaidPlan(plan_id='inline-tests',trial_id='sunspire',name='Inline tests')
+        page.repo.save(plan,expected=None,must_be_new=True);assert page.load_plan(plan.plan_id)
+        page._select_stage('boss:lokkestiiz')
+        window.resize(1700,1050);window.show();app.processEvents()
+        surface=page.map_surface
+        assert surface.board is None  # Editing stays lazy during ordinary Raid Plan startup.
+        surface.choose_tool('select');app.processEvents()
+>       assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E       assert (<ui.components.encounter_board.EncounterBoard(0x249e2e985d0) at 0x00000249F1230C40> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249dedd9fb0) at 0x00000249E12E1D40> is <ui.components.encounter_board.EncounterBoardView(0x249dee17490) at 0x00000249DD534500>)
+E        +  where <ui.components.encounter_board.EncounterBoard(0x249e2e985d0) at 0x00000249F1230C40> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249DD544E00>.board
+E        +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x249dedd9fb0) at 0x00000249E12E1D40> = <built-in method currentWidget of SquareMapCanvas object at 0x00000249DCD65E00>()
+E        +    where <built-in method currentWidget of SquareMapCanvas object at 0x00000249DCD65E00> = <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e3c00) at 0x00000249DCD65E00>.currentWidget
+E        +      where <ui.components.inline_raid_map.SquareMapCanvas(0x249e23e3c00) at 0x00000249DCD65E00> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249DD544E00>.canvas
+E        +  and   <ui.components.encounter_board.EncounterBoardView(0x249dee17490) at 0x00000249DD534500> = <ui.components.encounter_board.EncounterBoard(0x249e2e985d0) at 0x00000249F1230C40>.view
+E        +    where <ui.components.encounter_board.EncounterBoard(0x249e2e985d0) at 0x00000249F1230C40> = <ui.components.inline_raid_map.InlineRaidMap(0x249e23e2610, name="inlineRaidMap") at 0x00000249DD544E00>.board
+
+ui\tests\test_inline_raid_map.py:40: AssertionError
+=========================== short test summary info ===========================
+ERROR ui/tests/test_inline_raid_map.py::test_click_tools_route_handles_undo_and_scope_persistence
+ERROR ui/tests/test_inline_raid_map.py::test_circle_rectangle_target_and_unique_seats
+ERROR ui/tests/test_inline_raid_map.py::test_freehand_wheel_zoom_hidden_object_recovery_and_locked_state
+ERROR ui/tests/test_inline_raid_map.py::test_inspector_collapse_and_image_import_preserve_objects
+ERROR ui/tests/test_inline_raid_map.py::test_default_map_is_visible_without_claiming_reviewed_encounter_art
+ERROR ui/tests/test_inline_raid_map.py::test_built_in_map_selection_is_available_from_this_screen
+ERROR ui/tests/test_inline_raid_map.py::test_hand_pans_without_editing_and_toolbar_delete_undo
+ERROR ui/tests/test_inline_raid_map.py::test_sidebar_toggles_preserve_outer_scroll_with_live_map
+ERROR ui/tests/test_inline_raid_map.py::test_raid_plan_frames_are_material_scoped_and_geometry_neutral
+ERROR ui/tests/test_inline_raid_map.py::test_square_canvas_survives_toolbar_and_inspector_changes
+ERROR ui/tests/test_inline_raid_map.py::test_compact_tools_quick_note_stage_storage_and_failure[save]
+ERROR ui/tests/test_inline_raid_map.py::test_compact_tools_quick_note_stage_storage_and_failure[cancel]
+ERROR ui/tests/test_inline_raid_map.py::test_compact_tools_quick_note_stage_storage_and_failure[failure]
+ERROR ui/tests/test_inline_raid_map.py::test_compact_tools_quick_note_stage_storage_and_failure[stale]
+ERROR ui/tests/test_inline_raid_map.py::test_boss_ribbon_spans_above_all_panels_and_selects_exact_stage
+ERROR ui/tests/test_inline_raid_map.py::test_compact_tools_float_over_map_without_collapsible_side_strips
+ERROR ui/tests/test_raid_plan_mechanics_geometry_cleanup.py::test_compact_content_resizes_and_shrinks_with_selected_stage
+ERROR ui/tests/test_raid_plan_mechanics_geometry_cleanup.py::test_outer_scroll_owns_wheel_under_the_map
+29 passed, 18 errors in 110.19s (0:01:50)
+
+--- stderr ---

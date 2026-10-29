@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "boss_count": 1,
+  "items": [
+    {
+      "kind": "boss",
+      "label": "first",
+      "color": "#4A2420",
+      "x": 0.5,
+      "y": 0.48,
+      "radius": 27.0,
+      "seat_id": "",
+      "object_id": "",
+      "visible": true,
+      "locked": false,
+      "phase": ""
+    }
+  ],
+  "mini_bosses": [],
+  "zones": [],
+  "annotations": [],
+  "raid_plan_id": "",
+  "background_map": "",
+  "route_note": "",
+  "route_annotation_id": "",
+  "package_view": null,
+  "movement_plan": null,
+  "reference_points_locked": false,
+  "formation_key": "",
+  "text_color": "#FFFFFF",
+  "text_weight": 600
+}

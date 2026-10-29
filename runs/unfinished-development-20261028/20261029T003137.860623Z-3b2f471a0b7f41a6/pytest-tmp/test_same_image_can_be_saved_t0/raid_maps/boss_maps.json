@@ -1,0 +1,19 @@
+{
+  "encounters": {
+    "tideborn_taleria": [
+      {
+        "label": "raid",
+        "map_id": "f084b1351c41cf3c",
+        "relative_path": "raid_maps/bosses/tideborn_taleria/f084b1351c41cf3c.webp"
+      }
+    ],
+    "xalvakka": [
+      {
+        "label": "raid",
+        "map_id": "f084b1351c41cf3c",
+        "relative_path": "raid_maps/bosses/xalvakka/f084b1351c41cf3c.webp"
+      }
+    ]
+  },
+  "schema_version": 1
+}

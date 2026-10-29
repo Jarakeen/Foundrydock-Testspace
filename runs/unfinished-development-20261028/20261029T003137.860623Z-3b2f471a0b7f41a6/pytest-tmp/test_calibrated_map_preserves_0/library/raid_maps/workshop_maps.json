@@ -1,0 +1,27 @@
+{
+  "maps": [
+    {
+      "encounter_id": "lokkestiiz",
+      "encounter_name": "Lokkestiiz",
+      "label": "Independent calibrated copy",
+      "layout_path": "raid_maps/workshop/sunspire/lokkestiiz/26f90df1ee9958fe/layout.json",
+      "map_id": "26f90df1ee9958fe",
+      "preview_path": "raid_maps/workshop/sunspire/lokkestiiz/26f90df1ee9958fe/preview.png",
+      "tags": [],
+      "trial_id": "sunspire",
+      "trial_name": "Sunspire"
+    },
+    {
+      "encounter_id": "lokkestiiz",
+      "encounter_name": "Lokkestiiz",
+      "label": "Working calibrated map",
+      "layout_path": "raid_maps/workshop/sunspire/lokkestiiz/dc32a03aee9ac691/layout.json",
+      "map_id": "dc32a03aee9ac691",
+      "preview_path": "raid_maps/workshop/sunspire/lokkestiiz/dc32a03aee9ac691/preview.png",
+      "tags": [],
+      "trial_id": "sunspire",
+      "trial_name": "Sunspire"
+    }
+  ],
+  "schema_version": 1
+}

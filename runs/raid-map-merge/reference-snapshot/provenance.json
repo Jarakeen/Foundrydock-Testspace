@@ -1,0 +1,9 @@
+{
+  "source": "C:\\Dev\\BFF\\FoundryDock\\data\\eso.db",
+  "source_size": 1836064768,
+  "snapshot": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\raid-map-merge\\reference-snapshot\\eso.db",
+  "sha256": "d37f1bf926863f51d3624d8ab64695b6c2ed112d660ce66a4315429506941830",
+  "canonical_facts": 103,
+  "created_utc": "2026-10-29T03:29:05.860480+00:00",
+  "method": "SQLite read-only source backup API"
+}

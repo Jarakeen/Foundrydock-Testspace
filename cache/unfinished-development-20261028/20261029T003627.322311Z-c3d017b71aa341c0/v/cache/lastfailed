@@ -1,0 +1,3 @@
+{
+  "services/tests/test_comp_brainstorm_draft_build_service.py::test_quick_entry_all_dd_trash_overrides_survive_draft_build_save": true
+}

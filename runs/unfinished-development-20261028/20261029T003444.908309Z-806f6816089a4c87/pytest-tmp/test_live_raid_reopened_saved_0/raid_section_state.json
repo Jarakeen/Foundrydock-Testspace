@@ -1,0 +1,18 @@
+{
+  "human_ready": {},
+  "runs": {},
+  "events": [],
+  "reviews": [],
+  "attempts": [],
+  "raid_map_links": {
+    "plan-a": {
+      "lokkestiiz": "map-lokke-a",
+      "yolnahkriin": "map-yolna-a"
+    },
+    "plan-b": {
+      "lokkestiiz": "map-lokke-b"
+    }
+  },
+  "finch_raid_map_previews": {},
+  "finch_raid_map_preview_sets": {}
+}

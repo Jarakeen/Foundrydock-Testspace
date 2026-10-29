@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T001001.869417Z-9c80334a53c3423e",
+  "task": "focused-suite",
+  "owner": "test-agent",
+  "command": [
+    "C:\\Users\\nourg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-m",
+    "pytest",
+    "tools/tests/test_example.py",
+    "-q",
+    "--basetemp",
+    "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\pytest-tmp\\test_report_recording_0_passed0\\ts\\runs\\focused-suite\\20261029T001001.869417Z-9c80334a53c3423e\\pytest-tmp",
+    "-o",
+    "cache_dir=C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\pytest-tmp\\test_report_recording_0_passed0\\ts\\cache\\focused-suite\\20261029T001001.869417Z-9c80334a53c3423e"
+  ],
+  "source_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "working_tree_dirty": true,
+  "started_at": "2026-10-29T00:10:01.869417+00:00",
+  "finished_at": "2026-10-29T00:10:01.869417+00:00",
+  "status": "passed",
+  "exit_code": 0,
+  "artifact_paths": {
+    "run_directory": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\pytest-tmp\\test_report_recording_0_passed0\\ts\\runs\\focused-suite\\20261029T001001.869417Z-9c80334a53c3423e",
+    "pytest_basetemp": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\pytest-tmp\\test_report_recording_0_passed0\\ts\\runs\\focused-suite\\20261029T001001.869417Z-9c80334a53c3423e\\pytest-tmp",
+    "pytest_cache": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\pytest-tmp\\test_report_recording_0_passed0\\ts\\cache\\focused-suite\\20261029T001001.869417Z-9c80334a53c3423e",
+    "system_temp": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\pytest-tmp\\test_report_recording_0_passed0\\ts\\runs\\focused-suite\\20261029T001001.869417Z-9c80334a53c3423e\\system-temp",
+    "isolated_user_data": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\pytest-tmp\\test_report_recording_0_passed0\\ts\\runs\\focused-suite\\20261029T001001.869417Z-9c80334a53c3423e\\user-data",
+    "validation_report": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\pytest-tmp\\test_report_recording_0_passed0\\ts\\runs\\focused-suite\\20261029T001001.869417Z-9c80334a53c3423e\\validation-report.json",
+    "run_report": "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\pytest-tmp\\test_report_recording_0_passed0\\ts\\reports\\20261029T001001.869417Z-9c80334a53c3423e.json",
+    "failure_log": null
+  },
+  "cleanup": {
+    "status": "not_performed",
+    "reason": "Phase 1 retains run and cache contents to protect database snapshots and unique evidence; no automated cleanup is performed.",
+    "removed_paths": [],
+    "retained_paths": [
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\pytest-tmp\\test_report_recording_0_passed0\\ts\\runs\\focused-suite\\20261029T001001.869417Z-9c80334a53c3423e",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\pytest-tmp\\test_report_recording_0_passed0\\ts\\cache\\focused-suite\\20261029T001001.869417Z-9c80334a53c3423e",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\pytest-tmp\\test_report_recording_0_passed0\\ts\\runs\\focused-suite\\20261029T001001.869417Z-9c80334a53c3423e\\system-temp",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\pytest-tmp\\test_report_recording_0_passed0\\ts\\runs\\focused-suite\\20261029T001001.869417Z-9c80334a53c3423e\\user-data",
+      "C:\\Dev\\Wyrdworks-TestSpace\\runs\\vscode-focused\\20261029T001000.497282Z-2106d45cdc224608\\pytest-tmp\\test_report_recording_0_passed0\\ts\\reports\\20261029T001001.869417Z-9c80334a53c3423e.json"
+    ]
+  }
+}

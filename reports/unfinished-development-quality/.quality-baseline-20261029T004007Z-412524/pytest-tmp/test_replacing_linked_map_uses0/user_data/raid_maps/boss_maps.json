@@ -1,0 +1,29 @@
+{
+  "encounters": {
+    "lokkestiiz": [
+      {
+        "label": "old",
+        "map_id": "d1a8dd0135719f0d",
+        "relative_path": "raid_maps/bosses/lokkestiiz/d1a8dd0135719f0d.png"
+      },
+      {
+        "label": "other",
+        "map_id": "2df1bbd11d246568",
+        "relative_path": "raid_maps/bosses/lokkestiiz/2df1bbd11d246568.png"
+      },
+      {
+        "label": "revised",
+        "map_id": "cde7bb413e452d74",
+        "relative_path": "raid_maps/bosses/lokkestiiz/cde7bb413e452d74.png"
+      }
+    ],
+    "yolnahkriin": [
+      {
+        "label": "yolna",
+        "map_id": "a307c24805a575aa",
+        "relative_path": "raid_maps/bosses/yolnahkriin/a307c24805a575aa.png"
+      }
+    ]
+  },
+  "schema_version": 1
+}

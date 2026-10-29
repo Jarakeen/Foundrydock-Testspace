@@ -1,0 +1,1 @@
+{"version": 2, "boss_count": 1, "items": [{"kind": "boss", "label": "Boss", "color": "#4A2420", "x": 0.5, "y": 0.48, "radius": 27.0, "seat_id": ""}], "mini_bosses": [], "zones": [], "raid_plan_id": "", "background_map": "", "reference_points_locked": false, "formation_key": "", "text_color": "#FFFFFF", "text_weight": 600}

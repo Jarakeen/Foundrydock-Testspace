@@ -1,0 +1,20 @@
+{
+  "ui/tests/test_inline_raid_map.py::test_click_tools_route_handles_undo_and_scope_persistence": true,
+  "ui/tests/test_inline_raid_map.py::test_circle_rectangle_target_and_unique_seats": true,
+  "ui/tests/test_inline_raid_map.py::test_freehand_wheel_zoom_hidden_object_recovery_and_locked_state": true,
+  "ui/tests/test_inline_raid_map.py::test_inspector_collapse_and_image_import_preserve_objects": true,
+  "ui/tests/test_inline_raid_map.py::test_default_map_is_visible_without_claiming_reviewed_encounter_art": true,
+  "ui/tests/test_inline_raid_map.py::test_built_in_map_selection_is_available_from_this_screen": true,
+  "ui/tests/test_inline_raid_map.py::test_hand_pans_without_editing_and_toolbar_delete_undo": true,
+  "ui/tests/test_inline_raid_map.py::test_sidebar_toggles_preserve_outer_scroll_with_live_map": true,
+  "ui/tests/test_inline_raid_map.py::test_raid_plan_frames_are_material_scoped_and_geometry_neutral": true,
+  "ui/tests/test_inline_raid_map.py::test_square_canvas_survives_toolbar_and_inspector_changes": true,
+  "ui/tests/test_inline_raid_map.py::test_compact_tools_quick_note_stage_storage_and_failure[save]": true,
+  "ui/tests/test_inline_raid_map.py::test_compact_tools_quick_note_stage_storage_and_failure[cancel]": true,
+  "ui/tests/test_inline_raid_map.py::test_compact_tools_quick_note_stage_storage_and_failure[failure]": true,
+  "ui/tests/test_inline_raid_map.py::test_compact_tools_quick_note_stage_storage_and_failure[stale]": true,
+  "ui/tests/test_inline_raid_map.py::test_boss_ribbon_spans_above_all_panels_and_selects_exact_stage": true,
+  "ui/tests/test_inline_raid_map.py::test_compact_tools_float_over_map_without_collapsible_side_strips": true,
+  "ui/tests/test_raid_plan_mechanics_geometry_cleanup.py::test_compact_content_resizes_and_shrinks_with_selected_stage": true,
+  "ui/tests/test_raid_plan_mechanics_geometry_cleanup.py::test_outer_scroll_owns_wheel_under_the_map": true
+}

@@ -1,0 +1,148 @@
+{
+  "version": 2,
+  "boss_count": 1,
+  "items": [],
+  "mini_bosses": [],
+  "zones": [],
+  "annotations": [],
+  "raid_plan_id": "",
+  "background_map": "",
+  "route_note": "",
+  "route_annotation_id": "",
+  "package_view": {
+    "package_id": "builtin-example",
+    "view_id": "arena",
+    "selected_phase": "Ground",
+    "phase_links": {
+      "Ground": "ground"
+    },
+    "layers": {
+      "paths": false
+    }
+  },
+  "movement_plan": {
+    "schema_version": 1,
+    "plan_id": "example",
+    "trial_id": "trial",
+    "encounter_id": "lokkestiiz",
+    "image_sha256": "",
+    "source_note": "Raid-lead authored teaching plan",
+    "places": [
+      {
+        "key": "stack",
+        "label": "stack",
+        "x": 0.7,
+        "y": 0.5,
+        "placed": true,
+        "label_dx": 0.015,
+        "label_dy": 0.035
+      },
+      {
+        "key": "middle",
+        "label": "middle",
+        "x": 0.43,
+        "y": 0.5,
+        "placed": true,
+        "label_dx": 0.015,
+        "label_dy": 0.035
+      },
+      {
+        "key": "house",
+        "label": "house",
+        "x": 0.64,
+        "y": 0.39,
+        "placed": true,
+        "label_dx": 0.015,
+        "label_dy": 0.035
+      },
+      {
+        "key": "legend",
+        "label": "legend",
+        "x": 0.04,
+        "y": 0.85,
+        "placed": true,
+        "label_dx": 0.015,
+        "label_dy": 0.035
+      }
+    ],
+    "phases": [
+      {
+        "key": "ground",
+        "label": "Ground",
+        "cue": "",
+        "duties": [
+          {
+            "key": "main",
+            "label": "DD group",
+            "role": "dd",
+            "route": [
+              "stack"
+            ],
+            "formation": "group",
+            "slot_labels": [],
+            "dashed": false,
+            "show_place_labels": true,
+            "instructions": ""
+          },
+          {
+            "key": "rotation",
+            "label": "Rotation",
+            "role": "dd",
+            "route": [
+              "legend"
+            ],
+            "formation": "rotation",
+            "slot_labels": [
+              "1a",
+              "1b",
+              "2a",
+              "2b"
+            ],
+            "dashed": false,
+            "show_place_labels": true,
+            "instructions": ""
+          }
+        ]
+      },
+      {
+        "key": "flight",
+        "label": "Flight",
+        "cue": "Middle first, then spread",
+        "duties": [
+          {
+            "key": "main",
+            "label": "DD group",
+            "role": "dd",
+            "route": [
+              "middle",
+              "house"
+            ],
+            "formation": "group",
+            "slot_labels": [],
+            "dashed": false,
+            "show_place_labels": true,
+            "instructions": ""
+          },
+          {
+            "key": "square",
+            "label": "Four DDs",
+            "role": "dd",
+            "route": [
+              "house"
+            ],
+            "formation": "square_four",
+            "slot_labels": [],
+            "dashed": false,
+            "show_place_labels": true,
+            "instructions": ""
+          }
+        ]
+      }
+    ],
+    "generation_baseline": []
+  },
+  "reference_points_locked": false,
+  "formation_key": "",
+  "text_color": "#FFFFFF",
+  "text_weight": 600
+}

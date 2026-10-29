@@ -1,0 +1,166 @@
+Tasks outside of the master roadmap
+
+> **Current scope — 2026-10-15:** Wyrdworks is the product name; FoundryDock remains the repository/technical identifier. Use [MASTER_ROADMAP.md](MASTER_ROADMAP.md) for active priorities. The active workflow is Raid Plan, Roster, Assignments, Builds, Strategy / Raid Map, Live Raid, and Finch / Collaboration where applicable. Lantern, Comp Brainstorm, Coverage, Rotations, Readiness, Health, Comp Engine, Optimization, and Extreme Build interfaces are parked. Existing unchecked items below are a historical backlog, not authorization to reopen parked UI work; preserve their code/data/shared owners/regression tests. Continue supporting canonical data and services needed by active pages.
+
+- [X] find a nicer desktop icon
+- [X] write a nice mundus stone importer
+- [X] create a testing installer
+- [X] import Rumors and find a page to put them on
+- [ ] create a flow thru of buttons on the broadcast desk to make it more obvious that things are getting sent to OBS and sent to a report for Archive
+- [X] add checkboxes - and a way to check off multiple at a time - on the row of Collectibles
+- [X] import images for the collectibles and add to each corresponding Collectible (we wrote a tool/parser)
+- [X] hook up the google sheets for the achievements page
+- [ ] add images to the Achievements?
+- [X] redo Settings page to go with the Settings mockup in the Docs folder
+- [X] ?? can we rename the ui files safely to better align with what they are or is it just too late for that ??
+- [X] create the Boss page from docs (on encounters or mechs?)
+- [X] find a standard 'Boss' and 'Double Bosses' icon to use on the boss page
+- [X] add a "Pages On/Off" setting on the Settings tab that allows you to hide pages by main menu (Broadcast, Collectible, Acheivement, Raid Engine)
+- [X] Achievement page - details box, make the text much larger - style it like the wireframe
+- [X] Create a page for the Collections main menu button with circle and/or line graphs that shows your progress in each submenu category
+- [X] | What it actually is                  | Current-ish name           | Better name                                                         |
+| ------------------------------------ | -------------------------- | ------------------------------------------------------------------- |
+| ESO account achievements             | `collections_page.py`      | `achievements_page.py`                                              |
+| ESO collectibles, mounts, pets, etc. | `collectibles_page.py`     | `collectibles_page.py`                                              |
+| OBS achievement display/control desk | `achievement_desk_page.py` | `broadcast_achievements_page.py` or                   `achievement_broadcast_page.py` |
+
+-[X] add collectible ownership checkboxes, Shift-range selection, pending changes, and batch save; then rename the confusing Achievements/Collections files and references safely.
+-[X] Mechanics doesnt have an icon - can we add one
+-[X] we've lost the app icon on the task bar when its running - fix that please
+-[X] wherever there are timers in the app - plase make them functional
+-[X] whereever there are "edit notes" cards on the app, please make that card a note app and editable
+-[X] next to "Provides" card on the Overview page card, please change that to a "thumbs up"
+-[X] figure out what to do the the ESO logs page, maybe ask Rik
+-[X] make all the timers work
+-[X] add an asylum sanctorium timer
+-[ ] are there other ESO game timers that would be handy? if so, add them
+-[?] wire all the bosses and mechs to the Mechanics page and reference pages
+-[X] How do multiple ppl share a roster info?
+-[X] make roster output/export 'pretty'
+-[X] add the top ESO Logs setups per trial
+-[ ] get ms signature file thingy for app completed
+-[ ] images for mechs - can they be farmed? uesp?
+-[X] Optimaztion - auto fill top buttons to match what they need to be for "generate team"
+-[X] figure out how to easily share things like maps and roster to google docs and make it pretty
+-[X] fix top logo
+-[X] can I document how long bosses are damagable from ESO logs?
+-[X] add Help docs
+-[ ] timer for bosses - ex add portal timer to Bahsei
+-[X] beef up Reference data page
+-[X] Tools & Timers menu category - add gear/pot/food/skill lookup
+-[X] remove the "generated rosters" from assignemnts page 
+-[X] remove |cffffff0 from gear lookup
+-[X] make scribe simulator actually work
+-[ ] make a team merch page
+-[X] add stickerbook to Collectibles
+-[ ] add an engine that has lots of swaps or only a few swaps for a trial?
+-[ ] rylo says it needs to auto update
+-[ ] still need more trial info
+-[X] art/icons for scribed skills
+-[x] why arent the arena weapons in the gear lookup
+-[ ] make a MOST page for fun lol ask the app to make a build capabale of the most heals, health, damage, etc (sustain, survivability not required lol)
+-[ ] PvP? 
+-[X] add an "armor that looks interesting" bookmark tool for comp building
+-[X] Comp Maker ownership boundary: Assignments decides WHO owns required buffs/debuffs; Comp Maker builds the 4/12-player composition and chooses HOW each assigned chair can provide its responsibilities through compatible class/build/gear/skills, while preserving fixed player/class/role/gear choices and reporting missing/duplicate providers.
+-[ ] Comp Maker: finish exact provider-source provenance and unfinished-draft-build handoff. When an assigned responsibility can be satisfied only by an unsaved configuration, create an explicitly unfinished draft Build/variant for review rather than silently rewriting an existing Build. Persist the exact proven provider source when canonical evidence identifies it; otherwise leave the source unresolved.
+-[ ] Optimizer: improve an already valid saved Raid Plan by finding redundant providers, weak placement, excess opportunity cost, unresolved coverage, and better provider arrangements. It must preserve assignment ownership unless the user explicitly approves a reassignment and must never rebuild the roster from scratch.
+  - **PARKED UNTIL COMBAT IS COMPLETE:** Do not resume the deeper optimizer work below until the Phase 14 Combat Simulation hardened exit criteria and its real-build validation gate are green. The current read-only Recommendation Workbench may continue reporting evidence-backed plan gaps, but it must not invent combat outcomes while the combat engine is unfinished.
+  - [ ] Add boss- and phase-specific encounter optimization using canonical encounter requirements rather than trial-name heuristics.
+  - [ ] Generate concrete legal player/build/gear/skill/provider change candidates instead of only describing gaps.
+  - [ ] Solve candidate changes across the whole team so one fix cannot silently remove another effect, duplicate a unique source, overload a player, or violate a protected choice.
+  - [ ] Give Safe Prog, Balanced, and Max Output real strategy semantics backed by combat and encounter evidence; until then they may only reorder review findings.
+  - [ ] Evaluate execution feasibility from rotation workload, proc conditions, positioning, sustain, assignments, and attributable ESO Logs evidence where available.
+  - [ ] Produce auditable before/after comparisons for coverage, provider duplication, affected players/builds, protected choices, execution burden, evidence strength, and unresolved uncertainty.
+  - [ ] Add reversible saved scenarios and explicit approval/application. Never overwrite a Build or Raid Plan merely because a proposal was generated.
+-[X] can we create builds from screenshots?
+-[X] add a dashboard inside OBS so I dont have to run the app if I dont want to
+-[ ] Close the encounter-source â†’ canonical encounter-model gap for bosses with rich source data but sparse canonical phase/mechanic rows. Start with Sunspire â†’ Lokkestiiz as the reference implementation. Promote reviewed, source-backed encounter facts such as Aerial Onslaught at 80% / 50% / 20%, boss untargetability during flight, add-active windows, raid-damage windows, and true transition/wait downtime into the canonical encounter model without parsing prose into assumed truth. Preserve provenance and unresolved fields, especially unknown exact add counts or timing. The resulting canonical model must distinguish boss-damageable time, add-damage time, raid-damage/healing-demand time, and genuine inactive transition time so Comp Maker, Optimization, rotation evaluation, and uptime scoring can choose the correct effect-specific denominator. Add an audit that finds other encounters where source data exists but `encounter_phase`, `encounter_mechanic`, `encounter_strategy`, health, or canonical facts are missing, then migrate them through the same reviewed evidence path rather than adding encounter-specific hard-coded exceptions.
+  - [ ] Finish the Lokkestiiz reference promotion after the verified dry run: implementation is ready and guarded, but the real `data/eso.db` apply is still pending. The closeout command now persists only the two accepted reviewed-single-source facts (`damage_window:aerial_onslaught_flight` and `add_group:aerial_onslaught_atronachs`), verifies idempotency on a second run, audits exactly one preserved evidence row per fact with `reviewed_single_source` provenance, reruns the Sunspire actionable-gap audit, and proves no unresolved timing/add-count data or fake corroboration was invented. Canonical damage-window semantics are now separately readable by encounter consumers, explicit 80/50/20 trigger percentages can enter the existing threshold-to-clock projection only with an explicit damage trajectory, and the specialized Lokkestiiz healer scenario now derives those thresholds from canonical encounter truth instead of hard-coded production defaults.
+-[X] fix the lua obs script to include the weather icons   
+-[X] add a trending tab somewhere and show what the top DD/healers/Tanks are wearing
+-[X] is there a way to map 'trending' gear amongst different roles? like trending healer sets?
+-[ ] what does it look like when you push past a boss's immunity phase in ESO logs
+## Canonical Service Catalog / Capability Registry
+
+Create a canonical machine-readable catalog of BFF services so the app and developers can discover what already exists, which implementation is authoritative, and what capabilities are currently available.
+
+### Goals
+
+- Register important services with stable semantic IDs.
+- Record:
+  - service/domain
+  - purpose
+  - implementation path
+  - inputs
+  - outputs
+  - dependencies
+  - lifecycle status
+  - canonical / experimental / deprecated state
+  - deterministic vs heuristic/calibrated behavior
+  - supported roles where relevant
+  - UI-safe / encounter-aware flags where useful
+- Preserve normal typed imports and explicit dependency wiring.
+- Do **not** turn this into a generic dynamic service-invocation framework.
+
+### Deliverables
+
+- `services/service_catalog.py`
+- `ServiceDescriptor` model
+- explicit registration/descriptors for canonical services
+- `tools/audit_service_catalog.py`
+- audit checks for:
+  - duplicate service IDs
+  - broken implementation paths
+  - unregistered service modules
+  - missing dependencies
+  - circular dependencies
+  - deprecated/superseded services
+- capability queries such as:
+  - available service by domain
+  - canonical service for a responsibility
+  - implemented vs planned capability
+  - services consuming/producing a given type
+
+### Intended Uses
+
+- Prevent duplicate/redundant service creation.
+- Help Comp Maker, Optimization, Rotation Builder, Performance, and other subsystems discover existing canonical services.
+- Allow UI features to disable unavailable capabilities based on catalog state.
+- Support a future developer/system-capabilities page.
+- Surface architectural rules and provenance clearly enough to reduce drift.
+
+### Important Constraints
+
+- Service catalog is for discovery, introspection, validation, and capability reporting.
+- It must not silently select or execute arbitrary services by string name.
+- Canonical semantic skill IDs remain authoritative; numeric ESO ability IDs are never service identity.
+- Calibration/reference data such as BTV/ESO Logs must remain distinct from canonical game mechanics.
+
+
+-[ ] comeback to the Raid Review tab - it was working on pulling in a Xalvakka run, but it wasnt returning the feedback I was hoping
+-[ ] Blank Pages:
+  - Coverage - Providers
+  - Coverage - Encounter Needs
+  - Coverage - Reports
+-[X] Mechanics -why isnt the boss info wired up?
+-[X] Reference data - not much here (its in here twice - remove one lol)
+
+-[X] move Rotation under Roster 
+-[X] move Mechanics under??
+-[X] and then get rid of the Reference Data under Mechanics 
+<<<<<<< Updated upstream
+-[ ] we need to bold the header terms in Reference Data - the words before : they are too hard to pick out
+
+- [ ] Discord Comp sharing: add a low-friction way to share a saved Comp / Raid Plan to Discord from FoundryDock. Keep Personnel as the source of truth; optionally store Discord display/user identity alongside Xbox gamertag for matching, but do not require member-facing registration or OAuth. The goal is one-click sharing of the planned roster, seats, classes, builds/gear packages, assignments, and relevant notes into a Discord channel.
+=======
+-[X] we need to bold the header terms in Reference Data - the words before : they are too hard to pick out
+-[ ] simplify the app where possible
+-[X] add link to main_page when you click on main logo
+-[X] make 3 male and 3 female default toon profile images
+-[X] add link to team discord
+-[X] create images for Raid Plan top card - one for each trial
+-[ ] make the page headings like Collectibles
+-[ ] put back all the card header icons
+-[ ] make it so we can add our own avatars
+-[ ] 
+>>>>>>> Stashed changes

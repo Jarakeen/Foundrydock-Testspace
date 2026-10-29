@@ -1,0 +1,27 @@
+{
+  "maps": [
+    {
+      "encounter_id": "lokkestiiz",
+      "encounter_name": "Boss",
+      "label": "Copy",
+      "layout_path": "raid_maps/workshop/trial/lokkestiiz/ab63917c82eb8353/layout.json",
+      "map_id": "ab63917c82eb8353",
+      "preview_path": "raid_maps/workshop/trial/lokkestiiz/ab63917c82eb8353/preview.png",
+      "tags": [],
+      "trial_id": "trial",
+      "trial_name": "Trial"
+    },
+    {
+      "encounter_id": "lokkestiiz",
+      "encounter_name": "Boss",
+      "label": "Plan",
+      "layout_path": "raid_maps/workshop/trial/lokkestiiz/a2f57f99328d7bf1/layout.json",
+      "map_id": "a2f57f99328d7bf1",
+      "preview_path": "raid_maps/workshop/trial/lokkestiiz/a2f57f99328d7bf1/preview.png",
+      "tags": [],
+      "trial_id": "trial",
+      "trial_name": "Trial"
+    }
+  ],
+  "schema_version": 1
+}

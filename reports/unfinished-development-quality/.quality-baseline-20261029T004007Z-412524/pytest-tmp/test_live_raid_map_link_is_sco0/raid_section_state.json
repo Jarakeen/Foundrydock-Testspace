@@ -1,0 +1,17 @@
+{
+  "human_ready": {},
+  "runs": {},
+  "events": [],
+  "reviews": [],
+  "attempts": [],
+  "raid_map_links": {
+    "plan-a": {
+      "nahviintaas": "map-2"
+    },
+    "plan-b": {
+      "lokkestiiz": "map-3"
+    }
+  },
+  "finch_raid_map_previews": {},
+  "finch_raid_map_preview_sets": {}
+}

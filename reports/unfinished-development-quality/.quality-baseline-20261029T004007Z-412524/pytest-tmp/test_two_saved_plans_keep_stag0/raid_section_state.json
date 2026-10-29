@@ -1,0 +1,24 @@
+{
+  "human_ready": {
+    "raid-a": {
+      "healer-1": true
+    },
+    "raid-b": {
+      "healer-1": false
+    }
+  },
+  "runs": {},
+  "events": [],
+  "reviews": [],
+  "attempts": [],
+  "raid_map_links": {
+    "raid-a": {
+      "lokkestiiz": "lokke-a"
+    },
+    "raid-b": {
+      "yolnahkriin": "yolna-b"
+    }
+  },
+  "finch_raid_map_previews": {},
+  "finch_raid_map_preview_sets": {}
+}

@@ -1,0 +1,27 @@
+{
+  "maps": [
+    {
+      "encounter_id": "lokkestiiz",
+      "encounter_name": "Lokkestiiz",
+      "label": "First",
+      "layout_path": "raid_maps/workshop/sunspire/lokkestiiz/17f031175996db52/layout.json",
+      "map_id": "17f031175996db52",
+      "preview_path": "raid_maps/workshop/sunspire/lokkestiiz/17f031175996db52/preview.png",
+      "tags": [],
+      "trial_id": "sunspire",
+      "trial_name": "Sunspire"
+    },
+    {
+      "encounter_id": "lokkestiiz",
+      "encounter_name": "Lokkestiiz",
+      "label": "Second",
+      "layout_path": "raid_maps/workshop/sunspire/lokkestiiz/0395a3e8f768d6c5/layout.json",
+      "map_id": "0395a3e8f768d6c5",
+      "preview_path": "raid_maps/workshop/sunspire/lokkestiiz/0395a3e8f768d6c5/preview.png",
+      "tags": [],
+      "trial_id": "sunspire",
+      "trial_name": "Sunspire"
+    }
+  ],
+  "schema_version": 1
+}

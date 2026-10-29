@@ -1,0 +1,180 @@
+# Phase 13.5 Concurrent Work Coordination
+
+This file is a short-lived coordination note for parallel Phase 13.5 workstreams. It is not architecture authority and should be removed when the concurrent work settles.
+
+## Anti-regression rule for older-roadmap work
+
+Phase 13.5 work running in parallel with Phase 15.5 must treat the current Phase 15.5 implementation and current/new roadmap as authoritative. Phase 13.5 may add missing intelligence, evidence, tests, engine capability, or compatible service behavior, but it must not restore superseded Phase 15/legacy product architecture.
+
+Before changing shared services, repositories, routing, persistence, engine boundaries, or UI consumed by Phase 15.5:
+- re-read the current branch version immediately before the write;
+- check `CLAUDE.md` and `SYSTEM_ARCHITECTURE_RULES.md`;
+- preserve newer working behavior and unrelated concurrent changes;
+- reconcile stale tests/requirements to the current contract rather than reviving retired implementations;
+- avoid broad checkout/revert/reset operations and port only the still-valid slice.
+
+A merge with no textual conflict can still be a semantic regression. Reintroducing an old authority, duplicate truth, retired route, or superseded persistence path is considered a regression even if tests written for the old roadmap initially prefer it.
+
+
+## Raid Plan workstream — ROADMAP COMPLETE / STABLE
+
+Raid Engine persists canonical `RaidPlan` snapshots, exposes plan-owned Primary/Secondary assignments, hands the exact current Raid Plan into Coverage, exposes a selected-chair handoff into Rotation, and has a read-only Optimizer Adviser handoff for the whole current plan.
+
+### Verified checkpoints
+
+- Persistence/bridge gate: **32 passed in 5.49s**
+- Assignment/persistence/bridge gate: **30 passed in 3.22s**
+- Coverage/persistence/bridge gate: **34 passed in 4.22s**
+- Coverage support-set + Rotation handoff gate: **35 passed in 3.23s**
+- Optimizer Adviser gate: **44 passed in 7.75s**
+- Raid Plan controls + canonical Coverage group-effect bridge gate: **35 passed in 4.74s**
+
+### Stable Raid Plan slices
+
+Persistence:
+- `services/raid_plan_repository.py`
+- `services/tests/test_raid_plan_repository.py`
+- `services/raid_plan_catalog_descriptors.py`
+- `services/tests/test_raid_plan_catalog_registration.py`
+- `ui/raid_plan_persistence_page.py`
+- `ui/tests/test_raid_plan_persistence_page.py`
+
+Assignments:
+- `ui/raid_plan_assignment_page.py`
+- `ui/tests/test_raid_plan_assignment_page.py`
+
+Coverage:
+- `services/raid_plan_coverage_scope_service.py`
+- `services/tests/test_raid_plan_coverage_scope_service.py`
+- `services/tests/test_raid_plan_coverage_catalog_registration.py`
+- `ui/coverage_raid_plan_scope_support.py`
+- `ui/raid_plan_coverage_page.py`
+- `ui/tests/test_raid_plan_coverage_support.py`
+
+Coverage support-set evidence:
+- `services/raid_unique_support_set_capability_service.py`
+- reviewed proc/activation sets such as Powerful Assault remain `Conditional`; equipment presence never claims uptime
+- full raid-facing group/unique-set catalog is visible in Raid Plan Coverage
+
+Coverage canonical named-effect bridge:
+- `services/raid_named_group_effect_capability_service.py`
+- exact canonical `EffectVariant.name` identities may populate matching raid-facing Coverage rows
+- only group/ally/self-or-ally/enemy targeted evidence is eligible; self-only and unclassified effects are not promoted as raid coverage
+- triggered/conditional evidence stays `Conditional`; no uptime is inferred
+- unique support sets continue through their separate exact-equipped-set evidence path
+- Raid Plan header remains context-only (`Trial`, `Difficulty`, `Plan`); saved-plan actions and `Check Plan Coverage` now live in a normal Plan Controls row below the header
+
+Rotation handoff:
+- `ui/raid_plan_rotation_handoff_support.py`
+- `ui/raid_plan_rotation_page.py`
+- selected chairs resolve exact saved builds and enter Rotation through the existing canonical context seam
+- encounter selection remains owned by Rotation
+- no Rotation engine/service ownership moved into RaidPlan
+
+Optimizer Adviser:
+- `services/raid_plan_optimizer_adviser_service.py`
+- `services/tests/test_raid_plan_optimizer_adviser_service.py`
+- `services/tests/test_raid_plan_optimizer_adviser_catalog_registration.py`
+- `ui/raid_plan_optimizer_adviser_support.py`
+- `ui/raid_plan_adviser_page.py`
+- `ui/tests/test_raid_plan_optimizer_adviser_support.py`
+- `ui/raid_engine_dashboard_support.py` instantiates `RaidPlanAdviserPage`
+- prior assignment/Coverage/Rotation route-contract tests advance through the Adviser-aware subclass
+
+### Optimizer Adviser contract — STABLE
+
+- Raid Plan's former **Open Optimizer** action is presented as **Open Adviser**.
+- The exact current RaidPlan is passed to the existing Optimization workspace.
+- The existing team editor is populated from exact resolved Raid Plan saved builds with `autofill=False`; the Adviser does not choose replacement players/builds.
+- Advice is rendered in a dedicated **Optimizer Adviser** card and is read-only.
+- Finding categories are explicit: `blocker`, `coverage_gap`, `conditional`, `redundancy`, `data_gap`.
+- Open/unresolved chairs are plan blockers.
+- Missing proven required static coverage is a coverage-gap review item, not an automatic team edit.
+- Conditional capabilities require trigger/rotation review; they do not claim uptime.
+- Multiple proven static providers are flagged only for intentional-redundancy review.
+- Canonical capability-resolution debt is labeled `data_gap` and explicitly says not to change a player's build solely to clear Foundry's missing evidence.
+- Reviewed unique support-set presence such as Powerful Assault feeds Adviser conditional findings through the same equipment-count semantics as Coverage.
+- No recommendation is automatically applied or persisted.
+- No structural change was made to `models/raid_plan.py`.
+- No database migration/reset occurred.
+- No Rotation engine/service file changed for the Adviser slice.
+
+### End-to-end acceptance audit — READY FOR VALIDATION
+
+A read-only closeout audit now exercises the complete stable chain against an actual locally saved Raid Plan when run by the user:
+
+```text
+persisted RaidPlan
+  -> exact saved-build resolution
+  -> canonical Coverage evidence
+  -> raid_plan EffectiveBuildSnapshot boundary used by Rotation
+  -> read-only Optimizer Adviser review
+```
+
+Files:
+- `tools/audit_raid_plan_acceptance.py`
+- `tools/tests/test_audit_raid_plan_acceptance.py`
+
+Contract:
+- the user's real `raid_plans.json` and `builds.json` are read only;
+- persistence round-trip is tested in a temporary repository, never against the live plan file;
+- exact selected builds are resolved through `RaidPlanCoverageScopeService`;
+- full Coverage evidence uses canonical named group effects plus reviewed unique support-set evidence;
+- each resolved chair is frozen as a `raid_plan` `EffectiveBuildSnapshot` and fingerprint-checked against the exact resolved build;
+- Adviser consumes the same plan/build truth;
+- plan blockers (open/unresolved chairs) are reported separately from pipeline health;
+- Powerful Assault is covered by an acceptance regression and remains `Conditional`, never asserted as uptime.
+
+This closeout audit is refinement/validation only. It does not add a new authority or change the stable Raid Plan roadmap.
+
+### Roadmap complete
+
+```text
+Persistence -> Assignments -> Coverage -> Rotation -> Optimizer Adviser
+```
+
+All five Raid Plan roadmap slices are implemented and verified green. Subsequent work is refinement/validation, not a roadmap ownership change.
+
+### Rotation workstream coordination
+
+Roto/Rotation remains an independent downstream consumer. Adviser consumes RaidPlan/Coverage/build evidence and does not alter Rotation runtime or canonical generation contracts.
+
+Do **not** add a second Raid Plan persistence, assignment, Coverage, effective-build, Rotation context, or optimization-advice authority.
+
+Ownership remains:
+
+```text
+Personnel / Characters / Saved Builds = global reusable identity
+RaidPlan = trial-specific selections, assignments, adjustments, triggered responsibilities
+Coverage = consumer of exact selected Raid Plan builds + explicit planning labels
+Rotation = consumer of exact resolved Raid Plan chair/effective build + live encounter/policy
+Optimizer Adviser = read-only consumer of RaidPlan + canonical build/Coverage evidence
+RaidPlanRepository = persistence of RaidPlan snapshots only
+```
+
+Do not make ESO Logs, Rotation runtime state, or Team Optimization state a persistence dependency of `RaidPlanRepository`.
+
+## Architecture audit — CLOSED
+
+The post-roadmap architecture audit is now source-reviewed and documented in:
+
+- `docs/architecture_audit_2026-09-14.md`
+- `tools/audit_system_architecture.py`
+- `tools/tests/test_audit_system_architecture.py`
+
+The authority, identity, quarantine, path, catalog-aggregation, and installer-fan-out
+findings have been remediated or given explicit retained/deferred boundaries. The final
+closeout gate has zero blockers and the full repository checkpoint is **3026 passed in
+46.93s**.
+
+`--strict` fails on architecture errors. `--closeout` additionally fails on any
+warning outside the two explicit migration inventories: service-catalog boundary
+candidates and runtime-owned UI class-patch adapters. New work must not add another
+persistence authority, quarantine dependency, unowned runtime patch, or unrelated
+transitive installer.
+
+Achievements and Collectibles are outside this cleanup scope.
+
+## Rotation workstream — ACTIVE / INDEPENDENT
+
+Roto may continue its mechanics/runtime work independently. No Rotation-owned engine file or persisted `RaidPlan` shape changed in the architecture-audit reporting slice.

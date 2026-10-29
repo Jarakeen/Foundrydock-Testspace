@@ -1,0 +1,141 @@
+.EE.EEEE.EEEEEEEEEE..EE....F.                                            [100%]
+=================================== ERRORS ====================================
+_ ERROR at setup of test_click_tools_route_handles_undo_and_scope_persistence _
+ui\tests\test_inline_raid_map.py:33: in editor
+    assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E   assert (<ui.components.encounter_board.EncounterBoard(0x25b8a69b760) at 0x0000025B8BD346C0> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b887dcc60) at 0x0000025B86D4A180> is <ui.components.encounter_board.EncounterBoardView(0x25b849429d0) at 0x0000025B86E6FD00>)
+E    +  where <ui.components.encounter_board.EncounterBoard(0x25b8a69b760) at 0x0000025B8BD346C0> = <ui.components.inline_raid_map.InlineRaidMap(0x25b87d4a960, name="inlineRaidMap") at 0x0000025B86492000>.board
+E    +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b887dcc60) at 0x0000025B86D4A180> = <built-in method currentWidget of SquareMapCanvas object at 0x0000025B86D59B80>()
+E    +    where <built-in method currentWidget of SquareMapCanvas object at 0x0000025B86D59B80> = <ui.components.inline_raid_map.SquareMapCanvas(0x25b87d4b1d0) at 0x0000025B86D59B80>.currentWidget
+E    +      where <ui.components.inline_raid_map.SquareMapCanvas(0x25b87d4b1d0) at 0x0000025B86D59B80> = <ui.components.inline_raid_map.InlineRaidMap(0x25b87d4a960, name="inlineRaidMap") at 0x0000025B86492000>.canvas
+E    +  and   <ui.components.encounter_board.EncounterBoardView(0x25b849429d0) at 0x0000025B86E6FD00> = <ui.components.encounter_board.EncounterBoard(0x25b8a69b760) at 0x0000025B8BD346C0>.view
+E    +    where <ui.components.encounter_board.EncounterBoard(0x25b8a69b760) at 0x0000025B8BD346C0> = <ui.components.inline_raid_map.InlineRaidMap(0x25b87d4a960, name="inlineRaidMap") at 0x0000025B86492000>.board
+_______ ERROR at setup of test_circle_rectangle_target_and_unique_seats _______
+ui\tests\test_inline_raid_map.py:33: in editor
+    assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E   assert (<ui.components.encounter_board.EncounterBoard(0x25b82c6c370) at 0x0000025B86D0F900> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b84942210) at 0x0000025B8649C6C0> is <ui.components.encounter_board.EncounterBoardView(0x25b849429d0) at 0x0000025B86D59140>)
+E    +  where <ui.components.encounter_board.EncounterBoard(0x25b82c6c370) at 0x0000025B86D0F900> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69dfe0, name="inlineRaidMap") at 0x0000025B87A4E4C0>.board
+E    +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b84942210) at 0x0000025B8649C6C0> = <built-in method currentWidget of SquareMapCanvas object at 0x0000025B86D0ED40>()
+E    +    where <built-in method currentWidget of SquareMapCanvas object at 0x0000025B86D0ED40> = <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a69ad40) at 0x0000025B86D0ED40>.currentWidget
+E    +      where <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a69ad40) at 0x0000025B86D0ED40> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69dfe0, name="inlineRaidMap") at 0x0000025B87A4E4C0>.canvas
+E    +  and   <ui.components.encounter_board.EncounterBoardView(0x25b849429d0) at 0x0000025B86D59140> = <ui.components.encounter_board.EncounterBoard(0x25b82c6c370) at 0x0000025B86D0F900>.view
+E    +    where <ui.components.encounter_board.EncounterBoard(0x25b82c6c370) at 0x0000025B86D0F900> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69dfe0, name="inlineRaidMap") at 0x0000025B87A4E4C0>.board
+_ ERROR at setup of test_freehand_wheel_zoom_hidden_object_recovery_and_locked_state _
+ui\tests\test_inline_raid_map.py:33: in editor
+    assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E   assert (<ui.components.encounter_board.EncounterBoard(0x25b85086fe0) at 0x0000025B861EAB40> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b887dca70) at 0x0000025B86D597C0> is <ui.components.encounter_board.EncounterBoardView(0x25b84943190) at 0x0000025B87AA1000>)
+E    +  where <ui.components.encounter_board.EncounterBoard(0x25b85086fe0) at 0x0000025B861EAB40> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69e850, name="inlineRaidMap") at 0x0000025B86D2FD80>.board
+E    +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b887dca70) at 0x0000025B86D597C0> = <built-in method currentWidget of SquareMapCanvas object at 0x0000025B86E18440>()
+E    +    where <built-in method currentWidget of SquareMapCanvas object at 0x0000025B86E18440> = <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a69f780) at 0x0000025B86E18440>.currentWidget
+E    +      where <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a69f780) at 0x0000025B86E18440> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69e850, name="inlineRaidMap") at 0x0000025B86D2FD80>.canvas
+E    +  and   <ui.components.encounter_board.EncounterBoardView(0x25b84943190) at 0x0000025B87AA1000> = <ui.components.encounter_board.EncounterBoard(0x25b85086fe0) at 0x0000025B861EAB40>.view
+E    +    where <ui.components.encounter_board.EncounterBoard(0x25b85086fe0) at 0x0000025B861EAB40> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69e850, name="inlineRaidMap") at 0x0000025B86D2FD80>.board
+_ ERROR at setup of test_inspector_collapse_and_image_import_preserve_objects _
+ui\tests\test_inline_raid_map.py:33: in editor
+    assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E   assert (<ui.components.encounter_board.EncounterBoard(0x25b8895af80) at 0x0000025B8BE95A00> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b84942210) at 0x0000025B8BFB1BC0> is <ui.components.encounter_board.EncounterBoardView(0x25b887dc4a0) at 0x0000025B8BE94380>)
+E    +  where <ui.components.encounter_board.EncounterBoard(0x25b8895af80) at 0x0000025B8BE95A00> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69dfe0, name="inlineRaidMap") at 0x0000025B86E1EA80>.board
+E    +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b84942210) at 0x0000025B8BFB1BC0> = <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8BFB01C0>()
+E    +    where <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8BFB01C0> = <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a69e340) at 0x0000025B8BFB01C0>.currentWidget
+E    +      where <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a69e340) at 0x0000025B8BFB01C0> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69dfe0, name="inlineRaidMap") at 0x0000025B86E1EA80>.canvas
+E    +  and   <ui.components.encounter_board.EncounterBoardView(0x25b887dc4a0) at 0x0000025B8BE94380> = <ui.components.encounter_board.EncounterBoard(0x25b8895af80) at 0x0000025B8BE95A00>.view
+E    +    where <ui.components.encounter_board.EncounterBoard(0x25b8895af80) at 0x0000025B8BE95A00> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69dfe0, name="inlineRaidMap") at 0x0000025B86E1EA80>.board
+_ ERROR at setup of test_default_map_is_visible_without_claiming_reviewed_encounter_art _
+ui\tests\test_inline_raid_map.py:33: in editor
+    assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E   assert (<ui.components.encounter_board.EncounterBoard(0x25b84a9c5f0) at 0x0000025B8BD8A640> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b887dcc60) at 0x0000025B87A43400> is <ui.components.encounter_board.EncounterBoardView(0x25b84943950) at 0x0000025B8C02AD40>)
+E    +  where <ui.components.encounter_board.EncounterBoard(0x25b84a9c5f0) at 0x0000025B8BD8A640> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f5d0, name="inlineRaidMap") at 0x0000025B87A43380>.board
+E    +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b887dcc60) at 0x0000025B87A43400> = <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8BD9DF00>()
+E    +    where <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8BD9DF00> = <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a6a0350) at 0x0000025B8BD9DF00>.currentWidget
+E    +      where <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a6a0350) at 0x0000025B8BD9DF00> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f5d0, name="inlineRaidMap") at 0x0000025B87A43380>.canvas
+E    +  and   <ui.components.encounter_board.EncounterBoardView(0x25b84943950) at 0x0000025B8C02AD40> = <ui.components.encounter_board.EncounterBoard(0x25b84a9c5f0) at 0x0000025B8BD8A640>.view
+E    +    where <ui.components.encounter_board.EncounterBoard(0x25b84a9c5f0) at 0x0000025B8BD8A640> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f5d0, name="inlineRaidMap") at 0x0000025B87A43380>.board
+_ ERROR at setup of test_built_in_map_selection_is_available_from_this_screen _
+ui\tests\test_inline_raid_map.py:33: in editor
+    assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E   assert (<ui.components.encounter_board.EncounterBoard(0x25b88104980) at 0x0000025B8DD1FD80> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b887dc880) at 0x0000025B87A53E00> is <ui.components.encounter_board.EncounterBoardView(0x25b84943950) at 0x0000025B8BE95800>)
+E    +  where <ui.components.encounter_board.EncounterBoard(0x25b88104980) at 0x0000025B8DD1FD80> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f780, name="inlineRaidMap") at 0x0000025B87AA04C0>.board
+E    +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b887dc880) at 0x0000025B87A53E00> = <built-in method currentWidget of SquareMapCanvas object at 0x0000025B86D49200>()
+E    +    where <built-in method currentWidget of SquareMapCanvas object at 0x0000025B86D49200> = <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a6a0350) at 0x0000025B86D49200>.currentWidget
+E    +      where <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a6a0350) at 0x0000025B86D49200> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f780, name="inlineRaidMap") at 0x0000025B87AA04C0>.canvas
+E    +  and   <ui.components.encounter_board.EncounterBoardView(0x25b84943950) at 0x0000025B8BE95800> = <ui.components.encounter_board.EncounterBoard(0x25b88104980) at 0x0000025B8DD1FD80>.view
+E    +    where <ui.components.encounter_board.EncounterBoard(0x25b88104980) at 0x0000025B8DD1FD80> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f780, name="inlineRaidMap") at 0x0000025B87AA04C0>.board
+__ ERROR at setup of test_hand_pans_without_editing_and_toolbar_delete_undo ___
+ui\tests\test_inline_raid_map.py:33: in editor
+    assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E   assert (<ui.components.encounter_board.EncounterBoard(0x25b8a261100) at 0x0000025B87A43440> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b84942400) at 0x0000025B8BFB8340> is <ui.components.encounter_board.EncounterBoardView(0x25b84942210) at 0x0000025B8BFB3100>)
+E    +  where <ui.components.encounter_board.EncounterBoard(0x25b8a261100) at 0x0000025B87A43440> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f780, name="inlineRaidMap") at 0x0000025B8C01E4C0>.board
+E    +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b84942400) at 0x0000025B8BFB8340> = <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8BFB9440>()
+E    +    where <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8BFB9440> = <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a6a01a0) at 0x0000025B8BFB9440>.currentWidget
+E    +      where <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a6a01a0) at 0x0000025B8BFB9440> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f780, name="inlineRaidMap") at 0x0000025B8C01E4C0>.canvas
+E    +  and   <ui.components.encounter_board.EncounterBoardView(0x25b84942210) at 0x0000025B8BFB3100> = <ui.components.encounter_board.EncounterBoard(0x25b8a261100) at 0x0000025B87A43440>.view
+E    +    where <ui.components.encounter_board.EncounterBoard(0x25b8a261100) at 0x0000025B87A43440> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f780, name="inlineRaidMap") at 0x0000025B8C01E4C0>.board
+_ ERROR at setup of test_sidebar_toggles_preserve_outer_scroll_with_live_map __
+ui\tests\test_inline_raid_map.py:33: in editor
+    assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E   assert (<ui.components.encounter_board.EncounterBoard(0x25b8a6dd5a0) at 0x0000025B8BFE09C0> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b845972e0) at 0x0000025B86D59480> is <ui.components.encounter_board.EncounterBoardView(0x25b84596550) at 0x0000025B8BFE2A40>)
+E    +  where <ui.components.encounter_board.EncounterBoard(0x25b8a6dd5a0) at 0x0000025B8BFE09C0> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f780, name="inlineRaidMap") at 0x0000025B86E1D440>.board
+E    +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b845972e0) at 0x0000025B86D59480> = <built-in method currentWidget of SquareMapCanvas object at 0x0000025B864CE140>()
+E    +    where <built-in method currentWidget of SquareMapCanvas object at 0x0000025B864CE140> = <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a6a01a0) at 0x0000025B864CE140>.currentWidget
+E    +      where <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a6a01a0) at 0x0000025B864CE140> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f780, name="inlineRaidMap") at 0x0000025B86E1D440>.canvas
+E    +  and   <ui.components.encounter_board.EncounterBoardView(0x25b84596550) at 0x0000025B8BFE2A40> = <ui.components.encounter_board.EncounterBoard(0x25b8a6dd5a0) at 0x0000025B8BFE09C0>.view
+E    +    where <ui.components.encounter_board.EncounterBoard(0x25b8a6dd5a0) at 0x0000025B8BFE09C0> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f780, name="inlineRaidMap") at 0x0000025B86E1D440>.board
+_ ERROR at setup of test_raid_plan_frames_are_material_scoped_and_geometry_neutral _
+ui\tests\test_inline_raid_map.py:33: in editor
+    assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E   assert (<ui.components.encounter_board.EncounterBoard(0x25b889b4cd0) at 0x0000025B8DDD35C0> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b845970f0) at 0x0000025B8DD1EA80> is <ui.components.encounter_board.EncounterBoardView(0x25b84595f80) at 0x0000025B8BFF7D00>)
+E    +  where <ui.components.encounter_board.EncounterBoard(0x25b889b4cd0) at 0x0000025B8DDD35C0> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f420, name="inlineRaidMap") at 0x0000025B8BE95440>.board
+E    +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b845970f0) at 0x0000025B8DD1EA80> = <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8DD6E700>()
+E    +    where <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8DD6E700> = <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a6a0bc0) at 0x0000025B8DD6E700>.currentWidget
+E    +      where <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a6a0bc0) at 0x0000025B8DD6E700> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f420, name="inlineRaidMap") at 0x0000025B8BE95440>.canvas
+E    +  and   <ui.components.encounter_board.EncounterBoardView(0x25b84595f80) at 0x0000025B8BFF7D00> = <ui.components.encounter_board.EncounterBoard(0x25b889b4cd0) at 0x0000025B8DDD35C0>.view
+E    +    where <ui.components.encounter_board.EncounterBoard(0x25b889b4cd0) at 0x0000025B8DDD35C0> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f420, name="inlineRaidMap") at 0x0000025B8BE95440>.board
+_ ERROR at setup of test_square_canvas_survives_toolbar_and_inspector_changes _
+ui\tests\test_inline_raid_map.py:33: in editor
+    assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E   assert (<ui.components.encounter_board.EncounterBoard(0x25b8a247aa0) at 0x0000025B8DDFFF80> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b84943950) at 0x0000025B86D21540> is <ui.components.encounter_board.EncounterBoardView(0x25b84596170) at 0x0000025B8DDFF2C0>)
+E    +  where <ui.components.encounter_board.EncounterBoard(0x25b8a247aa0) at 0x0000025B8DDFFF80> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f930, name="inlineRaidMap") at 0x0000025B8BE74180>.board
+E    +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b84943950) at 0x0000025B86D21540> = <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8DD62600>()
+E    +    where <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8DD62600> = <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a69fe40) at 0x0000025B8DD62600>.currentWidget
+E    +      where <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a69fe40) at 0x0000025B8DD62600> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f930, name="inlineRaidMap") at 0x0000025B8BE74180>.canvas
+E    +  and   <ui.components.encounter_board.EncounterBoardView(0x25b84596170) at 0x0000025B8DDFF2C0> = <ui.components.encounter_board.EncounterBoard(0x25b8a247aa0) at 0x0000025B8DDFFF80>.view
+E    +    where <ui.components.encounter_board.EncounterBoard(0x25b8a247aa0) at 0x0000025B8DDFFF80> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f930, name="inlineRaidMap") at 0x0000025B8BE74180>.board
+_ ERROR at setup of test_compact_tools_quick_note_stage_storage_and_failure[save] _
+ui\tests\test_inline_raid_map.py:33: in editor
+    assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E   assert (<ui.components.encounter_board.EncounterBoard(0x25b8d23db80) at 0x0000025B8C01DD40> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b84596550) at 0x0000025B8C0293C0> is <ui.components.encounter_board.EncounterBoardView(0x25b84943950) at 0x0000025B8DDFC340>)
+E    +  where <ui.components.encounter_board.EncounterBoard(0x25b8d23db80) at 0x0000025B8C01DD40> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f5d0, name="inlineRaidMap") at 0x0000025B8DDA01C0>.board
+E    +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b84596550) at 0x0000025B8C0293C0> = <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8DDA1440>()
+E    +    where <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8DDA1440> = <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a6a0bc0) at 0x0000025B8DDA1440>.currentWidget
+E    +      where <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a6a0bc0) at 0x0000025B8DDA1440> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f5d0, name="inlineRaidMap") at 0x0000025B8DDA01C0>.canvas
+E    +  and   <ui.components.encounter_board.EncounterBoardView(0x25b84943950) at 0x0000025B8DDFC340> = <ui.components.encounter_board.EncounterBoard(0x25b8d23db80) at 0x0000025B8C01DD40>.view
+E    +    where <ui.components.encounter_board.EncounterBoard(0x25b8d23db80) at 0x0000025B8C01DD40> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f5d0, name="inlineRaidMap") at 0x0000025B8DDA01C0>.board
+_ ERROR at setup of test_compact_tools_quick_note_stage_storage_and_failure[cancel] _
+ui\tests\test_inline_raid_map.py:33: in editor
+    assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E   assert (<ui.components.encounter_board.EncounterBoard(0x25b8d127300) at 0x0000025B8DD620C0> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b887dc880) at 0x0000025B8DDDBE40> is <ui.components.encounter_board.EncounterBoardView(0x25b845970f0) at 0x0000025B8DDD81C0>)
+E    +  where <ui.components.encounter_board.EncounterBoard(0x25b8d127300) at 0x0000025B8DD620C0> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f5d0, name="inlineRaidMap") at 0x0000025B86E7E4C0>.board
+E    +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b887dc880) at 0x0000025B8DDDBE40> = <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8DDDA300>()
+E    +    where <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8DDDA300> = <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a6a0d70) at 0x0000025B8DDDA300>.currentWidget
+E    +      where <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a6a0d70) at 0x0000025B8DDDA300> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f5d0, name="inlineRaidMap") at 0x0000025B86E7E4C0>.canvas
+E    +  and   <ui.components.encounter_board.EncounterBoardView(0x25b845970f0) at 0x0000025B8DDD81C0> = <ui.components.encounter_board.EncounterBoard(0x25b8d127300) at 0x0000025B8DD620C0>.view
+E    +    where <ui.components.encounter_board.EncounterBoard(0x25b8d127300) at 0x0000025B8DD620C0> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f5d0, name="inlineRaidMap") at 0x0000025B86E7E4C0>.board
+_ ERROR at setup of test_compact_tools_quick_note_stage_storage_and_failure[failure] _
+ui\tests\test_inline_raid_map.py:33: in editor
+    assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E   assert (<ui.components.encounter_board.EncounterBoard(0x25b8a64bee0) at 0x0000025B8DDFF380> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b84942400) at 0x0000025B8DD96B40> is <ui.components.encounter_board.EncounterBoardView(0x25b887dc880) at 0x0000025B8DDFF140>)
+E    +  where <ui.components.encounter_board.EncounterBoard(0x25b8a64bee0) at 0x0000025B8DDFF380> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f780, name="inlineRaidMap") at 0x0000025B8DDFD7C0>.board
+E    +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b84942400) at 0x0000025B8DD96B40> = <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8DE49440>()
+E    +    where <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8DE49440> = <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a69fe40) at 0x0000025B8DE49440>.currentWidget
+E    +      where <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a69fe40) at 0x0000025B8DE49440> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f780, name="inlineRaidMap") at 0x0000025B8DDFD7C0>.canvas
+E    +  and   <ui.components.encounter_board.EncounterBoardView(0x25b887dc880) at 0x0000025B8DDFF140> = <ui.components.encounter_board.EncounterBoard(0x25b8a64bee0) at 0x0000025B8DDFF380>.view
+E    +    where <ui.components.encounter_board.EncounterBoard(0x25b8a64bee0) at 0x0000025B8DDFF380> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f780, name="inlineRaidMap") at 0x0000025B8DDFD7C0>.board
+_ ERROR at setup of test_compact_tools_quick_note_stage_storage_and_failure[stale] _
+ui\tests\test_inline_raid_map.py:33: in editor
+    assert surface.board is not None and surface.canvas.currentWidget() is surface.board.view
+E   assert (<ui.components.encounter_board.EncounterBoard(0x25b8d1a2070) at 0x0000025B8DEE7880> is not None and <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b84942210) at 0x0000025B8DE4AF40> is <ui.components.encounter_board.EncounterBoardView(0x25b887dcc60) at 0x0000025B8C029200>)
+E    +  where <ui.components.encounter_board.EncounterBoard(0x25b8d1a2070) at 0x0000025B8DEE7880> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f930, name="inlineRaidMap") at 0x0000025B8BF65400>.board
+E    +  and   <ui.phase15_raid_plan_workspace.RaidMapPreviewView(0x25b84942210) at 0x0000025B8DE4AF40> = <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8DE07C40>()
+E    +    where <built-in method currentWidget of SquareMapCanvas object at 0x0000025B8DE07C40> = <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a6a01a0) at 0x0000025B8DE07C40>.currentWidget
+E    +      where <ui.components.inline_raid_map.SquareMapCanvas(0x25b8a6a01a0) at 0x0000025B8DE07C40> = <ui.components.inline_raid_map.InlineRaidMap(0x25b8a69f930, name="inlineRaidMap") at 0x0000025B8BF65400>.canvas
+E    +  and   <ui.components.encounter_board.EncounterBoardView(0x25b887dcc60) at 0x0000025B8C029200> = <ui.components.encounter_board.EncounterBoard(0x25b8d1a2070) at 0x0000025B8DEE7880>.view
